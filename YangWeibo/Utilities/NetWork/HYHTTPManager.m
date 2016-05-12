@@ -10,7 +10,6 @@
 
 @interface HYHTTPManager ()
 
-@property (nonatomic,strong)AFHTTPSessionManager *afManager;
 
 
 @end
@@ -25,36 +24,35 @@
     dispatch_once(&onceToken, ^{
         manager = [[HYHTTPManager alloc] init];
         manager.afManager = [AFHTTPSessionManager manager];
-        
-        
+        manager.afManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     });
     
     return manager;
 }
 
--(void)GetRequestWithURLString:(NSString *)URLString Parameter:(NSDictionary *)parameter success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure{
+-(void)GetRequestWithURLString:(NSString *)URLString Parameter:(NSDictionary *)parameter success:(void (^)( id))success failure:(void (^)( NSError *))failure{
     
     [self.afManager GET:URLString parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
-            success(task,responseObject);
+            success(responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failure) {
-            failure(task,error);
+            failure(error);
         }
     }];
     
 }
 
--(void)PostRequestWithURLString:(NSString *)URLString Parameter:(NSDictionary *)parameter success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure{
+-(void)PostRequestWithURLString:(NSString *)URLString Parameter:(NSDictionary *)parameter success:(void (^)( id))success failure:(void (^)( NSError *))failure{
     
     [self.afManager POST:URLString parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
-            success(task,responseObject);
+            success(responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failure) {
-            failure(task,error);
+            failure(error);
         }
     }];
     

@@ -12,13 +12,14 @@
 typedef void (^success)(NSURLSessionDataTask * task,id responseObject);
 typedef void (^failure)(NSURLSessionDataTask * task, NSError *error);
 @interface HYHTTPManager : NSObject
+@property (nonatomic,strong)AFHTTPSessionManager *afManager;
 
 
 + (instancetype)sharedManager;
 
 
-- (void)GetRequestWithURLString: (NSString *)URLString Parameter:(NSDictionary *)parameter success:(void (^)(NSURLSessionDataTask *task, id  responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError * error))failure;
+- (void)GetRequestWithURLString: (NSString *)URLString Parameter:(NSDictionary *)parameter success:(void (^)(id  responseObject))success failure:(void (^)( NSError * error))failure;
 
-- (void)PostRequestWithURLString: (NSString *)URLString Parameter:(NSDictionary *)parameter success:(void (^)(NSURLSessionDataTask *task, id  responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError * error))failure;
+- (void)PostRequestWithURLString: (NSString *)URLString Parameter:(NSDictionary *)parameter success:(void (^)( id  responseObject))success failure:(void (^)(NSError * error))failure;
 
 @end
