@@ -15,6 +15,8 @@ const static  NSString *appKey = @"268432808";
 
 static NSString *URL = @"https://api.weibo.com/oauth2/authorize";
 
+const static NSString *redirectURL = @"http://baidu.com";
+
 @implementation HYAOuthManager
 
 
