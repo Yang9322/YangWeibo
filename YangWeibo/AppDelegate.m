@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BaseViewController.h"
+#import "WeiboSDK.h"
 
 @interface AppDelegate ()
 
