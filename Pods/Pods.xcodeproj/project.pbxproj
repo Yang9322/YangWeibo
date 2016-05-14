@@ -10,29 +10,6 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>00CF1575F6CCF65F2EAD995BA666680E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C03F2E867F0B7953B4857D1EF0D23B01</string>
-				<string>96D81B22E8602C344EE31B803B03B429</string>
-				<string>DECE2E705E41AC34433A5BA8D079A014</string>
-				<string>750F2090917130502967D2B33DAD2FBA</string>
-				<string>92310618FF4B1F3C875E82AD48F8C6EA</string>
-				<string>976292E24308127D86B73B87822E93FA</string>
-				<string>B1F1563D5E6521E78A23F1735AB12D75</string>
-				<string>8279C2213631534D18C5736F79B21ADC</string>
-				<string>F8E912FE16030464C17B53C0C652FD24</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>CYLTabBarController</string>
-			<key>path</key>
-			<string>CYLTabBarController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>08ED1A9E97E4B10DC24C25575FC3BD44</key>
 		<dict>
 			<key>containerPortal</key>
@@ -71,12 +48,55 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
+		<key>138584DDE2767885EFEBDDADC7D1C6E6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WBHttpRequest+WeiboUser.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WBHttpRequest+WeiboUser.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>147703FEF8502EA0AEA3085878F6DC9F</key>
 		<dict>
 			<key>fileRef</key>
-			<string>8279C2213631534D18C5736F79B21ADC</string>
+			<string>F542D5B74864D433EB4A414FCC723B4F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>14A06292AF084C24383FDAB4DA996565</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>CYLTabBarController.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>160B2CCBC1EBADB23A207ED30C10174A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WBHttpRequest+WeiboShare.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WBHttpRequest+WeiboShare.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>17651DB5DCD07DC51D6FB6C6AB8B5C8C</key>
 		<dict>
@@ -94,7 +114,51 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>1EC5DA289B5F5AB6559872116D5505E1</key>
+		<key>228F13E6776D463F588EB4953D17D076</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>14A06292AF084C24383FDAB4DA996565</string>
+				<string>D150C3744FEE20CF400A438E20485BD1</string>
+				<string>EDC55508F742348BE44E0F32EF129795</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/CYLTabBarController</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>24A0758B22A17C8DF3C72D57D90726BC</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>78BD8A1FE44982B403AB96A0A1CAA715</string>
+				<string>897412449F764A60F81338FEF9EDE0A4</string>
+				<string>160B2CCBC1EBADB23A207ED30C10174A</string>
+				<string>4D9F006F87E1FAAAF949DDFA85D68866</string>
+				<string>138584DDE2767885EFEBDDADC7D1C6E6</string>
+				<string>E0ACF0E09F5C58A979A5AC9B3178A93E</string>
+				<string>7B6A7A7940E07CAC710FA11355ACF655</string>
+				<string>B57EC8C2D0EE61CAF62692D959124304</string>
+				<string>3E6457E0246F077C595C4FCA73D69DEB</string>
+				<string>81C39E3B60B60E2D291FFE6164E6155B</string>
+				<string>9760C8F6C5290269B2271AD891AFB547</string>
+				<string>A10F1066753303BE6419629AF9CA4AAB</string>
+				<string>3FA89D36D2DDD04FA6F002743C9AF58F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>WeiboSDK</string>
+			<key>path</key>
+			<string>WeiboSDK</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>257163E9E42F94D386AF78A7A0E6B810</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -102,8 +166,10 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CYLTabBarController.h</string>
 			<key>path</key>
-			<string>CYLTabBarController-prefix.pch</string>
+			<string>CYLTabBarController/CYLTabBarController.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -197,7 +263,7 @@
 		<key>3511A9697C2A854725640A94ADF3E686</key>
 		<dict>
 			<key>fileRef</key>
-			<string>96D81B22E8602C344EE31B803B03B429</string>
+			<string>712201B6A75C545FAD3A0AA74718FD71</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -229,6 +295,21 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
+		<key>3E6457E0246F077C595C4FCA73D69DEB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WeiboSDK.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WeiboSDK.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>3EEBFBCF8B59129F90A147DA4A4838B8</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -242,10 +323,23 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>3FA89D36D2DDD04FA6F002743C9AF58F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>ED87A375323E101114FD5CBBF963FB31</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>40783489BCCB0CCD5B22CA74552527E4</key>
 		<dict>
 			<key>fileRef</key>
-			<string>DECE2E705E41AC34433A5BA8D079A014</string>
+			<string>8F326C239EAA6649287A8AF3BE4B9E10</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -270,19 +364,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>489887A5C79B11C58A3542A33DACE3A9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CYLTabBarController-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>494CB5DFD52FA84B040F3B5FAC67EB5F</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -296,6 +377,21 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
+		</dict>
+		<key>4D9F006F87E1FAAAF949DDFA85D68866</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WBHttpRequest+WeiboToken.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WBHttpRequest+WeiboToken.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>580BCB21027E1E569A2EF97FC15D136A</key>
 		<dict>
@@ -408,19 +504,6 @@
 			<key>targetProxy</key>
 			<string>08ED1A9E97E4B10DC24C25575FC3BD44</string>
 		</dict>
-		<key>630B6C0077505A8F48422269FA53B023</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>CYLTabBarController.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>6C062E97AF94D8C930043AB8A706E19A</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -447,7 +530,7 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>750F2090917130502967D2B33DAD2FBA</key>
+		<key>712201B6A75C545FAD3A0AA74718FD71</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -456,16 +539,46 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>CYLTabBar.m</string>
+			<string>CYLPlusButton.m</string>
 			<key>path</key>
-			<string>CYLTabBarController/CYLTabBar.m</string>
+			<string>CYLTabBarController/CYLPlusButton.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7582D558393D46511E0B76A2157EEC7F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>UIViewController+CYLTabBarControllerExtention.h</string>
+			<key>path</key>
+			<string>CYLTabBarController/UIViewController+CYLTabBarControllerExtention.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>78BD8A1FE44982B403AB96A0A1CAA715</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WBHttpRequest.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WBHttpRequest.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
 		<key>78BFBC9BC7DE195ED99820B1951CC73A</key>
 		<dict>
 			<key>fileRef</key>
-			<string>B1F1563D5E6521E78A23F1735AB12D75</string>
+			<string>7582D558393D46511E0B76A2157EEC7F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -476,13 +589,28 @@
 				</array>
 			</dict>
 		</dict>
+		<key>7B6A7A7940E07CAC710FA11355ACF655</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WBSDKCommentButton.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WBSDKCommentButton.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>7DB346D0F39D3F0E887471402A8071AB</key>
 		<dict>
 			<key>children</key>
 			<array>
 				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
 				<string>BC3CA7F9E30CC8F7E2DD044DD34432FC</string>
-				<string>8948AE2F9DBD17A56712650DA89DDE6B</string>
+				<string>A69F30FEAB63F6CEF13635AADB100DD3</string>
 				<string>438003376D8574428F83293E07C5ACF9</string>
 				<string>A1CE33AC0042686DBA5E1E3CEFFAB670</string>
 			</array>
@@ -504,7 +632,22 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>8279C2213631534D18C5736F79B21ADC</key>
+		<key>81C39E3B60B60E2D291FFE6164E6155B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WeiboSDK+Statistics.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WeiboSDK+Statistics.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>890010BB6F1E9ADDA2E5742B96853A0D</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -513,22 +656,39 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>UIViewController+CYLTabBarControllerExtention.m</string>
+			<string>CYLTabBar.m</string>
 			<key>path</key>
-			<string>CYLTabBarController/UIViewController+CYLTabBarControllerExtention.m</string>
+			<string>CYLTabBarController/CYLTabBar.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>8948AE2F9DBD17A56712650DA89DDE6B</key>
+		<key>897412449F764A60F81338FEF9EDE0A4</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>00CF1575F6CCF65F2EAD995BA666680E</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>Pods</string>
+			<string>WBHttpRequest+WeiboGame.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WBHttpRequest+WeiboGame.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2D7973168C658BD842A1C52AEE099B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>archive.ar</string>
+			<key>name</key>
+			<string>libWeiboSDK.a</string>
+			<key>path</key>
+			<string>libWeiboSDK/libWeiboSDK.a</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -575,7 +735,7 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>92310618FF4B1F3C875E82AD48F8C6EA</key>
+		<key>8F326C239EAA6649287A8AF3BE4B9E10</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -584,28 +744,13 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>CYLTabBarController.h</string>
+			<string>CYLTabBar.h</string>
 			<key>path</key>
-			<string>CYLTabBarController/CYLTabBarController.h</string>
+			<string>CYLTabBarController/CYLTabBar.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>96D81B22E8602C344EE31B803B03B429</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>CYLPlusButton.m</string>
-			<key>path</key>
-			<string>CYLTabBarController/CYLPlusButton.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>976292E24308127D86B73B87822E93FA</key>
+		<key>968E2AA4BAA67429DC11EF6F854078AE</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -617,6 +762,21 @@
 			<string>CYLTabBarController.m</string>
 			<key>path</key>
 			<string>CYLTabBarController/CYLTabBarController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9760C8F6C5290269B2271AD891AFB547</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WeiboUser.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WeiboUser.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -648,6 +808,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>A10F1066753303BE6419629AF9CA4AAB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8A2D7973168C658BD842A1C52AEE099B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>A1CE33AC0042686DBA5E1E3CEFFAB670</key>
 		<dict>
 			<key>children</key>
@@ -664,7 +837,7 @@
 		<key>A65E5B5CE66285DEAA04F1CEA17933D6</key>
 		<dict>
 			<key>fileRef</key>
-			<string>92310618FF4B1F3C875E82AD48F8C6EA</string>
+			<string>257163E9E42F94D386AF78A7A0E6B810</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -674,6 +847,43 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>A69F30FEAB63F6CEF13635AADB100DD3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A707258DDE155C84FD6FCF958B08C5A8</string>
+				<string>24A0758B22A17C8DF3C72D57D90726BC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A707258DDE155C84FD6FCF958B08C5A8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>DE91730B613DE92B9E802A472EECEA14</string>
+				<string>712201B6A75C545FAD3A0AA74718FD71</string>
+				<string>8F326C239EAA6649287A8AF3BE4B9E10</string>
+				<string>890010BB6F1E9ADDA2E5742B96853A0D</string>
+				<string>257163E9E42F94D386AF78A7A0E6B810</string>
+				<string>968E2AA4BAA67429DC11EF6F854078AE</string>
+				<string>7582D558393D46511E0B76A2157EEC7F</string>
+				<string>F542D5B74864D433EB4A414FCC723B4F</string>
+				<string>228F13E6776D463F588EB4953D17D076</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>CYLTabBarController</string>
+			<key>path</key>
+			<string>CYLTabBarController</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>A81E2F25D7B25D43E237B660C9FD5126</key>
 		<dict>
@@ -698,7 +908,7 @@
 		<key>AF10BE85DAB29AC60B524D4B7C2901C4</key>
 		<dict>
 			<key>fileRef</key>
-			<string>750F2090917130502967D2B33DAD2FBA</string>
+			<string>890010BB6F1E9ADDA2E5742B96853A0D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -715,7 +925,14 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>B1F1563D5E6521E78A23F1735AB12D75</key>
+		<key>B2EC6595D934DD4426D7B04230030E40</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D150C3744FEE20CF400A438E20485BD1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B57EC8C2D0EE61CAF62692D959124304</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -724,23 +941,16 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>UIViewController+CYLTabBarControllerExtention.h</string>
+			<string>WBSDKRelationshipButton.h</string>
 			<key>path</key>
-			<string>CYLTabBarController/UIViewController+CYLTabBarControllerExtention.h</string>
+			<string>libWeiboSDK/WBSDKRelationshipButton.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B2EC6595D934DD4426D7B04230030E40</key>
-		<dict>
-			<key>fileRef</key>
-			<string>489887A5C79B11C58A3542A33DACE3A9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>B7D2B68B862D20188A5BE807BA4D0386</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>630B6C0077505A8F48422269FA53B023</string>
+			<string>14A06292AF084C24383FDAB4DA996565</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -821,21 +1031,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C03F2E867F0B7953B4857D1EF0D23B01</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>CYLPlusButton.h</string>
-			<key>path</key>
-			<string>CYLTabBarController/CYLPlusButton.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>C8B9FA6195C789F2D316B4D22E930DD1</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -852,7 +1047,7 @@
 		<key>C9AB9BD3F0E419D31B5A227F5668A5D8</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>630B6C0077505A8F48422269FA53B023</string>
+			<string>14A06292AF084C24383FDAB4DA996565</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -896,6 +1091,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>D150C3744FEE20CF400A438E20485BD1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CYLTabBarController-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>D1FF58A861FDB446CB469EC1E5262EB7</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -913,7 +1121,7 @@
 		<key>D302F6F778101CF7A04AEEBDD9C3CF69</key>
 		<dict>
 			<key>fileRef</key>
-			<string>976292E24308127D86B73B87822E93FA</string>
+			<string>968E2AA4BAA67429DC11EF6F854078AE</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -956,7 +1164,7 @@
 				<string>8A9D6D722EF913E4AB060F33234F0D1A</string>
 			</array>
 		</dict>
-		<key>DECE2E705E41AC34433A5BA8D079A014</key>
+		<key>DE91730B613DE92B9E802A472EECEA14</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -965,9 +1173,9 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>CYLTabBar.h</string>
+			<string>CYLPlusButton.h</string>
 			<key>path</key>
-			<string>CYLTabBarController/CYLTabBar.h</string>
+			<string>CYLTabBarController/CYLPlusButton.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -984,12 +1192,55 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>E0ACF0E09F5C58A979A5AC9B3178A93E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WBSDKBasicButton.h</string>
+			<key>path</key>
+			<string>libWeiboSDK/WBSDKBasicButton.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>E7FCD210FDC482416B1214E6E8CC4AB9</key>
 		<dict>
 			<key>fileRef</key>
 			<string>CFE33B67070296B6D45AADD172784C4B</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>ED87A375323E101114FD5CBBF963FB31</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.plug-in</string>
+			<key>name</key>
+			<string>WeiboSDK.bundle</string>
+			<key>path</key>
+			<string>libWeiboSDK/WeiboSDK.bundle</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EDC55508F742348BE44E0F32EF129795</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CYLTabBarController-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>F03FB85246A41DD617655F0269F14C8A</key>
 		<dict>
@@ -1015,7 +1266,7 @@
 		<key>F319D4F311114F0733F777DF16F96430</key>
 		<dict>
 			<key>fileRef</key>
-			<string>C03F2E867F0B7953B4857D1EF0D23B01</string>
+			<string>DE91730B613DE92B9E802A472EECEA14</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1026,20 +1277,18 @@
 				</array>
 			</dict>
 		</dict>
-		<key>F8E912FE16030464C17B53C0C652FD24</key>
+		<key>F542D5B74864D433EB4A414FCC723B4F</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>630B6C0077505A8F48422269FA53B023</string>
-				<string>489887A5C79B11C58A3542A33DACE3A9</string>
-				<string>1EC5DA289B5F5AB6559872116D5505E1</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>Support Files</string>
+			<string>UIViewController+CYLTabBarControllerExtention.m</string>
 			<key>path</key>
-			<string>../Target Support Files/CYLTabBarController</string>
+			<string>CYLTabBarController/UIViewController+CYLTabBarControllerExtention.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>

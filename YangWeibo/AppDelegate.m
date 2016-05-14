@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BaseViewController.h"
 #import "WeiboSDK.h"
+#import "BaseTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -20,9 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    BaseViewController *baseVC = [[BaseViewController alloc] init];
+    BaseTabBarController *baseVC = [[BaseTabBarController alloc] init];
     
-    baseVC.view.backgroundColor = [UIColor blueColor];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = baseVC;
     [self.window makeKeyAndVisible];
