@@ -40,6 +40,10 @@
 		<dict>
 			<key>sina.com.cn</key>
 			<dict>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
@@ -49,6 +53,10 @@
 			</dict>
 			<key>sinajs.cn</key>
 			<dict>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
@@ -58,6 +66,10 @@
 			</dict>
 			<key>sinaimg.cn</key>
 			<dict>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
@@ -67,6 +79,10 @@
 			</dict>
 			<key>weibo.com</key>
 			<dict>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
@@ -76,6 +92,10 @@
 			</dict>
 			<key>weibo.cn</key>
 			<dict>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 				<key>NSIncludesSubdomains</key>
@@ -83,6 +103,10 @@
 			</dict>
 			<key>sina.cn</key>
 			<dict>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 				<key>NSIncludesSubdomains</key>

@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeiboSDK.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,WeiboSDKDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (copy, nonatomic) NSString *wbtoken;
+@property (copy, nonatomic) NSString *wbRefreshToken;
+@property (copy, nonatomic) NSString *wbCurrentUserID;
 
 @end
 

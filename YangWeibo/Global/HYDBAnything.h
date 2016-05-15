@@ -1,10 +1,10 @@
 //
-//  HYDBAnything.h
-//  HYDBAnythingDemo
+//  LxDBAnything.h
+//  LxDBAnythingDemo
 //
-//  Created by yang on 15/10/24.
-//  Copyright © 2015年 yang. All rights reserved.
-//
+//  Created by DeveloperLx on 15/10/24.
+//  Copyright © 2015年 DeveloperLx. All rights reserved.
+//  
 
 #ifndef HYDBAnything_h
 #define HYDBAnything_h

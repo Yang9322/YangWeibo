@@ -13,7 +13,7 @@
 #import "MineController.h"
 #import "BaseNavigationController.h"
 
-@interface BaseTabBarController ()
+@interface BaseTabBarController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -103,6 +103,14 @@
     [tabBar setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     
+}
+
+
+
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    
+    NSLog(@" begin---%@---end",viewController);
+
 }
 
 

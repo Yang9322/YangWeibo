@@ -24,7 +24,8 @@
     dispatch_once(&onceToken, ^{
         manager = [[HYHTTPManager alloc] init];
         manager.afManager = [AFHTTPSessionManager manager];
-        manager.afManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        manager.afManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
+        
     });
     
     return manager;

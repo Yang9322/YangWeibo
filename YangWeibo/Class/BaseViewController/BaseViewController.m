@@ -25,7 +25,6 @@
     [button setTitle:@"123" forState:UIControlStateNormal];
     _button = button;
     [self.view addSubview:button];
-    HYDBAnyVar(_button);
     [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view, typically from a nib.
 }
