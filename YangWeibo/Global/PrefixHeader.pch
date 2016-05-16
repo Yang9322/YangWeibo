@@ -13,8 +13,11 @@
 #import "HYHTTPManager.h"
 #define ScreeW  [UIScreen mainScreen].bounds.size.width
 #define ScreeH  [UIScreen mainScreen].bounds.size.height
+#define kKeyWindow [UIApplication sharedApplication].keyWindow
 
 #define HYColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

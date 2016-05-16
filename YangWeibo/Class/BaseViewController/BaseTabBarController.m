@@ -25,7 +25,6 @@
     [self setupChildViewController];
     [self customizeTabBarAppearance:self];
 
-    HYDBAnyVar(self.tabBar.frame);
     // Do any additional setup after loading the view.
 }
 

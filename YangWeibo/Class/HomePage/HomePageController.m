@@ -9,10 +9,14 @@
 #import "HomePageController.h"
 #import "WeiboSDK.h"
 #import "HYTitleView.h"
+#import "FriendCircleView.h"
 #define kAccessToken @"2.00T_vQ8D07d_KS3f1edf79cdW_mEXC"
 static NSString *redirectURL = @"http://baidu.com";
 
-@interface HomePageController ()
+@interface HomePageController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic,weak)FriendCircleView *friendCircleView;
 
 @end
 
@@ -22,6 +26,8 @@ static NSString *redirectURL = @"http://baidu.com";
     [super viewDidLoad];
     [self setupBarButtonItems];
     [self setupNavigationTitleView];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -49,9 +55,32 @@ static NSString *redirectURL = @"http://baidu.com";
     
     titleView.tappedBlock = ^(BOOL selected){
        
-        HYDBAnyVar(selected);
+        if (selected) {
+            
+            [UIView animateWithDuration:0.25 animations:^{
+                self.friendCircleView.alpha = 0.55;
+            }];
+            
+        }else{
+            
+            [UIView animateWithDuration:0.25 animations:^{
+                self.friendCircleView.alpha = 0.0;
+            }];
+            
+        }
+        
     };
     self.navigationItem.titleView = titleView;
+}
+
+-(FriendCircleView *)friendCircleView{
+    if (!_friendCircleView) {
+      
+        FriendCircleView *localView = [[FriendCircleView alloc] initWithFrame:CGRectMake((ScreeW - 200) / 2 , 54, 200, 300)];
+        [kKeyWindow addSubview:localView];
+        _friendCircleView = localView;
+    }
+    return _friendCircleView;
 }
 
 - (void)refreshData:(UIButton *)sender{
@@ -79,7 +108,26 @@ static NSString *redirectURL = @"http://baidu.com";
 }
 
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+}
 
+
+#pragma mark - TableView
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 47;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"132"];
+    cell.textLabel.text = @"123321231232132133211231231231233";
+    return cell;
+}
 
 /*
 #pragma mark - Navigation
