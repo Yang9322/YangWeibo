@@ -25,11 +25,14 @@
         UIView *selectedBackgroundView = [[UIView alloc] init];
         selectedBackgroundView.backgroundColor = HYColor(149, 149, 149);
         self.selectedBackgroundView = selectedBackgroundView;
+        
     }
     return self;
 }
 
-
+-(UIEdgeInsets)alignmentRectInsets{
+    return  UIEdgeInsetsMake(0, 10, 0, 10);
+}
 
 -(void)layoutSubviews{
     [super layoutSubviews];

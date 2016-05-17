@@ -12,6 +12,7 @@
 		3B0D7BB91CE457E800DD96FF /* UIView+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D7BB81CE457E800DD96FF /* UIView+HY.m */; };
 		3B2A13CE1CE9F2CE001C99B1 /* HYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A13CD1CE9F2CE001C99B1 /* HYCoverView.m */; };
 		3B2E76621CEAB7E400439809 /* tabbar_profile_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */; };
+		3B2E76641CEAB82300439809 /* tabbar_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */; };
 		3B4B5DC81CE451B00079F9F2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B5DC61CE451B00079F9F2 /* BaseViewController.m */; };
 		3B4B84D91CE9B1820001B1B8 /* HYHomePageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B84D81CE9B1820001B1B8 /* HYHomePageTableView.m */; };
 		3B4B84DC1CE9B4E40001B1B8 /* HYBasePresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B84DB1CE9B4E40001B1B8 /* HYBasePresentView.m */; };
@@ -87,6 +88,7 @@
 		3B2A13CC1CE9F2CE001C99B1 /* HYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCoverView.h; sourceTree = "<group>"; };
 		3B2A13CD1CE9F2CE001C99B1 /* HYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCoverView.m; sourceTree = "<group>"; };
 		3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_selected@2x.png"; sourceTree = "<group>"; };
+		3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile@2x.png"; sourceTree = "<group>"; };
 		3B4B5DC51CE451B00079F9F2 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3B4B5DC61CE451B00079F9F2 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3B4B84D71CE9B1820001B1B8 /* HYHomePageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYHomePageTableView.h; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				3B51AC1C1CE6C090009A7320 /* tabbar_profile_selected@2x.png */,
 				3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */,
 				3B51AC211CE6C301009A7320 /* tabbar_shadow@2x.png */,
+				3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				3B51AC311CE7136B009A7320 /* navigationbar_friendattention@2x.png in Resources */,
 				3B51AC1D1CE6C090009A7320 /* tabbar_profile_highlighted@2x.png in Resources */,
 				3B6E3A5E1CE5BD590069CCD8 /* HomePageController.xib in Resources */,
+				3B2E76641CEAB82300439809 /* tabbar_profile@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

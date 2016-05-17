@@ -49,6 +49,8 @@
         _tableView.dataSource = self;
         _tableView.backgroundColor = HYColor(111, 111, 111);
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        _tableView.contentInset = UIEdgeInsetsMake(0, 10, 0, -10);
+        
     }
     
     return _tableView;
@@ -133,16 +135,63 @@
     return section == 0 ? 0.1 : 20;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return self.sectionTitleArray[section];
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
 }
+
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [[NSNotificationCenter defaultCenter] postNotificationName:DIDSelectFriendRelationCellNotification object:nil];
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    switch (section) {
+        case 0:
+            return nil;
+            break;
+        case 1:{
+            return [self configureHeaderViewWithTitle:@"我的分组"];
+        }
+            break;
+        case 2:{
+            return [self configureHeaderViewWithTitle:@"其他"];
 
+        }
+            break;
+        default:
+            break;
+    }
+    return nil;
+
+    
+}
+
+
+- (UIView *)configureHeaderViewWithTitle:(NSString *)title{
+
+    CGColorRef color = HYColor(30, 30, 30).CGColor;;
+    UIView *view  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, 20)];
+    CALayer *layer1 = [CALayer layer];
+    layer1.backgroundColor = color;
+    layer1.frame = CGRectMake(0, view.height / 2, 20, 1/[UIScreen mainScreen].scale);
+    [view.layer addSublayer:layer1];
+    UILabel *label = [UILabel new];
+    label.text = title;
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont systemFontOfSize:10];
+    [label sizeToFit];
+    label.center = CGPointMake(20+label.width / 2, view.height / 2);
+    [view addSubview:label];
+    CALayer *layer2 = [CALayer layer];
+    layer2.backgroundColor = color;
+    layer2.frame = CGRectMake(label.right, view.height / 2, self.width- label.right, 1/[UIScreen mainScreen].scale);
+    [view.layer addSublayer:layer2];
+    return view;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

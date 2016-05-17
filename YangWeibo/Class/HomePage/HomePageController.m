@@ -63,7 +63,10 @@ static NSString *redirectURL = @"http://baidu.com";
     
     HYTitleView *titleView = [[HYTitleView alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
     HYCoverView *coverView = [[HYCoverView alloc] initWithFrame:CGRectMake(0, 0, ScreeW, ScreeH)];
-    [kKeyWindow addSubview:coverView];
+    _coverView = coverView;
+    _coverView.alpha = 0;
+    [kKeyWindow addSubview:_coverView];
+  
     _titleView = titleView;
     titleView.tappedBlock = ^(BOOL selected){
        
@@ -92,6 +95,7 @@ static NSString *redirectURL = @"http://baidu.com";
     
     [UIView animateWithDuration:0.25 animations:^{
         self.friendCircleView.alpha = 0.95;
+        _coverView.alpha = 0.02;
     }];
     
 }
@@ -99,6 +103,7 @@ static NSString *redirectURL = @"http://baidu.com";
 - (void) dismissFriendView{
     [UIView animateWithDuration:0.25 animations:^{
         self.friendCircleView.alpha = 0.0;
+        _coverView.alpha = 0;
     }];
 }
 
