@@ -6,7 +6,6 @@
 target 'YangWeibo' do
 
 pod 'CYLTabBarController'
-pod "WeiboSDK", :git => "https://github.com/sinaweibosdk/weibo_ios_sdk.git" 
 
 end
 

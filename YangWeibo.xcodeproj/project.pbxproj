@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12426743C0040477EA4B1B32 /* libPods-YangWeiboTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061EB29C7C2CC537F6D45737 /* libPods-YangWeiboTests.a */; };
 		3B0D7BB31CE4533400DD96FF /* HYAOuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D7BB21CE4533400DD96FF /* HYAOuthManager.m */; };
 		3B0D7BB91CE457E800DD96FF /* UIView+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D7BB81CE457E800DD96FF /* UIView+HY.m */; };
 		3B2A13CE1CE9F2CE001C99B1 /* HYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A13CD1CE9F2CE001C99B1 /* HYCoverView.m */; };
+		3B2E76621CEAB7E400439809 /* tabbar_profile_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */; };
 		3B4B5DC81CE451B00079F9F2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B5DC61CE451B00079F9F2 /* BaseViewController.m */; };
 		3B4B84D91CE9B1820001B1B8 /* HYHomePageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B84D81CE9B1820001B1B8 /* HYHomePageTableView.m */; };
 		3B4B84DC1CE9B4E40001B1B8 /* HYBasePresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B84DB1CE9B4E40001B1B8 /* HYBasePresentView.m */; };
@@ -23,7 +25,6 @@
 		3B51AC1A1CE6C050009A7320 /* tabbar_discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC181CE6C050009A7320 /* tabbar_discover@2x.png */; };
 		3B51AC1D1CE6C090009A7320 /* tabbar_profile_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC1B1CE6C090009A7320 /* tabbar_profile_highlighted@2x.png */; };
 		3B51AC1E1CE6C090009A7320 /* tabbar_profile_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC1C1CE6C090009A7320 /* tabbar_profile_selected@2x.png */; };
-		3B51AC201CE6C135009A7320 /* tabbar_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC1F1CE6C135009A7320 /* tabbar_profile@2x.png */; };
 		3B51AC221CE6C301009A7320 /* tabbar_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC211CE6C301009A7320 /* tabbar_shadow@2x.png */; };
 		3B51AC251CE6C4DE009A7320 /* HYPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51AC241CE6C4DE009A7320 /* HYPlusButton.m */; };
 		3B51AC271CE6C5E7009A7320 /* tabbar_compose_icon_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC261CE6C5E7009A7320 /* tabbar_compose_icon_add@2x.png */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		061EB29C7C2CC537F6D45737 /* libPods-YangWeiboTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YangWeiboTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E5787E8EA7E6E49768A8B06 /* libPods-YangWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YangWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0A36F34D40CC624E5992CA /* Pods-YangWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YangWeibo/Pods-YangWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		3B0D7BB11CE4533400DD96FF /* HYAOuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAOuthManager.h; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		3B0D7BB81CE457E800DD96FF /* UIView+HY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HY.m"; sourceTree = "<group>"; };
 		3B2A13CC1CE9F2CE001C99B1 /* HYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCoverView.h; sourceTree = "<group>"; };
 		3B2A13CD1CE9F2CE001C99B1 /* HYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCoverView.m; sourceTree = "<group>"; };
+		3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_selected@2x.png"; sourceTree = "<group>"; };
 		3B4B5DC51CE451B00079F9F2 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3B4B5DC61CE451B00079F9F2 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3B4B84D71CE9B1820001B1B8 /* HYHomePageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYHomePageTableView.h; sourceTree = "<group>"; };
@@ -102,7 +105,6 @@
 		3B51AC181CE6C050009A7320 /* tabbar_discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discover@2x.png"; sourceTree = "<group>"; };
 		3B51AC1B1CE6C090009A7320 /* tabbar_profile_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_highlighted@2x.png"; sourceTree = "<group>"; };
 		3B51AC1C1CE6C090009A7320 /* tabbar_profile_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_selected@2x.png"; sourceTree = "<group>"; };
-		3B51AC1F1CE6C135009A7320 /* tabbar_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile@2x.png"; sourceTree = "<group>"; };
 		3B51AC211CE6C301009A7320 /* tabbar_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_shadow@2x.png"; sourceTree = "<group>"; };
 		3B51AC231CE6C4DE009A7320 /* HYPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYPlusButton.h; sourceTree = "<group>"; };
 		3B51AC241CE6C4DE009A7320 /* HYPlusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYPlusButton.m; sourceTree = "<group>"; };
@@ -162,7 +164,9 @@
 		3BF906D91CE3328100080480 /* YangWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YangWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF906DD1CE3328100080480 /* YangWeiboTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YangWeiboTests.m; sourceTree = "<group>"; };
 		3BF906DF1CE3328100080480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A76E01DB5AE8C54D7CFBE54 /* Pods-YangWeiboTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWeiboTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YangWeiboTests/Pods-YangWeiboTests.release.xcconfig"; sourceTree = "<group>"; };
 		91C3BDBDCC7191738F069453 /* Pods-YangWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YangWeibo/Pods-YangWeibo.release.xcconfig"; sourceTree = "<group>"; };
+		BE3BA61E58BE61063B5390F9 /* Pods-YangWeiboTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWeiboTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YangWeiboTests/Pods-YangWeiboTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12426743C0040477EA4B1B32 /* libPods-YangWeiboTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +247,7 @@
 				3B51AC181CE6C050009A7320 /* tabbar_discover@2x.png */,
 				3B51AC1B1CE6C090009A7320 /* tabbar_profile_highlighted@2x.png */,
 				3B51AC1C1CE6C090009A7320 /* tabbar_profile_selected@2x.png */,
-				3B51AC1F1CE6C135009A7320 /* tabbar_profile@2x.png */,
+				3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */,
 				3B51AC211CE6C301009A7320 /* tabbar_shadow@2x.png */,
 			);
 			path = images;
@@ -434,6 +439,8 @@
 			children = (
 				2F0A36F34D40CC624E5992CA /* Pods-YangWeibo.debug.xcconfig */,
 				91C3BDBDCC7191738F069453 /* Pods-YangWeibo.release.xcconfig */,
+				BE3BA61E58BE61063B5390F9 /* Pods-YangWeiboTests.debug.xcconfig */,
+				5A76E01DB5AE8C54D7CFBE54 /* Pods-YangWeiboTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -442,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				1E5787E8EA7E6E49768A8B06 /* libPods-YangWeibo.a */,
+				061EB29C7C2CC537F6D45737 /* libPods-YangWeiboTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -453,12 +461,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BF906E21CE3328100080480 /* Build configuration list for PBXNativeTarget "YangWeibo" */;
 			buildPhases = (
-				EF4C9356A23B05031E000680 /* Check Pods Manifest.lock */,
+				EF4C9356A23B05031E000680 /* 📦 Check Pods Manifest.lock */,
 				3BF906BC1CE3328100080480 /* Sources */,
 				3BF906BD1CE3328100080480 /* Frameworks */,
 				3BF906BE1CE3328100080480 /* Resources */,
-				6B4190813CEBF85087C364A2 /* Embed Pods Frameworks */,
-				92240FB4FEF3C081F6C5C5C1 /* Copy Pods Resources */,
+				6B4190813CEBF85087C364A2 /* 📦 Embed Pods Frameworks */,
+				92240FB4FEF3C081F6C5C5C1 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -473,9 +481,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BF906E51CE3328100080480 /* Build configuration list for PBXNativeTarget "YangWeiboTests" */;
 			buildPhases = (
+				58ED09883F6F3FC6723A85A7 /* 📦 Check Pods Manifest.lock */,
 				3BF906D51CE3328100080480 /* Sources */,
 				3BF906D61CE3328100080480 /* Frameworks */,
 				3BF906D71CE3328100080480 /* Resources */,
+				B55F59F65CC390613BF68DED /* 📦 Embed Pods Frameworks */,
+				E0A5686A685E408820DE3F66 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -536,6 +547,7 @@
 				3B51AC221CE6C301009A7320 /* tabbar_shadow@2x.png in Resources */,
 				3BB1DEE91CE8024F004229EA /* navigationbar_arrow_down@2x.png in Resources */,
 				3B51AC2F1CE712EC009A7320 /* radar_button_icon_scan@2x.png in Resources */,
+				3B2E76621CEAB7E400439809 /* tabbar_profile_selected@2x.png in Resources */,
 				3B51AC291CE6C9F3009A7320 /* tabbar_compose_button@2x.png in Resources */,
 				3B51AC191CE6C050009A7320 /* tabbar_discover_selected@2x.png in Resources */,
 				3BF906D01CE3328100080480 /* Assets.xcassets in Resources */,
@@ -543,7 +555,6 @@
 				3BB1DEEA1CE8024F004229EA /* navigationbar_arrow_up@2x.png in Resources */,
 				3B51AC1A1CE6C050009A7320 /* tabbar_discover@2x.png in Resources */,
 				3B51AC111CE6BFF2009A7320 /* tabbar_home_selected@2x.png in Resources */,
-				3B51AC201CE6C135009A7320 /* tabbar_profile@2x.png in Resources */,
 				3B51AC1E1CE6C090009A7320 /* tabbar_profile_selected@2x.png in Resources */,
 				3B51AC2D1CE6CD38009A7320 /* tabbar_compose_icon_add_highlighted@2x.png in Resources */,
 				3B51AC161CE6C020009A7320 /* tabbar_message_center@2x.png in Resources */,
@@ -570,14 +581,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6B4190813CEBF85087C364A2 /* Embed Pods Frameworks */ = {
+		58ED09883F6F3FC6723A85A7 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6B4190813CEBF85087C364A2 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,14 +611,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YangWeibo/Pods-YangWeibo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		92240FB4FEF3C081F6C5C5C1 /* Copy Pods Resources */ = {
+		92240FB4FEF3C081F6C5C5C1 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,14 +626,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YangWeibo/Pods-YangWeibo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EF4C9356A23B05031E000680 /* Check Pods Manifest.lock */ = {
+		B55F59F65CC390613BF68DED /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YangWeiboTests/Pods-YangWeiboTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0A5686A685E408820DE3F66 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YangWeiboTests/Pods-YangWeiboTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF4C9356A23B05031E000680 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -804,6 +860,7 @@
 		};
 		3BF906E61CE3328100080480 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE3BA61E58BE61063B5390F9 /* Pods-YangWeiboTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = YangWeiboTests/Info.plist;
@@ -816,6 +873,7 @@
 		};
 		3BF906E71CE3328100080480 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A76E01DB5AE8C54D7CFBE54 /* Pods-YangWeiboTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = YangWeiboTests/Info.plist;

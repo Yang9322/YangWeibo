@@ -22,8 +22,8 @@ static  NSString *appKey = @"268432808";
     // Override point for customization after application launch.
 
     
-    [WeiboSDK enableDebugMode:YES];
-    [WeiboSDK registerApp:appKey];
+//    [WeiboSDK enableDebugMode:YES];
+//    [WeiboSDK registerApp:appKey];
 
 
     BaseTabBarController *baseVC = [[BaseTabBarController alloc] init];
@@ -58,31 +58,31 @@ static  NSString *appKey = @"268432808";
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    return [WeiboSDK handleOpenURL:url delegate:self];
-}
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
-    return [WeiboSDK handleOpenURL:url delegate:self ];
-}
-
-- (void)didReceiveWeiboRequest:(WBBaseRequest *)request
-{
-    
-}
-- (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
-    
-    if ([response isKindOfClass:WBAuthorizeResponse.class])
-    {
-
-        self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
-        [[NSUserDefaults standardUserDefaults]setObject:self.wbtoken forKey:@"access_token"];
-        self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
-        self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
-    }
-
-}
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+//{
+//    return [WeiboSDK handleOpenURL:url delegate:self];
+//}
+//
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+//{
+//    return [WeiboSDK handleOpenURL:url delegate:self ];
+//}
+//
+//- (void)didReceiveWeiboRequest:(WBBaseRequest *)request
+//{
+//    
+//}
+//- (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+//    
+//    if ([response isKindOfClass:WBAuthorizeResponse.class])
+//    {
+//
+//        self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
+//        [[NSUserDefaults standardUserDefaults]setObject:self.wbtoken forKey:@"access_token"];
+//        self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
+//        self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
+//    }
+//
+//}
 
 @end

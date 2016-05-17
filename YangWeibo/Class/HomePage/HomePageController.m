@@ -7,7 +7,7 @@
 //
 
 #import "HomePageController.h"
-#import "WeiboSDK.h"
+//#import "WeiboSDK.h"
 #import "HYTitleView.h"
 #import "FriendCircleView.h"
 #import "HYHomePageTableView.h"
@@ -126,15 +126,15 @@ static NSString *redirectURL = @"http://baidu.com";
     }];
 }
 
-- (void)login{
-    
-    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = redirectURL;
-    request.scope = @"all";
-    request.shouldShowWebViewForAuthIfCannotSSO = YES;
-    [WeiboSDK sendRequest:request];
-
-}
+//- (void)login{
+//    
+//    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+//    request.redirectURI = redirectURL;
+//    request.scope = @"all";
+//    request.shouldShowWebViewForAuthIfCannotSSO = YES;
+//    [WeiboSDK sendRequest:request];
+//
+//}
 
 
 
