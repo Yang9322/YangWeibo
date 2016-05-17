@@ -13,6 +13,8 @@
 		3B2A13CE1CE9F2CE001C99B1 /* HYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A13CD1CE9F2CE001C99B1 /* HYCoverView.m */; };
 		3B2E76621CEAB7E400439809 /* tabbar_profile_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */; };
 		3B2E76641CEAB82300439809 /* tabbar_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */; };
+		3B2E76661CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76651CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png */; };
+		3B2E76691CEAF5BB00439809 /* UIImage+HYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E76681CEAF5BB00439809 /* UIImage+HYAdd.m */; };
 		3B4B5DC81CE451B00079F9F2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B5DC61CE451B00079F9F2 /* BaseViewController.m */; };
 		3B4B84D91CE9B1820001B1B8 /* HYHomePageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B84D81CE9B1820001B1B8 /* HYHomePageTableView.m */; };
 		3B4B84DC1CE9B4E40001B1B8 /* HYBasePresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B84DB1CE9B4E40001B1B8 /* HYBasePresentView.m */; };
@@ -89,6 +91,9 @@
 		3B2A13CD1CE9F2CE001C99B1 /* HYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCoverView.m; sourceTree = "<group>"; };
 		3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_selected@2x.png"; sourceTree = "<group>"; };
 		3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile@2x.png"; sourceTree = "<group>"; };
+		3B2E76651CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userinfo_relationship_indicator_arrow_down@3x.png"; sourceTree = "<group>"; };
+		3B2E76671CEAF5BB00439809 /* UIImage+HYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HYAdd.h"; sourceTree = "<group>"; };
+		3B2E76681CEAF5BB00439809 /* UIImage+HYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HYAdd.m"; sourceTree = "<group>"; };
 		3B4B5DC51CE451B00079F9F2 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3B4B5DC61CE451B00079F9F2 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3B4B84D71CE9B1820001B1B8 /* HYHomePageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYHomePageTableView.h; sourceTree = "<group>"; };
@@ -205,6 +210,8 @@
 			children = (
 				3B0D7BB71CE457E800DD96FF /* UIView+HY.h */,
 				3B0D7BB81CE457E800DD96FF /* UIView+HY.m */,
+				3B2E76671CEAF5BB00439809 /* UIImage+HYAdd.h */,
+				3B2E76681CEAF5BB00439809 /* UIImage+HYAdd.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -252,6 +259,7 @@
 				3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */,
 				3B51AC211CE6C301009A7320 /* tabbar_shadow@2x.png */,
 				3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */,
+				3B2E76651CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -512,6 +520,7 @@
 				TargetAttributes = {
 					3BF906BF1CE3328100080480 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 5B9FU4LA3B;
 					};
 					3BF906D81CE3328100080480 = {
 						CreatedOnToolsVersion = 7.3;
@@ -565,6 +574,7 @@
 				3BB1DEF11CE853E2004229EA /* friendcircle_compose_friendcirclebutton@2x.png in Resources */,
 				3B51AC271CE6C5E7009A7320 /* tabbar_compose_icon_add@2x.png in Resources */,
 				3B51AC151CE6C020009A7320 /* tabbar_message_center_selected@2x.png in Resources */,
+				3B2E76661CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png in Resources */,
 				3B6E3A6B1CE5BD900069CCD8 /* MineController.xib in Resources */,
 				3B6E3A661CE5BD7F0069CCD8 /* MessageController.xib in Resources */,
 				3BB1DEEC1CE8221B004229EA /* userinfo_relationship_indicator_arrow_up@2x.png in Resources */,
@@ -696,6 +706,7 @@
 				3B6E3A5D1CE5BD590069CCD8 /* HomePageController.m in Sources */,
 				3BF906C51CE3328100080480 /* main.m in Sources */,
 				3BB1DEF51CE8544D004229EA /* FriendCircleCell.m in Sources */,
+				3B2E76691CEAF5BB00439809 /* UIImage+HYAdd.m in Sources */,
 				3B4B84DC1CE9B4E40001B1B8 /* HYBasePresentView.m in Sources */,
 				3B2A13CE1CE9F2CE001C99B1 /* HYCoverView.m in Sources */,
 				3B51AC0A1CE6B92C009A7320 /* BaseNavigationController.m in Sources */,

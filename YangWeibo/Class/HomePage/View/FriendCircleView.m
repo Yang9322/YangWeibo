@@ -8,7 +8,7 @@
 
 #import "FriendCircleView.h"
 #import "FriendCircleCell.h"
-
+#import "UIImage+HYAdd.h"
 @interface FriendCircleView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)UIImageView *imageView;
@@ -36,12 +36,17 @@
 -(UIImageView *)imageView{
     if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
-        _imageView.image = [UIImage imageNamed:@"userinfo_relationship_indicator_arrow_up"];
+        //没有在微博的bundle中找到图片，所以只能用一张类似的图片进行颠倒处理
+        UIImage *originalImage = [UIImage imageNamed:@"userinfo_relationship_indicator_arrow_down@3x"];
+        UIImage *revertedImage = [originalImage imageByRotate180];
+        
+        _imageView.image = revertedImage;
         _imageView.contentMode = UIViewContentModeScaleToFill;
         _imageView.size = CGSizeMake(10, 10);
         _imageView.bottom = self.tableView.top + 3 ;
         _imageView.centerX = self.tableView.centerX;
         _imageView.backgroundColor = [UIColor clearColor];
+        _imageView.clipsToBounds = YES;
     }
     return _imageView;
 }
@@ -73,10 +78,8 @@
         bottomView.layer.borderWidth = 1/kScreenScale;
         bottomView.backgroundColor = [UIColor clearColor];
         
-        bottomView.size = CGSizeMake(self.width - 10, 20);
-        
-        bottomView.origin = CGPointMake(5, self.height - 25);
-//        bottomView.centerX = self.width / 2;
+        bottomView.frame =   CGRectMake(5, self.height - 25, self.width - 10, 20);
+
         _bottomView = bottomView;
     }
 
