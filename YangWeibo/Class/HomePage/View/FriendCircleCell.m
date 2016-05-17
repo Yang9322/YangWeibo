@@ -21,7 +21,7 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         _likeImageView = imageView;
         [self addSubview:_likeImageView];
-        UIView *selectedBackgroundView = [[UIView alloc] init];
+        UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, self.width - 50, self.height)];
         selectedBackgroundView.backgroundColor = HYColor(149, 149, 149);
         self.selectedBackgroundView = selectedBackgroundView;
 //        self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleRightMargin;
@@ -49,13 +49,14 @@
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
     if (selected) {
         self.titleLabel.textColor = HYColor(255, 130, 0);
     }else{
         self.titleLabel.textColor = [UIColor whiteColor];
     }
     
-        [super setSelected:selected animated:animated];
 
 }
 

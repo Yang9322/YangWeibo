@@ -23,6 +23,8 @@ static NSString *redirectURL = @"http://baidu.com";
 @property (nonatomic,weak)HYTitleView *titleView;
 
 @property (nonatomic,weak)HYCoverView *coverView;
+
+@property (nonatomic,strong)UIView *headerView;
 @end
 
 @implementation HomePageController
@@ -33,6 +35,11 @@ static NSString *redirectURL = @"http://baidu.com";
     [self setupNavigationTitleView];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableHeaderView = self.headerView;
+    
+    
+    HYDBAnyVar(self.headerView);
+    HYDBAnyVar(self.tableView.tableHeaderView);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendRelationClicked) name:DIDSelectFriendRelationCellNotification object:nil];
     // Do any additional setup after loading the view from its nib.
 }
@@ -84,6 +91,50 @@ static NSString *redirectURL = @"http://baidu.com";
 }
 
 
+#define SearchPadding 3
+#define SearchBarPadding 10
+#define SearchBarHeight 40
+#define SearchBarTopPadding 5
+-(UIView *)headerView{
+    if (!_headerView) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreeW, SearchBarHeight)];
+        view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        
+        
+        UIView *searchView = [[UIView alloc] init];
+        searchView.size = CGSizeMake(ScreeW - SearchBarPadding,SearchBarHeight- 2 *SearchBarTopPadding);
+        searchView.centerY = view.height / 2;
+        searchView.centerX = ScreeW / 2;
+        searchView.backgroundColor = [UIColor whiteColor];
+        searchView.layer.cornerRadius = 5;
+        searchView.layer.masksToBounds = YES;
+        [view addSubview:searchView];
+        
+        
+        UIImageView *iconView = [[UIImageView alloc] init];
+        iconView.image = [UIImage imageNamed:@"searchbar_searchlist_search_icon"];
+        iconView.size = CGSizeMake(searchView.height - 2 *SearchPadding, searchView.height - 2 *SearchPadding);
+        iconView.centerY = searchView.height / 2;
+        iconView.centerX = SearchPadding + iconView.width / 2;
+        [searchView addSubview:iconView];
+        
+        
+        UILabel *label = [UILabel new];
+        label.text = @"搜索";
+        label.textColor = HYColor(182, 182, 182);
+        label.font = [UIFont systemFontOfSize:13];
+        [label sizeToFit];
+        label.centerY = iconView.centerY;
+        label.centerX = iconView.right + SearchPadding + label.width / 2;
+        [searchView addSubview:label];
+        
+        _headerView = view;
+        
+    }
+    return _headerView;
+}
+
+
 - (void)receiveFriendRelationClicked{
     
     [_titleView tapped];
@@ -125,21 +176,21 @@ static NSString *redirectURL = @"http://baidu.com";
     params[@"access_token"] = kAccessToken;
     
     [[HYHTTPManager sharedManager] GetRequestWithURLString:@"https://api.weibo.com/2/statuses/public_timeline.json" Parameter:params success:^(id responseObject) {
-//        HYDBAnyVar(responseObject);
+        HYDBAnyVar(responseObject);
     } failure:^(NSError *error) {
 //        HYDBAnyVar(error);
     }];
 }
 
-//- (void)login{
+- (void)login{
 //    
 //    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
 //    request.redirectURI = redirectURL;
 //    request.scope = @"all";
 //    request.shouldShowWebViewForAuthIfCannotSSO = YES;
 //    [WeiboSDK sendRequest:request];
-//
-//}
+
+}
 
 
 
@@ -160,7 +211,6 @@ static NSString *redirectURL = @"http://baidu.com";
     cell.textLabel.text = @"123321231232132133211231231231233";
     return cell;
 }
-
 
 
 
