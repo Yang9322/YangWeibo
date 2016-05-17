@@ -21,11 +21,10 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         _likeImageView = imageView;
         [self addSubview:_likeImageView];
-        
         UIView *selectedBackgroundView = [[UIView alloc] init];
         selectedBackgroundView.backgroundColor = HYColor(149, 149, 149);
         self.selectedBackgroundView = selectedBackgroundView;
-        
+//        self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleRightMargin;
     }
     return self;
 }

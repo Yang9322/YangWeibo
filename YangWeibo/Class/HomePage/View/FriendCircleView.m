@@ -14,17 +14,27 @@
 @property (nonatomic,strong)UIImageView *imageView;
 @property (nonatomic,strong)NSMutableArray *cellTextArray;
 @property (nonatomic,copy)NSArray *sectionTitleArray;
+@property (nonatomic,strong)UIButton *bottomView;
 @end
 @implementation FriendCircleView
 
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-       
-        [self addSubview:self.tableView];
-        
         self.backgroundColor = [UIColor clearColor];
-        
+        [self addSubview:self.tableView];
+        [self addSubview:self.imageView];
+        [self addSubview:self.bottomView];
+        self.layer.cornerRadius = 4;
+        self.layer.masksToBounds = YES;
+    }
+    
+    return self;
+}
+
+
+-(UIImageView *)imageView{
+    if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
         _imageView.image = [UIImage imageNamed:@"userinfo_relationship_indicator_arrow_up"];
         _imageView.contentMode = UIViewContentModeScaleToFill;
@@ -32,13 +42,8 @@
         _imageView.bottom = self.tableView.top + 3 ;
         _imageView.centerX = self.tableView.centerX;
         _imageView.backgroundColor = [UIColor clearColor];
-        [self addSubview:_imageView];
-        
-        self.layer.cornerRadius = 4;
-        self.layer.masksToBounds = YES;
     }
-    
-    return self;
+    return _imageView;
 }
 
 
@@ -50,10 +55,33 @@
         _tableView.backgroundColor = HYColor(111, 111, 111);
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //        _tableView.contentInset = UIEdgeInsetsMake(0, 10, 0, -10);
-        
+//        _tableView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin |UIViewAutoresizingFlexibleLeftMargin;
     }
     
     return _tableView;
+}
+
+
+-(UIButton *)bottomView{
+    
+    if (!_bottomView) {
+        UIButton *bottomView = [[UIButton alloc] init];
+        
+        [bottomView setTitle:@"编辑我的分组" forState:UIControlStateNormal];
+        [bottomView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        bottomView.layer.borderColor = HYColor(30, 30, 30).CGColor;
+        bottomView.layer.borderWidth = 1/kScreenScale;
+        bottomView.backgroundColor = [UIColor clearColor];
+        
+        bottomView.size = CGSizeMake(self.width - 10, 20);
+        
+        bottomView.origin = CGPointMake(5, self.height - 25);
+//        bottomView.centerX = self.width / 2;
+        _bottomView = bottomView;
+    }
+
+    
+    return _bottomView;
 }
 
 -(NSMutableArray *)cellTextArray{
@@ -171,13 +199,16 @@
 }
 
 
+#pragma mark - Private Method
+
+
 - (UIView *)configureHeaderViewWithTitle:(NSString *)title{
 
-    CGColorRef color = HYColor(30, 30, 30).CGColor;;
+    CGColorRef color = HYColor(30, 30, 30).CGColor;
     UIView *view  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, 20)];
     CALayer *layer1 = [CALayer layer];
     layer1.backgroundColor = color;
-    layer1.frame = CGRectMake(0, view.height / 2, 20, 1/[UIScreen mainScreen].scale);
+    layer1.frame = CGRectMake(0, view.height / 2, 20, 1/kScreenScale);
     [view.layer addSublayer:layer1];
     UILabel *label = [UILabel new];
     label.text = title;
@@ -188,7 +219,7 @@
     [view addSubview:label];
     CALayer *layer2 = [CALayer layer];
     layer2.backgroundColor = color;
-    layer2.frame = CGRectMake(label.right, view.height / 2, self.width- label.right, 1/[UIScreen mainScreen].scale);
+    layer2.frame = CGRectMake(label.right, view.height / 2, self.width- label.right, 1/kScreenScale);
     [view.layer addSublayer:layer2];
     return view;
 }
