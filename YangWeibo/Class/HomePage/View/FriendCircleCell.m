@@ -15,13 +15,15 @@
     if (self =  [super initWithFrame:frame]) {
         UILabel *titleLabel = [[UILabel alloc] init];
         _titleLabel = titleLabel;
+        _titleLabel.textColor = [UIColor whiteColor];
+        _titleLabel.opaque = YES;
         [self addSubview:_titleLabel];
         UIImageView *imageView = [[UIImageView alloc] init];
         _likeImageView = imageView;
         [self addSubview:_likeImageView];
         
         UIView *selectedBackgroundView = [[UIView alloc] init];
-        selectedBackgroundView.backgroundColor = [UIColor redColor];
+        selectedBackgroundView.backgroundColor = HYColor(149, 149, 149);
         self.selectedBackgroundView = selectedBackgroundView;
     }
     return self;
@@ -54,5 +56,8 @@
         [super setSelected:selected animated:animated];
 
 }
+
+
+
 
 @end

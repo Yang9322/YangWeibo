@@ -27,9 +27,11 @@
         
         _imageView = [[UIImageView alloc] init];
         _imageView.image = [UIImage imageNamed:@"userinfo_relationship_indicator_arrow_up"];
-        [_imageView sizeToFit];
-        _imageView.bottom = self.tableView.top ;
+        _imageView.contentMode = UIViewContentModeScaleToFill;
+        _imageView.size = CGSizeMake(10, 10);
+        _imageView.bottom = self.tableView.top + 3 ;
         _imageView.centerX = self.tableView.centerX;
+        _imageView.backgroundColor = [UIColor clearColor];
         [self addSubview:_imageView];
         
         self.layer.cornerRadius = 4;
@@ -45,7 +47,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 10, self.width, self.height - 10) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor = [UIColor blackColor];
+        _tableView.backgroundColor = HYColor(111, 111, 111);
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     
@@ -137,8 +139,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-
+    [[NSNotificationCenter defaultCenter] postNotificationName:DIDSelectFriendRelationCellNotification object:nil];
 }
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

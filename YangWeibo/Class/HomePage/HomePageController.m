@@ -10,14 +10,19 @@
 #import "WeiboSDK.h"
 #import "HYTitleView.h"
 #import "FriendCircleView.h"
+#import "HYHomePageTableView.h"
+#import "HYCoverView.h"
 #define kAccessToken @"2.00T_vQ8D07d_KS3f1edf79cdW_mEXC"
 static NSString *redirectURL = @"http://baidu.com";
 
 @interface HomePageController ()<UITableViewDelegate,UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet HYHomePageTableView *tableView;
 
 @property (nonatomic,weak)FriendCircleView *friendCircleView;
 
+@property (nonatomic,weak)HYTitleView *titleView;
+
+@property (nonatomic,weak)HYCoverView *coverView;
 @end
 
 @implementation HomePageController
@@ -28,7 +33,13 @@ static NSString *redirectURL = @"http://baidu.com";
     [self setupNavigationTitleView];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendRelationClicked) name:DIDSelectFriendRelationCellNotification object:nil];
     // Do any additional setup after loading the view from its nib.
+}
+
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setupBarButtonItems{
@@ -51,26 +62,44 @@ static NSString *redirectURL = @"http://baidu.com";
     
     
     HYTitleView *titleView = [[HYTitleView alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    
-    
+    HYCoverView *coverView = [[HYCoverView alloc] initWithFrame:CGRectMake(0, 0, ScreeW, ScreeH)];
+    [kKeyWindow addSubview:coverView];
+    _titleView = titleView;
     titleView.tappedBlock = ^(BOOL selected){
        
         if (selected) {
             
-            [UIView animateWithDuration:0.25 animations:^{
-                self.friendCircleView.alpha = 0.55;
-            }];
-            
+            [self appearFriendView];
         }else{
             
-            [UIView animateWithDuration:0.25 animations:^{
-                self.friendCircleView.alpha = 0.0;
-            }];
+            [self dismissFriendView];
             
         }
         
     };
     self.navigationItem.titleView = titleView;
+}
+
+
+- (void)receiveFriendRelationClicked{
+    
+    [_titleView tapped];
+}
+
+
+- (void)appearFriendView{
+    
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.friendCircleView.alpha = 0.95;
+    }];
+    
+}
+
+- (void) dismissFriendView{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.friendCircleView.alpha = 0.0;
+    }];
 }
 
 -(FriendCircleView *)friendCircleView{
@@ -108,9 +137,7 @@ static NSString *redirectURL = @"http://baidu.com";
 }
 
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [super touchesBegan:touches withEvent:event];
-}
+
 
 
 #pragma mark - TableView
@@ -128,6 +155,9 @@ static NSString *redirectURL = @"http://baidu.com";
     cell.textLabel.text = @"123321231232132133211231231231233";
     return cell;
 }
+
+
+
 
 /*
 #pragma mark - Navigation

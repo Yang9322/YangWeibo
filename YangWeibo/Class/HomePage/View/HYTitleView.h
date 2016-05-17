@@ -17,7 +17,7 @@ typedef void (^TappedBlock)(BOOL selected);
 @property (nonatomic,copy)TappedBlock tappedBlock;
 
 
-
+- (void)tapped;
 
 
 @end

@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		3B0D7BB31CE4533400DD96FF /* HYAOuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D7BB21CE4533400DD96FF /* HYAOuthManager.m */; };
 		3B0D7BB91CE457E800DD96FF /* UIView+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D7BB81CE457E800DD96FF /* UIView+HY.m */; };
+		3B2A13CE1CE9F2CE001C99B1 /* HYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A13CD1CE9F2CE001C99B1 /* HYCoverView.m */; };
 		3B4B5DC81CE451B00079F9F2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B5DC61CE451B00079F9F2 /* BaseViewController.m */; };
+		3B4B84D91CE9B1820001B1B8 /* HYHomePageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B84D81CE9B1820001B1B8 /* HYHomePageTableView.m */; };
+		3B4B84DC1CE9B4E40001B1B8 /* HYBasePresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B84DB1CE9B4E40001B1B8 /* HYBasePresentView.m */; };
 		3B51AC0A1CE6B92C009A7320 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51AC091CE6B92C009A7320 /* BaseNavigationController.m */; };
 		3B51AC0D1CE6B9AF009A7320 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51AC0C1CE6B9AF009A7320 /* BaseTabBarController.m */; };
 		3B51AC111CE6BFF2009A7320 /* tabbar_home_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC0F1CE6BFF2009A7320 /* tabbar_home_selected@2x.png */; };
@@ -79,8 +82,14 @@
 		3B0D7BB41CE4569100DD96FF /* HYDBAnything.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYDBAnything.h; sourceTree = "<group>"; };
 		3B0D7BB71CE457E800DD96FF /* UIView+HY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HY.h"; sourceTree = "<group>"; };
 		3B0D7BB81CE457E800DD96FF /* UIView+HY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HY.m"; sourceTree = "<group>"; };
+		3B2A13CC1CE9F2CE001C99B1 /* HYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCoverView.h; sourceTree = "<group>"; };
+		3B2A13CD1CE9F2CE001C99B1 /* HYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCoverView.m; sourceTree = "<group>"; };
 		3B4B5DC51CE451B00079F9F2 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3B4B5DC61CE451B00079F9F2 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		3B4B84D71CE9B1820001B1B8 /* HYHomePageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYHomePageTableView.h; sourceTree = "<group>"; };
+		3B4B84D81CE9B1820001B1B8 /* HYHomePageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYHomePageTableView.m; sourceTree = "<group>"; };
+		3B4B84DA1CE9B4E30001B1B8 /* HYBasePresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBasePresentView.h; sourceTree = "<group>"; };
+		3B4B84DB1CE9B4E40001B1B8 /* HYBasePresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBasePresentView.m; sourceTree = "<group>"; };
 		3B51AC081CE6B92C009A7320 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		3B51AC091CE6B92C009A7320 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		3B51AC0B1CE6B9AF009A7320 /* BaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
@@ -204,6 +213,8 @@
 				3B51AC0C1CE6B9AF009A7320 /* BaseTabBarController.m */,
 				3B51AC231CE6C4DE009A7320 /* HYPlusButton.h */,
 				3B51AC241CE6C4DE009A7320 /* HYPlusButton.m */,
+				3B4B84DA1CE9B4E30001B1B8 /* HYBasePresentView.h */,
+				3B4B84DB1CE9B4E40001B1B8 /* HYBasePresentView.m */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -355,6 +366,10 @@
 				3BB1DEEE1CE82265004229EA /* FriendCircleView.m */,
 				3BB1DEF21CE8544D004229EA /* FriendCircleCell.h */,
 				3BB1DEF31CE8544D004229EA /* FriendCircleCell.m */,
+				3B4B84D71CE9B1820001B1B8 /* HYHomePageTableView.h */,
+				3B4B84D81CE9B1820001B1B8 /* HYHomePageTableView.m */,
+				3B2A13CC1CE9F2CE001C99B1 /* HYCoverView.h */,
+				3B2A13CD1CE9F2CE001C99B1 /* HYCoverView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -621,6 +636,8 @@
 				3B6E3A5D1CE5BD590069CCD8 /* HomePageController.m in Sources */,
 				3BF906C51CE3328100080480 /* main.m in Sources */,
 				3BB1DEF51CE8544D004229EA /* FriendCircleCell.m in Sources */,
+				3B4B84DC1CE9B4E40001B1B8 /* HYBasePresentView.m in Sources */,
+				3B2A13CE1CE9F2CE001C99B1 /* HYCoverView.m in Sources */,
 				3B51AC0A1CE6B92C009A7320 /* BaseNavigationController.m in Sources */,
 				3B0D7BB91CE457E800DD96FF /* UIView+HY.m in Sources */,
 				3BB1DEEF1CE82265004229EA /* FriendCircleView.m in Sources */,
@@ -629,6 +646,7 @@
 				3B82D28C1CE37BD8007318BC /* AFURLResponseSerialization.m in Sources */,
 				3BB1DEE61CE80149004229EA /* HYTitleView.m in Sources */,
 				3B82D2881CE37BD8007318BC /* AFHTTPSessionManager.m in Sources */,
+				3B4B84D91CE9B1820001B1B8 /* HYHomePageTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
