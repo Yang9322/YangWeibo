@@ -12,6 +12,7 @@
 #import "FriendCircleView.h"
 #import "HYHomePageTableView.h"
 #import "HYCoverView.h"
+
 #define kAccessToken @"2.00T_vQ8D07d_KS3f1edf79cdW_mEXC"
 static NSString *redirectURL = @"http://baidu.com";
 

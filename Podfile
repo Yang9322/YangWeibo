@@ -6,7 +6,7 @@
 target 'YangWeibo' do
 
 pod 'CYLTabBarController'
-
+pod 'YYKit'
 end
 
 target 'YangWeiboTests' do

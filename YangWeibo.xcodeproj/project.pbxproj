@@ -39,6 +39,7 @@
 		3B51AC311CE7136B009A7320 /* navigationbar_friendattention@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC301CE7136B009A7320 /* navigationbar_friendattention@2x.png */; };
 		3B51AC331CE71669009A7320 /* navigationbar_icon_radar_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC321CE71669009A7320 /* navigationbar_icon_radar_highlighted@2x.png */; };
 		3B51AC351CE717BF009A7320 /* navigationbar_icon_radar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC341CE717BF009A7320 /* navigationbar_icon_radar@2x.png */; };
+		3B55D7921CEC402100414075 /* HYWeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B55D7911CEC402100414075 /* HYWeiboModel.m */; };
 		3B6E3A581CE5BD420069CCD8 /* DiscoveryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E3A561CE5BD420069CCD8 /* DiscoveryController.m */; };
 		3B6E3A591CE5BD420069CCD8 /* DiscoveryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6E3A571CE5BD420069CCD8 /* DiscoveryController.xib */; };
 		3B6E3A5D1CE5BD590069CCD8 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E3A5B1CE5BD590069CCD8 /* HomePageController.m */; };
@@ -125,6 +126,8 @@
 		3B51AC301CE7136B009A7320 /* navigationbar_friendattention@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_friendattention@2x.png"; sourceTree = "<group>"; };
 		3B51AC321CE71669009A7320 /* navigationbar_icon_radar_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_icon_radar_highlighted@2x.png"; sourceTree = "<group>"; };
 		3B51AC341CE717BF009A7320 /* navigationbar_icon_radar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_icon_radar@2x.png"; sourceTree = "<group>"; };
+		3B55D7901CEC402100414075 /* HYWeiboModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYWeiboModel.h; sourceTree = "<group>"; };
+		3B55D7911CEC402100414075 /* HYWeiboModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYWeiboModel.m; sourceTree = "<group>"; };
 		3B6E3A551CE5BD420069CCD8 /* DiscoveryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryController.h; sourceTree = "<group>"; };
 		3B6E3A561CE5BD420069CCD8 /* DiscoveryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryController.m; sourceTree = "<group>"; };
 		3B6E3A571CE5BD420069CCD8 /* DiscoveryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryController.xib; sourceTree = "<group>"; };
@@ -267,6 +270,15 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		3B55D78F1CEC400800414075 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B55D7901CEC402100414075 /* HYWeiboModel.h */,
+				3B55D7911CEC402100414075 /* HYWeiboModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3B6E3A511CE5BD220069CCD8 /* Discovery */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +292,7 @@
 		3B6E3A521CE5BD220069CCD8 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				3B55D78F1CEC400800414075 /* Model */,
 				3BB1DEE31CE800B9004229EA /* View */,
 				3B6E3A5A1CE5BD590069CCD8 /* HomePageController.h */,
 				3B6E3A5B1CE5BD590069CCD8 /* HomePageController.m */,
@@ -703,6 +716,7 @@
 				3B51AC0D1CE6B9AF009A7320 /* BaseTabBarController.m in Sources */,
 				3B0D7BB31CE4533400DD96FF /* HYAOuthManager.m in Sources */,
 				3B6E3A581CE5BD420069CCD8 /* DiscoveryController.m in Sources */,
+				3B55D7921CEC402100414075 /* HYWeiboModel.m in Sources */,
 				3B51AC251CE6C4DE009A7320 /* HYPlusButton.m in Sources */,
 				3BF906C81CE3328100080480 /* AppDelegate.m in Sources */,
 				3B82D2891CE37BD8007318BC /* AFNetworkReachabilityManager.m in Sources */,
