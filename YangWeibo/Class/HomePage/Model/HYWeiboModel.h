@@ -37,6 +37,7 @@
 
 @interface HYWeiboModel : NSObject
 
+@property (nonatomic,assign)NSInteger weiboID;
 
 @property (nonatomic,copy)NSString *created_at; //微博创建时间
 

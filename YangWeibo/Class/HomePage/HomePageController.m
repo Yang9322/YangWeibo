@@ -14,7 +14,7 @@
 #import "HYCoverView.h"
 #import "MJRefresh.h"
 
-
+#import "HYWeiboViewModel.h"
 
 
 @interface HomePageController ()<UITableViewDelegate,UITableViewDataSource>
@@ -27,10 +27,14 @@
 @property (nonatomic,weak)HYCoverView *coverView;
 
 @property (nonatomic,strong)UIView *headerView;
+
+@property (nonatomic,strong)HYWeiboViewModel *viewModel;
 @end
 
 @implementation HomePageController
 
+
+#pragma mark - LifeCycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupBarButtonItems];
@@ -38,33 +42,29 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = self.headerView;
-    self.automaticallyAdjustsScrollViewInsets = YES;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData:)];
-//    self.tableView.mj_header.opaque = YES;
-//    self.tableView.mj_header.backgroundColor = [UIColor redColor];
- 
-    [self addObserver:self forKeyPath:@"self.tableView.mj_header.frame" options:NSKeyValueObservingOptionNew context:nil];
-    
+    [self.tableView.mj_header beginRefreshing];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendRelationClicked) name:DIDSelectFriendRelationCellNotification object:nil];
-    // Do any additional setup after loading the view from its nib.
+    
+    [self.viewModel addObserver:self forKeyPath:@"modelArray" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-    if ([keyPath isEqualToString:@"self.tableView.mj_header.frame"]) {
-        NSLog(@" begin---%@---end",[NSValue valueWithCGRect:self.tableView.mj_header.frame]);
 
-    }
-}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.viewModel removeObserver:self forKeyPath:@"modelArray"];
+
 }
+
+
+#pragma mark - View Initial
 
 - (void)setupBarButtonItems{
     UIImage *image = [[UIImage imageNamed:@"navigationbar_friendattention"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -108,6 +108,14 @@
 }
 
 
+#pragma mark - Lazy Load
+
+-(HYWeiboViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [[HYWeiboViewModel alloc] init];
+    }
+    return _viewModel;
+}
 #define SearchPadding 3
 #define SearchBarPadding 10
 #define SearchBarHeight 40
@@ -152,6 +160,20 @@
 }
 
 
+
+-(FriendCircleView *)friendCircleView{
+    if (!_friendCircleView) {
+        
+        FriendCircleView *localView = [[FriendCircleView alloc] initWithFrame:CGRectMake((ScreeW - 200) / 2 , 54, 200, 300)];
+        [kKeyWindow addSubview:localView];
+        _friendCircleView = localView;
+    }
+    return _friendCircleView;
+}
+
+
+#pragma mark - Private Method
+
 - (void)receiveFriendRelationClicked{
     
     [_titleView tapped];
@@ -175,22 +197,11 @@
     }];
 }
 
--(FriendCircleView *)friendCircleView{
-    if (!_friendCircleView) {
-      
-        FriendCircleView *localView = [[FriendCircleView alloc] initWithFrame:CGRectMake((ScreeW - 200) / 2 , 54, 200, 300)];
-        [kKeyWindow addSubview:localView];
-        _friendCircleView = localView;
-    }
-    return _friendCircleView;
-}
+
 
 - (void)refreshData:(UIButton *)sender{
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableView.mj_header endRefreshing];
-    });
-
+    [self.viewModel fetchData];
 }
 
 - (void)login{
@@ -203,8 +214,19 @@
 
 }
 
+#pragma mark - KVO
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+        if ([keyPath isEqualToString:@"modelArray"]) {
+ 
+            [self.tableView.mj_header endRefreshing];
+            HYDBAnyVar(self.viewModel.modelArray.count);
+  
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 
+}
 
 
 #pragma mark - TableView

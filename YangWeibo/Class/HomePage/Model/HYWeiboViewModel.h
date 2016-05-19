@@ -13,6 +13,8 @@
 
 
 
+@property (nonatomic,strong)NSMutableArray *modelArray;
+
 - (instancetype)init;
 
 - (void)fetchData;

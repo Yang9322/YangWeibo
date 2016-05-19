@@ -66,6 +66,7 @@ static void *const CYLTabBarContext = (void*)&CYLTabBarContext;
     NSUInteger plusButtonIndex = [self plusButtonIndex];
     NSArray *sortedSubviews = [self sortedSubviews];
     NSArray *tabBarButtonArray = [self tabBarButtonFromTabBarSubviews:sortedSubviews];
+    [self setupSwappableImageViewDefaultOffset:tabBarButtonArray[0]];
     [tabBarButtonArray enumerateObjectsUsingBlock:^(UIView * _Nonnull childView, NSUInteger buttonIndex, BOOL * _Nonnull stop) {
         //调整UITabBarItem的位置
         CGFloat childViewX;
@@ -109,6 +110,14 @@ static void *const CYLTabBarContext = (void*)&CYLTabBarContext;
         [self willChangeValueForKey:@"tabBarItemWidth"];
         _tabBarItemWidth = tabBarItemWidth;
         [self didChangeValueForKey:@"tabBarItemWidth"];
+    }
+}
+
+- (void)setSwappableImageViewDefaultOffset:(CGFloat)swappableImageViewDefaultOffset {
+    if (swappableImageViewDefaultOffset != 0.f) {
+        [self willChangeValueForKey:@"swappableImageViewDefaultOffset"];
+        _swappableImageViewDefaultOffset = swappableImageViewDefaultOffset;
+        [self didChangeValueForKey:@"swappableImageViewDefaultOffset"];
     }
 }
 
@@ -157,24 +166,19 @@ static void *const CYLTabBarContext = (void*)&CYLTabBarContext;
 /*!
  *  Deal with some trickiness by Apple, You do not need to understand this method, somehow, it works.
  *  NOTE: If the `self.title of ViewController` and `the correct title of tabBarItemsAttributes` are different, Apple will delete the correct tabBarItem from subViews, and then trigger `-layoutSubviews`, therefore subViews will be in disorder. So we need to rearrange them.
-*/
+ */
 - (NSArray *)sortedSubviews {
-    NSArray *sortedSubviews = [self.subviews sortedArrayUsingComparator:^NSComparisonResult(UIView * view1, UIView * view2) {
-        CGFloat view1_x = view1.frame.origin.x;
-        CGFloat view2_x = view2.frame.origin.x;
-        if (view1_x > view2_x) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedAscending;
-        }
+    NSArray *sortedSubviews = [self.subviews sortedArrayUsingComparator:^NSComparisonResult(UIView * formerView, UIView * latterView) {
+        CGFloat formerViewX = formerView.frame.origin.x;
+        CGFloat latterViewX = latterView.frame.origin.x;
+        return  (formerViewX > latterViewX) ? NSOrderedDescending : NSOrderedAscending;
     }];
     return sortedSubviews;
 }
 
 - (NSArray *)tabBarButtonFromTabBarSubviews:(NSArray *)tabBarSubviews {
-    NSArray *tabBarButtonArray = [NSArray array];
     NSMutableArray *tabBarButtonMutableArray = [NSMutableArray arrayWithCapacity:tabBarSubviews.count - 1];
-    [tabBarSubviews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [tabBarSubviews enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
             [tabBarButtonMutableArray addObject:obj];
         }
@@ -182,25 +186,49 @@ static void *const CYLTabBarContext = (void*)&CYLTabBarContext;
     if (CYLPlusChildViewController) {
         [tabBarButtonMutableArray removeObjectAtIndex:CYLPlusButtonIndex];
     }
-    tabBarButtonArray = [tabBarButtonMutableArray copy];
-    return tabBarButtonArray;
+    return [tabBarButtonMutableArray copy];
 }
 
-/**
- *  Capturing touches on a subview outside the frame of its superview
+- (void)setupSwappableImageViewDefaultOffset:(UIView *)tabBarButton {
+    __block BOOL shouldCustomizeImageView = YES;
+    __block CGFloat swappableImageViewHeight = 0.f;
+    __block CGFloat swappableImageViewDefaultOffset = 0.f;
+    CGFloat tabBarHeight = self.frame.size.height;
+    [tabBarButton.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([[obj class] isSubclassOfClass:[UILabel class]]) {
+            shouldCustomizeImageView = NO;
+        }
+        swappableImageViewHeight = obj.frame.size.height;
+        BOOL isNotSelectionIndicatorView = swappableImageViewHeight < (tabBarHeight - 5);
+        BOOL isSwappableImageView = ([[obj class] isSubclassOfClass:[UIImageView class]]) && isNotSelectionIndicatorView;
+        if (isSwappableImageView) {
+            swappableImageViewDefaultOffset = (tabBarHeight - swappableImageViewHeight) * 0.5 * 0.5;
+        }
+        if (isSwappableImageView && swappableImageViewDefaultOffset == 0.f) {
+            shouldCustomizeImageView = NO;
+        }
+    }];
+    if (shouldCustomizeImageView) {
+        self.swappableImageViewDefaultOffset = swappableImageViewDefaultOffset;
+    }
+}
+
+/*!
+ *  Capturing touches on a subview outside the frame of its superview.
  */
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    if (!self.clipsToBounds && !self.hidden && self.alpha > 0) {
-        UIView *result = [super hitTest:point withEvent:event];
+    if (self.clipsToBounds || self.hidden || (self.alpha == 0.f)) {
+        return nil;
+    }
+    UIView *result = [super hitTest:point withEvent:event];
+    if (result) {
+        return result;
+    }
+    for (UIView *subview in self.subviews.reverseObjectEnumerator) {
+        CGPoint subPoint = [subview convertPoint:point fromView:self];
+        result = [subview hitTest:subPoint withEvent:event];
         if (result) {
             return result;
-        }
-        for (UIView *subview in self.subviews.reverseObjectEnumerator) {
-            CGPoint subPoint = [subview convertPoint:point fromView:self];
-            result = [subview hitTest:subPoint withEvent:event];
-            if (result) {
-                return result;
-            }
         }
     }
     return nil;

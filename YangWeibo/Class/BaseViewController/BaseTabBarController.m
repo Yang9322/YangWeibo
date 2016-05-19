@@ -108,7 +108,6 @@
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     
-    NSLog(@" begin---%@---end",viewController);
 
 }
 

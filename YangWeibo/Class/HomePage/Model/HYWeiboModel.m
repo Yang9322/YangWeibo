@@ -7,6 +7,7 @@
 //
 
 #import "HYWeiboModel.h"
+#import "MJExtension.h"
 
 @implementation HYGeoModel
 
@@ -22,12 +23,19 @@
 
 @implementation HYWeiboModel
 
-+ (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"pic_urls" : [HYPicModel class]
-             
-            };
++ (NSDictionary *)mj_objectClassInArray{
+    return @{
+             @"pic_urls":@"HYPicModel"
+             };
+    
 }
 
+
++(NSDictionary *)mj_replacedKeyFromPropertyName{
+    return @{
+             @"weiboID" : @"id"
+             };
+}
 
 
 @end
