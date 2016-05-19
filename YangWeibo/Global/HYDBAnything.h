@@ -36,10 +36,7 @@
 #define HYBoxToString(var)      [HYBox(var) description]
 #define HYTypeStringOfVar(var)  __HY_type_string_for_var(@encode(HYType(var)), (var))
 
-static NSDictionary * HYDictionaryFromObject(NSObject * object);
-static NSString * HYJsonFromObject(NSObject * object);
-static NSString * HYXmlFromObject(NSObject * object);
-static NSString * HYViewHierarchyDescription(UIView * view);
+
 
 #ifdef DEBUG
     #define HYPrintf(fmt, ...)  printf("📍%s + %d🎈 %s\n", __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt, ##__VA_ARGS__]UTF8String])
@@ -419,81 +416,14 @@ static NSObject * __HY_stringify_object_value(NSObject * object)
     }
 }
 
-static NSDictionary * HYDictionaryFromObject(NSObject * object)
-{
-    NSCAssert([object isKindOfClass:[NSObject class]], ([NSString stringWithFormat:@"HYDBAnything：%@ type error!", object]));
-    
-    NSMutableDictionary * objectDictionary = [NSMutableDictionary dictionary];
-    
-    unsigned int outCount = 0;
-    
-    objc_property_t * propertyList = class_copyPropertyList([object class], &outCount);
-    
-    for (int i = 0; i < outCount; i++) {
-        
-        objc_property_t property = propertyList[i];
-        
-        NSString * propertyName = [NSString stringWithUTF8String:property_getName(property)];
-        
-        if ([object respondsToSelector:NSSelectorFromString(propertyName)]) {
-            
-            @try {
-                NSObject * propertyValue = [object valueForKey:propertyName];
-                [objectDictionary setValue:__HY_stringify_object_value(propertyValue) forKey:propertyName];
-            }
-            @catch (NSException *exception) {
-                HYDBAnyVar(exception);  //
-                [objectDictionary setValue:nil forKey:propertyName];
-            }
-        }
-    }
-    free(propertyList);
-    
-    return [NSDictionary dictionaryWithDictionary:objectDictionary];
-}
 
 
 
-static NSString * HYJsonFromObject(NSObject * object)
-{
-    NSError * error = nil;
-    
-    NSDictionary * objectDictionary = HYDictionaryFromObject(object);
-    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:objectDictionary options:NSJSONWritingPrettyPrinted error:&error];
-    NSString * jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-    return jsonString;
-}
 
-static NSString * HYXmlFromObject(NSObject * object)
-{
-    NSError * error = nil;
-    
-    NSDictionary * objectDictionary = HYDictionaryFromObject(object);
-    NSData * xmlData = [NSPropertyListSerialization dataWithPropertyList:objectDictionary format:NSPropertyListXMLFormat_v1_0 options:0 error:&error];
-    NSString * xmlString = [[NSString alloc]initWithData:xmlData encoding:NSUTF8StringEncoding];
-    return xmlString;
-}
 
-static NSString * __HY_view_hierarchy_description(UIView * view, NSInteger depth)
-{
-    static NSString * unitIndentSpaceString = @"    ";
-    
-    NSString * indentSpaceString = @" ";
-    for (int i = 0; i < depth; i++) {
-        indentSpaceString = [indentSpaceString stringByAppendingString:unitIndentSpaceString];
-    }
-    
-    NSString * viewHierarchyDescription = [NSString stringWithFormat:@"%zi＃%@%@\n", depth, indentSpaceString, view];
-    
-    depth++;
-    
-    for (UIView * subview in view.subviews) {
-        
-        viewHierarchyDescription = [viewHierarchyDescription stringByAppendingString:__HY_view_hierarchy_description(subview, depth)];
-    }
-    
-    return viewHierarchyDescription;
-}
+
+
+
 
 
 

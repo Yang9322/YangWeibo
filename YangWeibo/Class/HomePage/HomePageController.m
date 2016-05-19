@@ -12,9 +12,10 @@
 #import "FriendCircleView.h"
 #import "HYHomePageTableView.h"
 #import "HYCoverView.h"
+#import "MJRefresh.h"
 
-#define kAccessToken @"2.00T_vQ8D07d_KS3f1edf79cdW_mEXC"
-static NSString *redirectURL = @"http://baidu.com";
+
+
 
 @interface HomePageController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet HYHomePageTableView *tableView;
@@ -37,14 +38,29 @@ static NSString *redirectURL = @"http://baidu.com";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = self.headerView;
+    self.automaticallyAdjustsScrollViewInsets = YES;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData:)];
+//    self.tableView.mj_header.opaque = YES;
+//    self.tableView.mj_header.backgroundColor = [UIColor redColor];
+ 
+    [self addObserver:self forKeyPath:@"self.tableView.mj_header.frame" options:NSKeyValueObservingOptionNew context:nil];
     
-    
-    HYDBAnyVar(self.headerView);
-    HYDBAnyVar(self.tableView.tableHeaderView);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendRelationClicked) name:DIDSelectFriendRelationCellNotification object:nil];
     // Do any additional setup after loading the view from its nib.
 }
 
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"self.tableView.mj_header.frame"]) {
+        NSLog(@" begin---%@---end",[NSValue valueWithCGRect:self.tableView.mj_header.frame]);
+
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
+}
 
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -171,16 +187,10 @@ static NSString *redirectURL = @"http://baidu.com";
 
 - (void)refreshData:(UIButton *)sender{
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_header endRefreshing];
+    });
 
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-
-    params[@"access_token"] = kAccessToken;
-    
-    [[HYHTTPManager sharedManager] GetRequestWithURLString:@"https://api.weibo.com/2/statuses/public_timeline.json" Parameter:params success:^(id responseObject) {
-        HYDBAnyVar(responseObject);
-    } failure:^(NSError *error) {
-//        HYDBAnyVar(error);
-    }];
 }
 
 - (void)login{

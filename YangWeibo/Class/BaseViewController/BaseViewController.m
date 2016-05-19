@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     UIButton *button = [[UIButton alloc] init];
     button.center = self.view.center;
     button.width = 100;
