@@ -6,7 +6,7 @@
 //  Copyright © 2016年 He yang. All rights reserved.
 //
 
-#import "HYWeiboViewModel.h"
+#import "HYWeiboViewModelCoordinator.h"
 #import "NSObject+YYModel.h"
 #import "MJExtension.h"
 
@@ -14,13 +14,37 @@
 #define kAccessToken @"2.00T_vQ8D07d_KS3f1edf79cdW_mEXC"
 static NSString *redirectURL = @"http://baidu.com";
 
+
 @interface HYWeiboViewModel()
+
+
+@end
+@implementation HYWeiboViewModel
+
+-(instancetype)initWithModel:(HYWeiboModel *)model{
+    if (self = [super init]) {
+       
+        _model = model;
+    }
+    
+    return self;
+}
+
+@end
+
+
+
+
+
+
+@interface HYWeiboViewModelCoordinator()
 
 
 @property (nonatomic,strong)dispatch_queue_t handleKVOQueue;
 
+
 @end
-@implementation HYWeiboViewModel
+@implementation HYWeiboViewModelCoordinator
 
 
 -(instancetype)init{
@@ -42,13 +66,9 @@ static NSString *redirectURL = @"http://baidu.com";
     [[HYHTTPManager sharedManager] GetRequestWithURLString:@"https://api.weibo.com/2/statuses/public_timeline.json" Parameter:params success:^(id responseObject) {
         dispatch_async(_handleKVOQueue, ^{
             NSAssert(responseObject[@"statuses"], @"Must have useful data!");
-            
-            
-            
+  
             [self handleResponseData:responseObject[@"statuses"]];
-            
-            
-            
+      
         });
        
  
@@ -67,7 +87,6 @@ static NSString *redirectURL = @"http://baidu.com";
 }
 
 
-
 - (void)handleResponseData:(id)response{
     NSArray *modelArray = [HYWeiboModel mj_objectArrayWithKeyValuesArray:response];
     //进行去重
@@ -80,30 +99,30 @@ static NSString *redirectURL = @"http://baidu.com";
     }];
     NSRange range;
     if (index != NSNotFound) {
-       range = NSMakeRange(0, index);
-
+        range = NSMakeRange(0, index);
     }else{
-       range = NSMakeRange(0, modelArray.count);
+        range = NSMakeRange(0, modelArray.count);
+    }
+    NSArray *tmpArray = [modelArray subarrayWithRange:range];
+    NSMutableArray *viewModelArray  = [NSMutableArray arrayWithCapacity:tmpArray.count];
+    
+
+    for (HYWeiboModel *model in tmpArray) {
+        
+        HYWeiboViewModel *viewModel = [[HYWeiboViewModel alloc] initWithModel:model];
+        [viewModelArray addObject:viewModel];
+        
     }
     
-    
-    
-    
-    NSArray *tmpArray = [modelArray subarrayWithRange:range];
-    
- 
-    
     //防止多次调用KVO
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange([self modelArrayCount], [tmpArray count])];
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange([self modelArrayCount], [viewModelArray count])];
     
     //保证KVO的线程安全
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[self middleArray] insertObjects:tmpArray atIndexes:indexSet];
-  
+        [[self middleArray] insertObjects:viewModelArray atIndexes:indexSet];
     });
     
 }
-
 
 - (NSUInteger) modelArrayCount{
     return [self.modelArray count];

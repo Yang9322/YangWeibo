@@ -14,7 +14,7 @@
 #import "HYCoverView.h"
 #import "MJRefresh.h"
 
-#import "HYWeiboViewModel.h"
+#import "HYWeiboViewModelCoordinator.h"
 
 
 @interface HomePageController ()<UITableViewDelegate,UITableViewDataSource>
@@ -28,7 +28,7 @@
 
 @property (nonatomic,strong)UIView *headerView;
 
-@property (nonatomic,strong)HYWeiboViewModel *viewModel;
+@property (nonatomic,strong)HYWeiboViewModelCoordinator *viewModelCordinator;
 @end
 
 @implementation HomePageController
@@ -47,7 +47,7 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendRelationClicked) name:DIDSelectFriendRelationCellNotification object:nil];
     
-    [self.viewModel addObserver:self forKeyPath:@"modelArray" options:NSKeyValueObservingOptionNew context:nil];
+    [self.viewModelCordinator addObserver:self forKeyPath:@"modelArray" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 
@@ -59,7 +59,7 @@
 
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.viewModel removeObserver:self forKeyPath:@"modelArray"];
+    [self.viewModelCordinator removeObserver:self forKeyPath:@"modelArray"];
 
 }
 
@@ -110,11 +110,11 @@
 
 #pragma mark - Lazy Load
 
--(HYWeiboViewModel *)viewModel{
-    if (!_viewModel) {
-        _viewModel = [[HYWeiboViewModel alloc] init];
+-(HYWeiboViewModelCoordinator *)viewModelCordinator{
+    if (!_viewModelCordinator) {
+        _viewModelCordinator = [[HYWeiboViewModelCoordinator alloc] init];
     }
-    return _viewModel;
+    return _viewModelCordinator;
 }
 #define SearchPadding 3
 #define SearchBarPadding 10
@@ -201,7 +201,7 @@
 
 - (void)refreshData:(UIButton *)sender{
     
-    [self.viewModel fetchData];
+    [self.viewModelCordinator fetchData];
 }
 
 - (void)login{
@@ -220,7 +220,7 @@
         if ([keyPath isEqualToString:@"modelArray"]) {
  
             [self.tableView.mj_header endRefreshing];
-            HYDBAnyVar(self.viewModel.modelArray.count);
+            HYDBAnyVar(self.viewModelCordinator.modelArray.count);
   
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

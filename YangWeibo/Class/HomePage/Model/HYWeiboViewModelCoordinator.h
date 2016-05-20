@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HYWeiboModel.h"
-@interface HYWeiboViewModel : NSObject
-
-
-
+@interface HYWeiboViewModelCoordinator : NSObject
 
 @property (nonatomic,strong)NSMutableArray *modelArray;
 
@@ -19,5 +16,15 @@
 
 - (void)fetchData;
 
+
+
+@end
+
+
+@interface HYWeiboViewModel : NSObject
+
+@property (nonatomic,strong)HYWeiboModel *model;
+
+-(instancetype)initWithModel:(HYWeiboModel *)model;
 
 @end
