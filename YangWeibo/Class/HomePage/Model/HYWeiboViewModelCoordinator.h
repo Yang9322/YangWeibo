@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HYWeiboModel.h"
+#import "HYWeiboLayoutManager.h"
+#import "HYWeiboLayout.h"
 @interface HYWeiboViewModelCoordinator : NSObject
 
 @property (nonatomic,strong)NSMutableArray *modelArray;
@@ -22,6 +24,8 @@
 
 
 @interface HYWeiboViewModel : NSObject
+
+@property (nonatomic,strong)HYWeiboLayoutManager *layoutManager;
 
 @property (nonatomic,strong)HYWeiboModel *model;
 

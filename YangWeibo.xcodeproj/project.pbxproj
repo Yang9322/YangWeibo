@@ -10,6 +10,12 @@
 		12426743C0040477EA4B1B32 /* libPods-YangWeiboTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061EB29C7C2CC537F6D45737 /* libPods-YangWeiboTests.a */; };
 		3B0D7BB31CE4533400DD96FF /* HYAOuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D7BB21CE4533400DD96FF /* HYAOuthManager.m */; };
 		3B0D7BB91CE457E800DD96FF /* UIView+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D7BB81CE457E800DD96FF /* UIView+HY.m */; };
+		3B2083CE1CEFF1BE00EB80D5 /* HYWeiboLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2083CD1CEFF1BE00EB80D5 /* HYWeiboLayout.m */; };
+		3B2083D11CEFFCDF00EB80D5 /* HYWeiboHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2083D01CEFFCDF00EB80D5 /* HYWeiboHelper.m */; };
+		3B2083DC1CF0063500EB80D5 /* HYImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2083D71CF0063500EB80D5 /* HYImageCache.m */; };
+		3B2083DD1CF0063500EB80D5 /* HYImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2083D91CF0063500EB80D5 /* HYImageDownloader.m */; };
+		3B2083DE1CF0063500EB80D5 /* UIImageView+HYImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2083DB1CF0063500EB80D5 /* UIImageView+HYImageDownloader.m */; };
+		3B2A64231CEEBAC600B5B730 /* HYWeiboLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A64221CEEBAC600B5B730 /* HYWeiboLayoutManager.m */; };
 		3B2E76621CEAB7E400439809 /* tabbar_profile_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */; };
 		3B2E76641CEAB82300439809 /* tabbar_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */; };
 		3B2E76661CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76651CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png */; };
@@ -121,6 +127,18 @@
 		3B0D7BB41CE4569100DD96FF /* HYDBAnything.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYDBAnything.h; sourceTree = "<group>"; };
 		3B0D7BB71CE457E800DD96FF /* UIView+HY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HY.h"; sourceTree = "<group>"; };
 		3B0D7BB81CE457E800DD96FF /* UIView+HY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HY.m"; sourceTree = "<group>"; };
+		3B2083CC1CEFF1BE00EB80D5 /* HYWeiboLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYWeiboLayout.h; sourceTree = "<group>"; };
+		3B2083CD1CEFF1BE00EB80D5 /* HYWeiboLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYWeiboLayout.m; sourceTree = "<group>"; };
+		3B2083CF1CEFFCDF00EB80D5 /* HYWeiboHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYWeiboHelper.h; sourceTree = "<group>"; };
+		3B2083D01CEFFCDF00EB80D5 /* HYWeiboHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYWeiboHelper.m; sourceTree = "<group>"; };
+		3B2083D61CF0063500EB80D5 /* HYImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYImageCache.h; sourceTree = "<group>"; };
+		3B2083D71CF0063500EB80D5 /* HYImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYImageCache.m; sourceTree = "<group>"; };
+		3B2083D81CF0063500EB80D5 /* HYImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYImageDownloader.h; sourceTree = "<group>"; };
+		3B2083D91CF0063500EB80D5 /* HYImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYImageDownloader.m; sourceTree = "<group>"; };
+		3B2083DA1CF0063500EB80D5 /* UIImageView+HYImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HYImageDownloader.h"; sourceTree = "<group>"; };
+		3B2083DB1CF0063500EB80D5 /* UIImageView+HYImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HYImageDownloader.m"; sourceTree = "<group>"; };
+		3B2A64211CEEBAC600B5B730 /* HYWeiboLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYWeiboLayoutManager.h; sourceTree = "<group>"; };
+		3B2A64221CEEBAC600B5B730 /* HYWeiboLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYWeiboLayoutManager.m; sourceTree = "<group>"; };
 		3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_selected@2x.png"; sourceTree = "<group>"; };
 		3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile@2x.png"; sourceTree = "<group>"; };
 		3B2E76651CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userinfo_relationship_indicator_arrow_down@3x.png"; sourceTree = "<group>"; };
@@ -318,6 +336,19 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		3B2083D51CF0063500EB80D5 /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				3B2083D61CF0063500EB80D5 /* HYImageCache.h */,
+				3B2083D71CF0063500EB80D5 /* HYImageCache.m */,
+				3B2083D81CF0063500EB80D5 /* HYImageDownloader.h */,
+				3B2083D91CF0063500EB80D5 /* HYImageDownloader.m */,
+				3B2083DA1CF0063500EB80D5 /* UIImageView+HYImageDownloader.h */,
+				3B2083DB1CF0063500EB80D5 /* UIImageView+HYImageDownloader.m */,
+			);
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
 		3B4B5DC41CE451B00079F9F2 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +405,10 @@
 				3B55D79A1CEC70E800414075 /* HYWeiboViewModelCoordinator.m */,
 				3B55D7901CEC402100414075 /* HYWeiboModel.h */,
 				3B55D7911CEC402100414075 /* HYWeiboModel.m */,
+				3B2A64211CEEBAC600B5B730 /* HYWeiboLayoutManager.h */,
+				3B2A64221CEEBAC600B5B730 /* HYWeiboLayoutManager.m */,
+				3B2083CC1CEFF1BE00EB80D5 /* HYWeiboLayout.h */,
+				3B2083CD1CEFF1BE00EB80D5 /* HYWeiboLayout.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -489,6 +524,8 @@
 				3B6E3A5A1CE5BD590069CCD8 /* HomePageController.h */,
 				3B6E3A5B1CE5BD590069CCD8 /* HomePageController.m */,
 				3B6E3A5C1CE5BD590069CCD8 /* HomePageController.xib */,
+				3B2083CF1CEFFCDF00EB80D5 /* HYWeiboHelper.h */,
+				3B2083D01CEFFCDF00EB80D5 /* HYWeiboHelper.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -579,6 +616,7 @@
 			children = (
 				3B82D2931CE37D90007318BC /* HYHTTPManager.h */,
 				3B82D2941CE37D90007318BC /* HYHTTPManager.m */,
+				3B2083D51CF0063500EB80D5 /* ImageDownloader */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -952,6 +990,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2A64231CEEBAC600B5B730 /* HYWeiboLayoutManager.m in Sources */,
 				3B82D2951CE37D90007318BC /* HYHTTPManager.m in Sources */,
 				3BBC7FEB1CEDA71B000A4BB8 /* NSObject+MJClass.m in Sources */,
 				3BBC7FEE1CEDA71B000A4BB8 /* NSObject+MJProperty.m in Sources */,
@@ -961,14 +1000,17 @@
 				3B6101D51CECB6CF0037DC3E /* MJRefreshBackStateFooter.m in Sources */,
 				3BA4E0151CEEA31200CB6E54 /* HYTitleView.m in Sources */,
 				3B6101DD1CECB6CF0037DC3E /* UIView+MJExtension.m in Sources */,
+				3B2083DD1CF0063500EB80D5 /* HYImageDownloader.m in Sources */,
 				3B6101CE1CECB6CF0037DC3E /* MJRefreshFooter.m in Sources */,
 				3B82D28D1CE37BD8007318BC /* AFURLSessionManager.m in Sources */,
 				3B6E3A651CE5BD7F0069CCD8 /* MessageController.m in Sources */,
 				3BA4E0131CEEA31200CB6E54 /* HYCoverView.m in Sources */,
 				3B6101CB1CECB6CF0037DC3E /* MJRefreshAutoFooter.m in Sources */,
 				3B4B5DC81CE451B00079F9F2 /* BaseViewController.m in Sources */,
+				3B2083D11CEFFCDF00EB80D5 /* HYWeiboHelper.m in Sources */,
 				3B6101DB1CECB6CF0037DC3E /* UIScrollView+MJExtension.m in Sources */,
 				3B51AC0D1CE6B9AF009A7320 /* BaseTabBarController.m in Sources */,
+				3B2083DE1CF0063500EB80D5 /* UIImageView+HYImageDownloader.m in Sources */,
 				3B6101D21CECB6CF0037DC3E /* MJRefreshAutoStateFooter.m in Sources */,
 				3B0D7BB31CE4533400DD96FF /* HYAOuthManager.m in Sources */,
 				3B6E3A581CE5BD420069CCD8 /* DiscoveryController.m in Sources */,
@@ -982,6 +1024,8 @@
 				3B55D79B1CEC70E800414075 /* HYWeiboViewModelCoordinator.m in Sources */,
 				3BBC7FEF1CEDA71B000A4BB8 /* NSString+MJExtension.m in Sources */,
 				3B6E3A5D1CE5BD590069CCD8 /* HomePageController.m in Sources */,
+				3B2083CE1CEFF1BE00EB80D5 /* HYWeiboLayout.m in Sources */,
+				3B2083DC1CF0063500EB80D5 /* HYImageCache.m in Sources */,
 				3BF906C51CE3328100080480 /* main.m in Sources */,
 				3B6101DC1CECB6CF0037DC3E /* UIScrollView+MJRefresh.m in Sources */,
 				3B6101D41CECB6CF0037DC3E /* MJRefreshBackNormalFooter.m in Sources */,

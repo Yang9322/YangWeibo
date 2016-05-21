@@ -10,7 +10,6 @@
 #import "NSObject+YYModel.h"
 #import "MJExtension.h"
 
-
 #define kAccessToken @"2.00T_vQ8D07d_KS3f1edf79cdW_mEXC"
 static NSString *redirectURL = @"http://baidu.com";
 
@@ -25,6 +24,8 @@ static NSString *redirectURL = @"http://baidu.com";
     if (self = [super init]) {
        
         _model = model;
+        _layoutManager = [[HYWeiboLayoutManager alloc] initWithModel:model];
+        
     }
     
     return self;
@@ -91,7 +92,9 @@ static NSString *redirectURL = @"http://baidu.com";
     NSArray *modelArray = [HYWeiboModel mj_objectArrayWithKeyValuesArray:response];
     //进行去重
     
-    HYWeiboModel *lastWeibo = [[self modelArray] firstObject];
+    
+    
+    HYWeiboModel *lastWeibo = [[self middleArray] firstObject];
     NSUInteger index =  [modelArray indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         HYWeiboModel *model = obj;
@@ -104,22 +107,18 @@ static NSString *redirectURL = @"http://baidu.com";
         range = NSMakeRange(0, modelArray.count);
     }
     NSArray *tmpArray = [modelArray subarrayWithRange:range];
-    NSMutableArray *viewModelArray  = [NSMutableArray arrayWithCapacity:tmpArray.count];
-    
-
+ 
     for (HYWeiboModel *model in tmpArray) {
         
-        HYWeiboViewModel *viewModel = [[HYWeiboViewModel alloc] initWithModel:model];
-        [viewModelArray addObject:viewModel];
-        
+        model.layout = [[HYWeiboLayout alloc] initWithModel:model];
     }
     
     //防止多次调用KVO
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange([self modelArrayCount], [viewModelArray count])];
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange([self modelArrayCount], [tmpArray count])];
     
     //保证KVO的线程安全
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[self middleArray] insertObjects:viewModelArray atIndexes:indexSet];
+        [[self middleArray] insertObjects:tmpArray atIndexes:indexSet];
     });
     
 }

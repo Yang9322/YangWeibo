@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+//#import "HYWeiboLayout.h"
+@class HYWeiboLayout;
 //地理位置model
 @interface HYGeoModel : NSObject
 
@@ -27,6 +28,8 @@
 
 @property(nonatomic,copy)NSString *gender; //性别，m：男、f：女、n：未知
 
+@property(nonatomic,assign)BOOL verified; //是否加V
+
 @end
 
 @interface HYPicModel : NSObject
@@ -37,9 +40,13 @@
 
 @interface HYWeiboModel : NSObject
 
-@property (nonatomic,assign)NSInteger weiboID;
+@property (nonatomic,strong)HYWeiboLayout *layout; //model 对应的cell布局
+
+@property (nonatomic,assign)NSInteger weiboID; //微博id 用来去重
 
 @property (nonatomic,copy)NSString *created_at; //微博创建时间
+
+@property (nonatomic,copy)NSString *created_at_str;
 
 @property (nonatomic,copy)NSString *text; //微博正文
 

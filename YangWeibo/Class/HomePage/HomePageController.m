@@ -13,10 +13,10 @@
 #import "HYHomePageTableView.h"
 #import "HYCoverView.h"
 #import "MJRefresh.h"
-
+#import "HYWeiboModel.h"
 #import "HYWeiboViewModelCoordinator.h"
 
-
+#import "HYWeiboCell.h"
 @interface HomePageController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet HYHomePageTableView *tableView;
 
@@ -220,7 +220,7 @@
         if ([keyPath isEqualToString:@"modelArray"]) {
  
             [self.tableView.mj_header endRefreshing];
-            HYDBAnyVar(self.viewModelCordinator.modelArray.count);
+            [self.tableView reloadData];
   
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -228,20 +228,27 @@
 
 }
 
-
 #pragma mark - TableView
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.viewModelCordinator.modelArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 47;
+    HYWeiboModel *model = self.viewModelCordinator.modelArray[indexPath.row];
+ 
+    return model.layout.height;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"132"];
-    cell.textLabel.text = @"123321231232132133211231231231233";
+    static NSString *cellID = @"HYWeiboCell";
+    HYWeiboModel *model = self.viewModelCordinator.modelArray[indexPath.row];
+
+    HYWeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell) {
+        cell = [[HYWeiboCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    cell.model = model;
     return cell;
 }
 
