@@ -61,15 +61,12 @@
     _model = model;
     _avatarView.frame = model.layout.avatarRect;
     _vView.frame = model.layout.vRect;
-    
-    NSLog(@" begin---%@---end",[NSValue valueWithCGRect:_vView.frame]);
-
     _nickNameLabel.frame = model.layout.nickNameRect;
     _timeLabel.frame = model.layout.timeRect;
     _soureLabel.frame = model.layout.sourceRect;
     
-    [_avatarView hy_setImageWithURLString:_model.user.profile_image_url placeHolder:nil options:HYImageRoundedRectOption|HYImageFadeAnimationOption];
-    _vView.image = [UIImage imageNamed:@"friendcircle_compose_friendcirclebutton@2x"];
+    [_avatarView hy_setImageWithURLString:_model.user.profile_image_url placeHolder:[UIImage imageNamed:@"timeline_image_placeholder"]     options:HYImageRoundedRectOption|HYImageFadeAnimationOption];
+//    _vView.image = [UIImage imageNamed:@"friendcircle_compose_friendcirclebutton@2x"];
     _nickNameLabel.text = model.user.screen_name;
     _timeLabel.text = model.created_at_str;
     _soureLabel.text = model.source;

@@ -24,7 +24,6 @@ static NSString *redirectURL = @"http://baidu.com";
     if (self = [super init]) {
        
         _model = model;
-        _layoutManager = [[HYWeiboLayoutManager alloc] initWithModel:model];
         
     }
     
@@ -91,8 +90,6 @@ static NSString *redirectURL = @"http://baidu.com";
 - (void)handleResponseData:(id)response{
     NSArray *modelArray = [HYWeiboModel mj_objectArrayWithKeyValuesArray:response];
     //进行去重
-    
-    
     
     HYWeiboModel *lastWeibo = [[self middleArray] firstObject];
     NSUInteger index =  [modelArray indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

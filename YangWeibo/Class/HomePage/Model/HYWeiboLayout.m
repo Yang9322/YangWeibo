@@ -71,7 +71,7 @@
     _timeRect = timeRect;
     
     
-    //来源
+    // 来源
     _sourceRect = CGRectZero;
     if (_model.source.length) {
         
