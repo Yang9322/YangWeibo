@@ -65,7 +65,7 @@
     _timeLabel.frame = model.layout.timeRect;
     _soureLabel.frame = model.layout.sourceRect;
     
-    [_avatarView hy_setImageWithURLString:_model.user.profile_image_url placeHolder:[UIImage imageNamed:@"timeline_image_placeholder"]     options:HYImageRoundedRectOption|HYImageFadeAnimationOption];
+    [_avatarView hy_setImageWithURLString:_model.user.profile_image_url placeHolder:[UIImage imageNamed:@"timeline_image_placeholder"]     options:HYImageDowloaderOptionRoundedRect|HYImageDowloaderOptionFadeAnimation];
 //    _vView.image = [UIImage imageNamed:@"friendcircle_compose_friendcirclebutton@2x"];
     _nickNameLabel.text = model.user.screen_name;
     _timeLabel.text = model.created_at_str;
