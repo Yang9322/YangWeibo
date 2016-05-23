@@ -453,10 +453,8 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
 - (void)af_resume {
     NSAssert([self respondsToSelector:@selector(state)], @"Does not respond to state");
     
-    NSLog(@" begin---%d---end",[self respondsToSelector:@selector(state)]);
 
     NSURLSessionTaskState state = [self state];
-    NSLog(@" begin---%p---end",self );
 
     [self af_resume];
     
