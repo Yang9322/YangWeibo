@@ -15,7 +15,7 @@
 #import "MJRefresh.h"
 #import "HYWeiboModel.h"
 #import "HYWeiboViewModelCoordinator.h"
-
+#import "HYFPSLabel.h"
 #import "HYWeiboCell.h"
 @interface HomePageController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet HYHomePageTableView *tableView;
@@ -48,6 +48,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendRelationClicked) name:DIDSelectFriendRelationCellNotification object:nil];
     
     [self.viewModelCordinator addObserver:self forKeyPath:@"modelArray" options:NSKeyValueObservingOptionNew context:nil];
+    
+    
+    HYFPSLabel *label = [[HYFPSLabel alloc] init];
+    label.bounds = CGRectMake(0, 0, 80, 40);
+    label.center = CGPointMake([UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.height - 64);
+    [kKeyWindow addSubview:label];
+    
 }
 
 

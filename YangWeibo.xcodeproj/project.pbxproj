@@ -108,6 +108,7 @@
 		3BF906D31CE3328100080480 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BF906D11CE3328100080480 /* LaunchScreen.storyboard */; };
 		3BF906DE1CE3328100080480 /* YangWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF906DD1CE3328100080480 /* YangWeiboTests.m */; };
 		537059E9CAD22A4267FCB6BE /* libPods-YangWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5787E8EA7E6E49768A8B06 /* libPods-YangWeibo.a */; };
+		634DD77E1CF3F08B004503F5 /* HYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 634DD77D1CF3F08B004503F5 /* HYFPSLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -295,6 +296,8 @@
 		3BF906DD1CE3328100080480 /* YangWeiboTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YangWeiboTests.m; sourceTree = "<group>"; };
 		3BF906DF1CE3328100080480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A76E01DB5AE8C54D7CFBE54 /* Pods-YangWeiboTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWeiboTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YangWeiboTests/Pods-YangWeiboTests.release.xcconfig"; sourceTree = "<group>"; };
+		634DD77C1CF3F08B004503F5 /* HYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYFPSLabel.h; sourceTree = "<group>"; };
+		634DD77D1CF3F08B004503F5 /* HYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYFPSLabel.m; sourceTree = "<group>"; };
 		91C3BDBDCC7191738F069453 /* Pods-YangWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YangWeibo/Pods-YangWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		BE3BA61E58BE61063B5390F9 /* Pods-YangWeiboTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWeiboTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YangWeiboTests/Pods-YangWeiboTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -516,6 +519,8 @@
 				3B6E3A5C1CE5BD590069CCD8 /* HomePageController.xib */,
 				3B2083CF1CEFFCDF00EB80D5 /* HYWeiboHelper.h */,
 				3B2083D01CEFFCDF00EB80D5 /* HYWeiboHelper.m */,
+				634DD77C1CF3F08B004503F5 /* HYFPSLabel.h */,
+				634DD77D1CF3F08B004503F5 /* HYFPSLabel.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1014,6 +1019,7 @@
 				3BA4E0131CEEA31200CB6E54 /* HYCoverView.m in Sources */,
 				3B6101CB1CECB6CF0037DC3E /* MJRefreshAutoFooter.m in Sources */,
 				3B4B5DC81CE451B00079F9F2 /* BaseViewController.m in Sources */,
+				634DD77E1CF3F08B004503F5 /* HYFPSLabel.m in Sources */,
 				3B2083D11CEFFCDF00EB80D5 /* HYWeiboHelper.m in Sources */,
 				3B6101DB1CECB6CF0037DC3E /* UIScrollView+MJExtension.m in Sources */,
 				3B51AC0D1CE6B9AF009A7320 /* BaseTabBarController.m in Sources */,
