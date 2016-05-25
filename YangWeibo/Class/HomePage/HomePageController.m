@@ -224,7 +224,7 @@
 #pragma mark - KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-        if ([keyPath isEqualToString:@"modelArray"]) {        
+        if ([keyPath isEqualToString:@"modelArray"]) {
             [self.tableView.mj_header endRefreshing];
             if (self.viewModelCordinator.modelArray.count > 100) {
                 [self.tableView reloadData];

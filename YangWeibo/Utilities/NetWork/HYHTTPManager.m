@@ -9,9 +9,6 @@
 #import "HYHTTPManager.h"
 
 @interface HYHTTPManager ()
-
-
-
 @end
 
 @implementation HYHTTPManager
@@ -24,13 +21,11 @@
     dispatch_once(&onceToken, ^{
         manager = [[HYHTTPManager alloc] init];
         manager.afManager = [AFHTTPSessionManager manager];
-     
         AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
         responseSerializer.removesKeysWithNullValues = YES;
         manager.afManager.responseSerializer = responseSerializer;
         manager.afManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
-        
-        
+ 
     });
     
     return manager;

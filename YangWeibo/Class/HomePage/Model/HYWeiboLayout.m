@@ -52,7 +52,7 @@
 
     
     // 昵称
-    CGSize nickNameSize = [_model.user.screen_name sizeForFont:kCommenFont size:CGSizeZero mode:NSLineBreakByWordWrapping];
+    CGSize nickNameSize = [_model.user.screen_name sizeForFont:kCommonFont size:CGSizeZero mode:NSLineBreakByWordWrapping];
     
     CGRect nickNameRect = CGRectMake(CGRectGetMaxX(_avatarRect) + kNickNamePadding,kInnerPadding + kTopPadding,nickNameSize.width,nickNameSize.height);
     

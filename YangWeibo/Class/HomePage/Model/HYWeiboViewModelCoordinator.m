@@ -13,35 +13,9 @@
 #define kAccessToken @"2.00T_vQ8D07d_KS3f1edf79cdW_mEXC"
 static NSString *redirectURL = @"http://baidu.com";
 
-
-@interface HYWeiboViewModel()
-
-
-@end
-@implementation HYWeiboViewModel
-
--(instancetype)initWithModel:(HYWeiboModel *)model{
-    if (self = [super init]) {
-       
-        _model = model;
-        
-    }
-    
-    return self;
-}
-
-@end
-
-
-
-
-
-
 @interface HYWeiboViewModelCoordinator()
 
-
 @property (nonatomic,strong)dispatch_queue_t handleKVOQueue;
-
 
 @end
 @implementation HYWeiboViewModelCoordinator
@@ -64,8 +38,9 @@ static NSString *redirectURL = @"http://baidu.com";
     params[@"access_token"] = kAccessToken;
     
     [[HYHTTPManager sharedManager] GetRequestWithURLString:@"https://api.weibo.com/2/statuses/public_timeline.json" Parameter:params success:^(id responseObject) {
+        NSAssert(responseObject[@"statuses"], @"Must have useful data!");
+
         dispatch_async(_handleKVOQueue, ^{
-            NSAssert(responseObject[@"statuses"], @"Must have useful data!");
   
             [self handleResponseData:responseObject[@"statuses"]];
       

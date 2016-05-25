@@ -24,7 +24,7 @@
 
 
 
-#define kCommenFont  [UIFont systemFontOfSize:12]
+#define kCommonFont  [UIFont systemFontOfSize:12]
 #define kSmallerFont  [UIFont systemFontOfSize:10]
 
 // Include any system framework and library headers here that should be included in all compilation units.

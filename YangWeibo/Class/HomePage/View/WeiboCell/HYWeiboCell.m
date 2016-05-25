@@ -46,7 +46,7 @@
     _nickNameLabel = UILabel.new;
     _timeLabel = UILabel.new;
     _soureLabel = UILabel.new;
-    _nickNameLabel.font = kCommenFont;
+    _nickNameLabel.font = kCommonFont;
     _timeLabel.font = kSmallerFont;
     _soureLabel.font = kSmallerFont;
     [self.contentView addSubview:_avatarView];
@@ -66,7 +66,6 @@
     _soureLabel.frame = model.layout.sourceRect;
     
     [_avatarView hy_setImageWithURLString:_model.user.profile_image_url placeHolder:[UIImage imageNamed:@"timeline_image_placeholder"]     options:HYImageDowloaderOptionRoundedRect|HYImageDowloaderOptionFadeAnimation];
-//    _vView.image = [UIImage imageNamed:@"friendcircle_compose_friendcirclebutton@2x"];
     _nickNameLabel.text = model.user.screen_name;
     _timeLabel.text = model.created_at_str;
     _soureLabel.text = model.source;
