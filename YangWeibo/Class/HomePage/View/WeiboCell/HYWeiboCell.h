@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HYWeiboLayout.h"
 #import "HYWeiboModel.h"
 @interface HYWeiboCell : UITableViewCell
 

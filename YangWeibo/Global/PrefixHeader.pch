@@ -8,21 +8,19 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
+
 #import "HYDBAnything.h"
 #import "UIView+HY.h"
 #import "HYHTTPManager.h"
+
 #define ScreeW  [UIScreen mainScreen].bounds.size.width
 #define ScreeH  [UIScreen mainScreen].bounds.size.height
 #define kKeyWindow [UIApplication sharedApplication].keyWindow
 #define kScreenScale [UIScreen mainScreen].scale
 #define HYColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
-
-
 #define DIDSelectFriendRelationCellNotification @"DIDSelectFriendRelationCellNotification"
 #define TouchOnScreenNotification @"TouchOnScreenNotification"
-
-
 
 #define kCommonFont  [UIFont systemFontOfSize:12]
 #define kSmallerFont  [UIFont systemFontOfSize:10]
