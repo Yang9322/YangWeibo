@@ -52,6 +52,9 @@
 
 - (void)hy_setImageWithRequest:(NSURLRequest *)request placeHolder:(UIImage *)placeHolder options:(HYImageDowloaderOptions) options{
     
+    [self cancelImageDownloadTask];
+    
+    
     if (!self.backgroundColor) {
         self.backgroundColor = [UIColor clearColor];
     }
@@ -85,13 +88,17 @@
          if (options & HYImageDowloaderOptionFadeAnimation) {
              self.alpha = 0;
              UIImage *resizedImage = responseObject;
-             if (options & HYImageDowloaderOptionFadeAnimation) {
+             if (options & HYImageDowloaderOptionRoundedRect) {
                 resizedImage = [self adjustImageIfNeeded:responseObject];
              }
              self.image = resizedImage;
              [UIView animateWithDuration:0.25 animations:^{
                  self.alpha = 1;
              }];
+         }else if (options & HYImageDowloaderOptionRoundedRect ){
+             UIImage *resizedImage = [self adjustImageIfNeeded:responseObject];
+
+             self.image = resizedImage;
          }else{
              self.image = responseObject;
          }
