@@ -43,6 +43,7 @@
 		3B51AC351CE717BF009A7320 /* navigationbar_icon_radar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B51AC341CE717BF009A7320 /* navigationbar_icon_radar@2x.png */; };
 		3B55D7921CEC402100414075 /* HYWeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B55D7911CEC402100414075 /* HYWeiboModel.m */; };
 		3B55D79B1CEC70E800414075 /* HYWeiboViewModelCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B55D79A1CEC70E800414075 /* HYWeiboViewModelCoordinator.m */; };
+		3B5CEEDB1CF9B78100F10F9D /* HYCardContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5CEEDA1CF9B78100F10F9D /* HYCardContentView.m */; };
 		3B6101CB1CECB6CF0037DC3E /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6101A11CECB6CF0037DC3E /* MJRefreshAutoFooter.m */; };
 		3B6101CC1CECB6CF0037DC3E /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6101A31CECB6CF0037DC3E /* MJRefreshBackFooter.m */; };
 		3B6101CD1CECB6CF0037DC3E /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6101A51CECB6CF0037DC3E /* MJRefreshComponent.m */; };
@@ -173,6 +174,8 @@
 		3B55D7911CEC402100414075 /* HYWeiboModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYWeiboModel.m; sourceTree = "<group>"; };
 		3B55D7991CEC70E800414075 /* HYWeiboViewModelCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYWeiboViewModelCoordinator.h; sourceTree = "<group>"; };
 		3B55D79A1CEC70E800414075 /* HYWeiboViewModelCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYWeiboViewModelCoordinator.m; sourceTree = "<group>"; };
+		3B5CEED91CF9B78100F10F9D /* HYCardContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCardContentView.h; sourceTree = "<group>"; };
+		3B5CEEDA1CF9B78100F10F9D /* HYCardContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCardContentView.m; sourceTree = "<group>"; };
 		3B6101A01CECB6CF0037DC3E /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		3B6101A11CECB6CF0037DC3E /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		3B6101A21CECB6CF0037DC3E /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -640,6 +643,8 @@
 				3BA4E0171CEEA33500CB6E54 /* HYWeiboCell.m */,
 				3BA4E0191CEEADF100CB6E54 /* HYCardHeaderView.h */,
 				3BA4E01A1CEEADF100CB6E54 /* HYCardHeaderView.m */,
+				3B5CEED91CF9B78100F10F9D /* HYCardContentView.h */,
+				3B5CEEDA1CF9B78100F10F9D /* HYCardContentView.m */,
 			);
 			path = WeiboCell;
 			sourceTree = "<group>";
@@ -1014,6 +1019,7 @@
 				3BA4E0151CEEA31200CB6E54 /* HYTitleView.m in Sources */,
 				3B6101DD1CECB6CF0037DC3E /* UIView+MJExtension.m in Sources */,
 				3B6101CE1CECB6CF0037DC3E /* MJRefreshFooter.m in Sources */,
+				3B5CEEDB1CF9B78100F10F9D /* HYCardContentView.m in Sources */,
 				3B82D28D1CE37BD8007318BC /* AFURLSessionManager.m in Sources */,
 				3B6E3A651CE5BD7F0069CCD8 /* MessageController.m in Sources */,
 				3BA4E0131CEEA31200CB6E54 /* HYCoverView.m in Sources */,
