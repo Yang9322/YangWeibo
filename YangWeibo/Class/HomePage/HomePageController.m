@@ -45,6 +45,9 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData:)];
     [self.tableView.mj_header beginRefreshing];
 
+     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshData:)];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendRelationClicked) name:DIDSelectFriendRelationCellNotification object:nil];
     
     [self.viewModelCordinator addObserver:self forKeyPath:@"modelArray" options:NSKeyValueObservingOptionNew context:nil];
@@ -222,7 +225,14 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
         if ([keyPath isEqualToString:@"modelArray"]) {
-            [self.tableView.mj_header endRefreshing];
+            if (self.tableView.mj_header.state == MJRefreshStateRefreshing) {
+                [self.tableView.mj_header endRefreshing];
+
+            }
+            if (self.tableView.mj_footer.state == MJRefreshStateRefreshing ) {
+                [self.tableView.mj_footer endRefreshing];   
+            }
+            
                 [self.tableView reloadData];
 
             
