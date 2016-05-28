@@ -49,16 +49,13 @@
     
     [self.viewModelCordinator addObserver:self forKeyPath:@"modelArray" options:NSKeyValueObservingOptionNew context:nil];
     
-    
+    //FPSLabel
     HYFPSLabel *label = [[HYFPSLabel alloc] init];
     label.bounds = CGRectMake(0, 0, 80, 40);
     label.center = CGPointMake([UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.height - 64);
     [kKeyWindow addSubview:label];
     
 }
-
-
-
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -212,7 +209,7 @@
 }
 
 - (void)login{
-//    
+   
 //    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
 //    request.redirectURI = redirectURL;
 //    request.scope = @"all";

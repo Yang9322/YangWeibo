@@ -8,26 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "YYLabel.h"
-#import "HYWeiboViewModelCoordinator.h"
-
-
-
+#import "HYWeiboModel.h"
 
 @interface HYCardHeaderView : UIView
 
-@property (nonatomic,strong)HYWeiboViewModelCoordinator *viewModel;
-
-@property (nonatomic,strong)UIImageView *avatarView;
-
-@property (nonatomic,strong)YYLabel *nickNameLabel;
-
-@property (nonatomic,strong)UIImageView *levelView;
-
-@property (nonatomic,strong)YYLabel *timeLabel;
-
-@property (nonatomic,strong)YYLabel *sourceLabel;
-
-@property (nonatomic,strong)UIButton *moreButton;
+@property (nonatomic,strong)HYWeiboModel *model;
 
 
 
