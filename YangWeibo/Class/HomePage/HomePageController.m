@@ -221,6 +221,30 @@
 
 }
 
+
+- (void)updateTableViewWothModels:(NSArray *)addIndexs{
+    
+    
+
+    
+    
+    NSMutableArray *addIndexPathes = [NSMutableArray array];
+
+    for ( int i = 0 ;  i < addIndexs.count; i++) {
+        [addIndexPathes addObject:[NSIndexPath indexPathForRow:(self.viewModelCordinator.modelArray.count - addIndexs.count + i ) inSection:0]];
+        
+        if (self.viewModelCordinator.modelArray.count - addIndexs.count == 0) {
+            [self.tableView reloadData];
+            return;
+        }
+    }
+    
+    [_tableView beginUpdates];
+    [_tableView insertRowsAtIndexPaths:addIndexPathes withRowAnimation:UITableViewRowAnimationNone];
+    [_tableView endUpdates];
+    
+}
+
 #pragma mark - KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -232,8 +256,10 @@
             if (self.tableView.mj_footer.state == MJRefreshStateRefreshing ) {
                 [self.tableView.mj_footer endRefreshing];   
             }
+        
+            NSArray  *indexs = change[@"new"];
             
-                [self.tableView reloadData];
+            [self updateTableViewWothModels:indexs];
 
             
   

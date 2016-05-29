@@ -109,7 +109,7 @@
             
         }
     }
-    _headerHeight = CGRectGetMaxY(_avatarRect) + 2 *kTopPadding;
+    _headerHeight = CGRectGetMaxY(_avatarRect) + 2 * kTopPadding;
     
     _height += _headerHeight;
     
