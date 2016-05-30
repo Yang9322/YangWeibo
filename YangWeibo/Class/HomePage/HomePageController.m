@@ -225,18 +225,16 @@
 - (void)updateTableViewWothModels:(NSArray *)addIndexs{
     
     
-
+    if (self.viewModelCordinator.modelArray.count - addIndexs.count == 0) {
+        [self.tableView reloadData];
+        return;
     
-    
+    }
     NSMutableArray *addIndexPathes = [NSMutableArray array];
 
     for ( int i = 0 ;  i < addIndexs.count; i++) {
         [addIndexPathes addObject:[NSIndexPath indexPathForRow:(self.viewModelCordinator.modelArray.count - addIndexs.count + i ) inSection:0]];
-        
-        if (self.viewModelCordinator.modelArray.count - addIndexs.count == 0) {
-            [self.tableView reloadData];
-            return;
-        }
+    
     }
     
     [_tableView beginUpdates];
