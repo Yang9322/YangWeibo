@@ -14,7 +14,7 @@
 
 @property (nonatomic,weak)HYWeiboModel *model;
 
-
+//header
 @property (nonatomic,assign)CGRect avatarRect;
 
 @property (nonatomic,assign)CGRect vRect;
@@ -25,8 +25,16 @@
 
 @property (nonatomic,assign)CGRect sourceRect;
 
+//cardContend
+@property (nonatomic,assign) CGRect contentRect;
+
+@property (nonatomic,assign)CGFloat headerHeight;
+
+@property (nonatomic,assign)CGFloat contendHeight;
 
 @property (nonatomic,assign)CGFloat height;
+
+
 
 - (instancetype)initWithModel:(HYWeiboModel *)model;
 @end

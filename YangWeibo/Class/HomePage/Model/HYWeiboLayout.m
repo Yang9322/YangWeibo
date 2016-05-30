@@ -23,8 +23,21 @@
 }
 
 
+
+
+
+- (void)layout{
+    
+    
+    [self layoutHeader];
+    
+    [self layoutCardContent];
+
+    
+}
+
 #define kTopPadding 8    //顶部灰边宽度
-#define kInnerPadding 14 //头像距离顶部白边距离
+#define kInnerPadding 8 //头像距离顶部白边距离
 #define kNickNamePadding 10
 #define kCommonPadding 5
 
@@ -37,8 +50,7 @@
 
 #define kVRectHeight 12  //v视图尺寸
 
-
-- (void)layout{
+- (void)layoutHeader{
     _height = 0;
     // 头像
     CGRect avatarRect = CGRectMake(kInnerPadding, kInnerPadding + kTopPadding, kAvatarHeight, kAvatarHeight);
@@ -49,7 +61,7 @@
     CGRect vRect = _model.user.verified ? CGRectMake(CGRectGetMaxX(avatarRect) - kVRectHeight, CGRectGetMaxY(avatarRect) - kVRectHeight, kVRectHeight, kVRectHeight) : CGRectZero;
     
     _vRect = vRect;
-
+    
     
     // 昵称
     CGSize nickNameSize = [_model.user.screen_name sizeForFont:kCommonFont size:CGSizeZero mode:NSLineBreakByWordWrapping];
@@ -57,10 +69,10 @@
     CGRect nickNameRect = CGRectMake(CGRectGetMaxX(_avatarRect) + kNickNamePadding,kInnerPadding + kTopPadding,nickNameSize.width,nickNameSize.height);
     
     _nickNameRect = nickNameRect;
-
+    
     // 时间
- 
-
+    
+    
     NSString *createTime = [HYWeiboHelper stringWithTimelineDate:_model.created_at];
     
     _model.created_at_str = createTime;
@@ -97,9 +109,25 @@
             
         }
     }
+    _headerHeight = CGRectGetMaxY(_avatarRect) + 2 * kTopPadding;
     
-    _height += CGRectGetMaxY(_avatarRect) +kTopPadding + kInnerPadding + kCommonPadding;;
+    _height += _headerHeight;
+    
+    
+}
 
+
+#define kContentPadding 10
+- (void)layoutCardContent{
+    
+    CGSize contentSize = [_model.text sizeForFont:kContentFont size:CGSizeMake(ScreeW - 2 * kContentPadding, 0)  mode:NSLineBreakByWordWrapping];
+    CGRect contentRect = CGRectMake(kContentPadding, kContentPadding, contentSize.width, contentSize.height);
+    _contentRect = contentRect;
+    
+    _contendHeight =  CGRectGetMaxY(contentRect) + 2 * kContentPadding;
+    
+    _height += _contendHeight;
+    
     
 }
 

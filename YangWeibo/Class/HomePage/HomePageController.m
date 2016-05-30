@@ -45,6 +45,9 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData:)];
     [self.tableView.mj_header beginRefreshing];
 
+     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshData:)];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendRelationClicked) name:DIDSelectFriendRelationCellNotification object:nil];
     
     [self.viewModelCordinator addObserver:self forKeyPath:@"modelArray" options:NSKeyValueObservingOptionNew context:nil];
@@ -218,17 +221,47 @@
 
 }
 
+
+- (void)updateTableViewWothModels:(NSArray *)addIndexs{
+    
+    
+
+    
+    
+    NSMutableArray *addIndexPathes = [NSMutableArray array];
+
+    for ( int i = 0 ;  i < addIndexs.count; i++) {
+        [addIndexPathes addObject:[NSIndexPath indexPathForRow:(self.viewModelCordinator.modelArray.count - addIndexs.count + i ) inSection:0]];
+        
+        if (self.viewModelCordinator.modelArray.count - addIndexs.count == 0) {
+            [self.tableView reloadData];
+            return;
+        }
+    }
+    
+    [_tableView beginUpdates];
+    [_tableView insertRowsAtIndexPaths:addIndexPathes withRowAnimation:UITableViewRowAnimationNone];
+    [_tableView endUpdates];
+    
+}
+
 #pragma mark - KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
         if ([keyPath isEqualToString:@"modelArray"]) {
-            [self.tableView.mj_header endRefreshing];
-//            if (self.viewModelCordinator.modelArray.count > 100) {
-//                [self.tableView reloadData];
-//
-//            }
-            [self.tableView reloadData];
+            if (self.tableView.mj_header.state == MJRefreshStateRefreshing) {
+                [self.tableView.mj_header endRefreshing];
 
+            }
+            if (self.tableView.mj_footer.state == MJRefreshStateRefreshing ) {
+                [self.tableView.mj_footer endRefreshing];   
+            }
+        
+            NSArray  *indexs = change[@"new"];
+            
+            [self updateTableViewWothModels:indexs];
+
+            
   
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

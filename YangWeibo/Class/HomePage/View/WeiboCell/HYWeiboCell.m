@@ -8,11 +8,12 @@
 
 #import "HYWeiboCell.h"
 #import "HYCardHeaderView.h"
+#import "HYCardContentView.h"
 @interface HYWeiboCell()
 
 @property (nonatomic,strong)HYCardHeaderView *headerView;
 
-
+@property (nonatomic,strong)HYCardContentView *cardContentView;
 
 
 @end
@@ -26,27 +27,29 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundView.backgroundColor = [UIColor clearColor];
-        self.contentView.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         self.backgroundColor = [UIColor clearColor];
-        [self addHeaderView];
+        [self configureSubViews];
     }
     
     return self;
 }
 
-- (void)addHeaderView{
+- (void)configureSubViews{
     
     HYCardHeaderView *headerView = [[HYCardHeaderView alloc] init];
     _headerView = headerView;
     [self.contentView addSubview:headerView];
     
-    
+    HYCardContentView *cardContentView = [[HYCardContentView alloc] init];
+    _cardContentView = cardContentView;
+    [self.contentView addSubview:cardContentView];
 }
 
 
 -(void)setModel:(HYWeiboModel *)model{
     _headerView.model = model;
-    
+    _cardContentView.model = model;
 }
 
 

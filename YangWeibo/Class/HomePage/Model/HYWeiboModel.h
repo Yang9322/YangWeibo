@@ -72,5 +72,6 @@
 
 @property (nonatomic,copy)NSArray *pic_urls; //图片数组
 
+@property (nonatomic,assign)NSInteger source_allowclick;
 
 @end
