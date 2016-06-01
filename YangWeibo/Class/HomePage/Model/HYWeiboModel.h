@@ -58,11 +58,11 @@
 
 @property (nonatomic,copy)NSString *original_pic;  //原图地址
 
-@property (nonatomic,strong) HYGeoModel *geo; //地理位置
+@property (nonatomic,strong)HYGeoModel *geo; //地理位置
 
-@property (nonatomic,strong) HYUserModel *user;//用户信息
+@property (nonatomic,strong)HYUserModel *user;//用户信息
 
-@property (nonatomic,strong) HYWeiboModel *retweeted_status; //被转发的原微博信息字段
+@property (nonatomic,strong)HYWeiboModel *retweeted_status; //被转发的原微博信息字段
 
 @property (nonatomic,assign)NSUInteger reposts_count; //转发数
 
@@ -72,6 +72,6 @@
 
 @property (nonatomic,copy)NSArray *pic_urls; //图片数组
 
-@property (nonatomic,assign)NSInteger source_allowclick;
+@property (nonatomic,assign)NSInteger source_allowclick; //是否允许点击source
 
 @end

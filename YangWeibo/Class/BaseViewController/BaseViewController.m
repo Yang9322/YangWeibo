@@ -17,14 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *button = [[UIButton alloc] init];
-    button.center = self.view.center;
-    button.width = 100;
-    button.height = 100;
-    [button setTitle:@"123" forState:UIControlStateNormal];
-    _button = button;
-    [self.view addSubview:button];
-    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *button = [[UIButton alloc] init];
+//    button.center = self.view.center;
+//    button.width = 100;
+//    button.height = 100;
+//    [button setTitle:@"123" forState:UIControlStateNormal];
+//    _button = button;
+//    [self.view addSubview:button];
+//    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

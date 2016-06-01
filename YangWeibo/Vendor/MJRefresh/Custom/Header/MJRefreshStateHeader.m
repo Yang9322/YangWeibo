@@ -51,6 +51,7 @@
     if (title == nil) return;
     self.stateTitles[@(state)] = title;
     self.stateLabel.text = self.stateTitles[@(self.state)];
+
 }
 
 #pragma mark - 日历获取在9.x之后的系统使用currentCalendar会出异常。在8.0之后使用系统新API。
@@ -90,13 +91,14 @@
         } else {
             formatter.dateFormat = @"yyyy-MM-dd HH:mm";
         }
-        NSString *time = [formatter stringFromDate:lastUpdatedTime];
+//        NSString *time = [formatter stringFromDate:lastUpdatedTime];
         
         // 3.显示日期
-        self.lastUpdatedTimeLabel.text = [NSString stringWithFormat:@"最后更新：%@", time];
+        self.lastUpdatedTimeLabel.text = @"";
     } else {
-        self.lastUpdatedTimeLabel.text = @"最后更新：无记录";
+        self.lastUpdatedTimeLabel.text = @"";
     }
+    self.lastUpdatedTimeLabel.hidden = YES;
 }
 
 #pragma mark - 覆盖父类的方法

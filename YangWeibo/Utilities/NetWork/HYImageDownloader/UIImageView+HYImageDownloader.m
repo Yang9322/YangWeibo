@@ -117,6 +117,8 @@
 -(void)cancelImageDownloadTask{
     if (self.activeReceipt) {
         
+        
+        
         [[HYImageDownloader shareInstance] cancelTaskWithReceipt:self.activeReceipt];
         self.activeReceipt = nil;
     }

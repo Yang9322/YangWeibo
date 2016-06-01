@@ -222,12 +222,9 @@
 }
 
 
-- (void)updateTableViewWothModels:(NSArray *)addIndexs{
-    
-    
 
-    
-    
+- (void)updateTableViewWithModels:(NSArray *)addIndexs{
+ 
     NSMutableArray *addIndexPathes = [NSMutableArray array];
 
     for ( int i = 0 ;  i < addIndexs.count; i++) {
@@ -259,7 +256,7 @@
         
             NSArray  *indexs = change[@"new"];
             
-            [self updateTableViewWothModels:indexs];
+            [self updateTableViewWithModels:indexs];
 
             
   

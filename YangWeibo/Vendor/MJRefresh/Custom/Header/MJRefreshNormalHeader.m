@@ -62,7 +62,7 @@
     self.arrowView.mj_size = self.arrowView.image.size;
     CGFloat arrowCenterX = self.mj_w * 0.5;
     if (!self.stateLabel.hidden) {
-        arrowCenterX -= 100;
+        arrowCenterX -= 50;
     }
     CGFloat arrowCenterY = self.mj_h * 0.5;
     self.arrowView.center = CGPointMake(arrowCenterX, arrowCenterY);

@@ -6,8 +6,8 @@
 //  Copyright © 2016年 He yang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface HomePageController : UIViewController
+@interface HomePageController : BaseViewController
 
 @end
