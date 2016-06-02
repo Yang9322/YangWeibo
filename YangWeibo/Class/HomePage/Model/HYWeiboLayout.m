@@ -120,6 +120,10 @@
 #define kContentPadding 10
 - (void)layoutCardContent{
     
+    
+    
+    
+    
     CGSize contentSize = [_model.text sizeForFont:kContentFont size:CGSizeMake(ScreeW - 2 * kContentPadding, 0)  mode:NSLineBreakByWordWrapping];
     CGRect contentRect = CGRectMake(kContentPadding, kContentPadding, contentSize.width, contentSize.height);
     _contentRect = contentRect;

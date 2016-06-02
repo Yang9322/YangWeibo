@@ -8,7 +8,7 @@
 
 #import "HYWeiboHelper.h"
 #import "NSDate+YYAdd.h"
-
+#import "HYWeiboModel.h"
 @implementation HYWeiboHelper
 + (NSString *)stringWithTimelineDate:(NSString  *)dateStr {
     
@@ -57,4 +57,24 @@
         return [formatterFullDate stringFromDate:date];
     }
 }
+
+
++ (NSMutableAttributedString *) arrtributeStringWithModel:(HYWeiboModel *)model fontSize:(CGFloat)fontSize textColor:(UIColor *)color{
+    NSMutableAttributedString *string = nil;
+    if (!model) return nil;
+    NSMutableString *text = model.text.mutableCopy;
+    if (text.length == 0) {
+        return nil;
+    }
+    UIFont *font = [UIFont systemFontOfSize:fontSize];
+    
+    
+    
+    
+    return string;
+}
+
+
+
+
 @end
