@@ -118,14 +118,18 @@
 
 
 #define kContentPadding 10
+#define kWBCellTextNormalColor HYColor(55, 55, 55) // 一般文本色
+
 - (void)layoutCardContent{
     
     
+    NSMutableAttributedString *text = [HYWeiboHelper arrtributeStringWithModel:_model fontSize:12 textColor:kWBCellTextNormalColor];
     
+    _model.attributeText = text;
     
-    
-    CGSize contentSize = [_model.text sizeForFont:kContentFont size:CGSizeMake(ScreeW - 2 * kContentPadding, 0)  mode:NSLineBreakByWordWrapping];
-    CGRect contentRect = CGRectMake(kContentPadding, kContentPadding, contentSize.width, contentSize.height);
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(ScreeW - 2 * kContentPadding, 0) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+//    CGSize contentSize2 = [_model.text sizeForFont:kContentFont size:CGSizeMake(ScreeW - 2 * kContentPadding, 0)  mode:NSLineBreakByWordWrapping];
+    CGRect contentRect = CGRectMake(kContentPadding, kContentPadding, rect.size.width, rect.size.height +kContentPadding);
     _contentRect = contentRect;
     
     _contendHeight =  CGRectGetMaxY(contentRect) + 2 * kContentPadding;

@@ -10,6 +10,7 @@
 		12426743C0040477EA4B1B32 /* libPods-YangWeiboTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 061EB29C7C2CC537F6D45737 /* libPods-YangWeiboTests.a */; };
 		3B0D7BB31CE4533400DD96FF /* HYAOuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D7BB21CE4533400DD96FF /* HYAOuthManager.m */; };
 		3B0D7BB91CE457E800DD96FF /* UIView+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D7BB81CE457E800DD96FF /* UIView+HY.m */; };
+		3B1FE31D1D02625300410A15 /* EmoticonWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B1FE31C1D02625300410A15 /* EmoticonWeibo.bundle */; };
 		3B2083CE1CEFF1BE00EB80D5 /* HYWeiboLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2083CD1CEFF1BE00EB80D5 /* HYWeiboLayout.m */; };
 		3B2083D11CEFFCDF00EB80D5 /* HYWeiboHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2083D01CEFFCDF00EB80D5 /* HYWeiboHelper.m */; };
 		3B2083E01CF040FC00EB80D5 /* skin_top_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2083DF1CF040FC00EB80D5 /* skin_top_background@2x.png */; };
@@ -131,6 +132,7 @@
 		3B0D7BB41CE4569100DD96FF /* HYDBAnything.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYDBAnything.h; sourceTree = "<group>"; };
 		3B0D7BB71CE457E800DD96FF /* UIView+HY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HY.h"; sourceTree = "<group>"; };
 		3B0D7BB81CE457E800DD96FF /* UIView+HY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HY.m"; sourceTree = "<group>"; };
+		3B1FE31C1D02625300410A15 /* EmoticonWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonWeibo.bundle; sourceTree = "<group>"; };
 		3B2083CC1CEFF1BE00EB80D5 /* HYWeiboLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYWeiboLayout.h; sourceTree = "<group>"; };
 		3B2083CD1CEFF1BE00EB80D5 /* HYWeiboLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYWeiboLayout.m; sourceTree = "<group>"; };
 		3B2083CF1CEFFCDF00EB80D5 /* HYWeiboHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYWeiboHelper.h; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 		3B51AC0E1CE6BFE8009A7320 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3B1FE31C1D02625300410A15 /* EmoticonWeibo.bundle */,
 				3B2083E51CF053A700EB80D5 /* timeline_image_placeholder.png */,
 				3B2083DF1CF040FC00EB80D5 /* skin_top_background@2x.png */,
 				3B4338F61CEB5FEA00908E8F /* searchbar_searchlist_search_icon@2x.png */,
@@ -882,6 +885,7 @@
 				3B51AC1E1CE6C090009A7320 /* tabbar_profile_selected@2x.png in Resources */,
 				3B2083E61CF053A700EB80D5 /* timeline_image_placeholder.png in Resources */,
 				3B51AC2D1CE6CD38009A7320 /* tabbar_compose_icon_add_highlighted@2x.png in Resources */,
+				3B1FE31D1D02625300410A15 /* EmoticonWeibo.bundle in Resources */,
 				3B51AC161CE6C020009A7320 /* tabbar_message_center@2x.png in Resources */,
 				3BF0D5DA1CF351480094540F /* Images.bundle in Resources */,
 				3B51AC331CE71669009A7320 /* navigationbar_icon_radar_highlighted@2x.png in Resources */,

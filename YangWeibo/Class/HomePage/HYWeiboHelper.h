@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class HYWeiboModel;
 @interface HYWeiboHelper : NSObject
 
 
 + (NSString *)stringWithTimelineDate:(NSString *)date ;
 
+
++ (NSDictionary *)emoticonDic;
+
++ (NSMutableAttributedString *) arrtributeStringWithModel:(HYWeiboModel *)model fontSize:(CGFloat)fontSize textColor:(UIColor *)textColo;
 @end

@@ -33,7 +33,7 @@
 -(void)setModel:(HYWeiboModel *)model{
     _model = model;
     self.frame = CGRectMake(0, _model.layout.headerHeight, ScreeW, _model.layout.contendHeight);
-    _contentLabel.text = model.text;
+    _contentLabel.attributedText = model.attributeText;
     _contentLabel.frame = model.layout.contentRect;
     
 }
