@@ -73,7 +73,7 @@
     UIFont *font = [UIFont systemFontOfSize:fontSize];
     
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:string];
-   
+   //匹配表情
     text.font = font;
     text.color = textColor;
     NSArray *emotionResults = [[self regexEmoticon] matchesInString:text.string options:kNilOptions range:text.rangeOfAll];
@@ -96,6 +96,9 @@
         [text replaceCharactersInRange:range withAttributedString:emoText];
         emoClipLength += range.length - 1;
     }
+    
+    //匹配链接
+    
     
     
     return text;

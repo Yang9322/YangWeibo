@@ -122,7 +122,6 @@
 
 - (void)layoutCardContent{
     
-    
     NSMutableAttributedString *text = [HYWeiboHelper arrtributeStringWithModel:_model fontSize:12 textColor:kWBCellTextNormalColor];
     
     _model.attributeText = text;
