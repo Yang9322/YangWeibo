@@ -126,8 +126,8 @@
     
     _model.attributeText = text;
     
-    CGRect rect = [text boundingRectWithSize:CGSizeMake(ScreeW - 2 * kContentPadding, 0) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-//    CGSize contentSize2 = [_model.text sizeForFont:kContentFont size:CGSizeMake(ScreeW - 2 * kContentPadding, 0)  mode:NSLineBreakByWordWrapping];
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(ScreeW - 2 * kContentPadding, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+
     CGRect contentRect = CGRectMake(kContentPadding, kContentPadding, rect.size.width, rect.size.height +kContentPadding);
     _contentRect = contentRect;
     

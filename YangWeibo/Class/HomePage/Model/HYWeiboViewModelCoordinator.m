@@ -40,6 +40,7 @@ static NSString *redirectURL = @"http://baidu.com";
     [[HYHTTPManager sharedManager] GetRequestWithURLString:@"https://api.weibo.com/2/statuses/public_timeline.json" Parameter:params success:^(id responseObject) {
         NSAssert(responseObject[@"statuses"], @"Must have useful data!");
 
+        
         dispatch_async(_handleKVOQueue, ^{
   
             [self handleResponseData:responseObject[@"statuses"]];
@@ -63,6 +64,9 @@ static NSString *redirectURL = @"http://baidu.com";
 
 
 - (void)handleResponseData:(id)response{
+    
+    HYDBAnyVar(response);
+    
     NSArray *modelArray = [HYWeiboModel mj_objectArrayWithKeyValuesArray:response];
     //进行去重
     
