@@ -34,25 +34,37 @@ static NSString *redirectURL = @"http://baidu.com";
 - (void)fetchData{
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"client_id"] = APPKEY;
+    params[@"redirect_uri"] = REDIRECTURL;
     
-    params[@"access_token"] = kAccessToken;
     
-    [[HYHTTPManager sharedManager] GetRequestWithURLString:@"https://api.weibo.com/2/statuses/public_timeline.json" Parameter:params success:^(id responseObject) {
-        NSAssert(responseObject[@"statuses"], @"Must have useful data!");
-
-        
-        dispatch_async(_handleKVOQueue, ^{
-  
-            [self handleResponseData:responseObject[@"statuses"]];
-      
-        });
-       
- 
+    [[HYHTTPManager sharedManager] PostRequestWithURLString:@"https://api.weibo.com/oauth2/authorize" Parameter:params isCache:YES success:^(id responseObject) {
         
     } failure:^(NSError *error) {
         
-        
     }];
+    
+    
+    
+    
+//    params[@"access_token"] = kAccessToken;
+    
+//    [[HYHTTPManager sharedManager] GetRequestWithURLString:@"https://api.weibo.com/2/statuses/public_timeline.json" Parameter:params success:^(id responseObject) {
+//        NSAssert(responseObject[@"statuses"], @"Must have useful data!");
+//
+//        
+//        dispatch_async(_handleKVOQueue, ^{
+//  
+//            [self handleResponseData:responseObject[@"statuses"]];
+//      
+//        });
+//       
+// 
+//        
+//    } failure:^(NSError *error) {
+//        
+//        
+//    }];
 }
 
 

@@ -13,6 +13,9 @@
 #import "UIView+HY.h"
 #import "HYHTTPManager.h"
 
+#define APPKEY @"268432808"
+#define REDIRECTURL @"http://baidu.com"
+
 #define ScreeW  [UIScreen mainScreen].bounds.size.width
 #define ScreeH  [UIScreen mainScreen].bounds.size.height
 #define kKeyWindow [UIApplication sharedApplication].keyWindow
