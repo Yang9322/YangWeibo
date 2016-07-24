@@ -71,7 +71,9 @@
     for (NSInteger i = (sender.tag+1);  i < _modelsArray.count; i ++) {
         UIButton *button = [_scrollView viewWithTag:i];
         button.tag -= 1;
-        button.left = button.left -(buttonWidth +ButtonPadding);
+        [UIView animateWithDuration:0.15 animations:^{
+            button.left = button.left -(buttonWidth +ButtonPadding);
+        }];
     }
     [_modelsArray removeObjectAtIndex:sender.tag];
     
