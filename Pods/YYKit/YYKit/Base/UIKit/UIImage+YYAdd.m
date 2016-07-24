@@ -247,7 +247,7 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
 }
 
 + (UIImage *)imageWithColor:(UIColor *)color {
-    return [self imageWithColor:color size:CGSizeMake(1, 1)];
+    return [self imageWithColor:color size:CGSizeMake(500, 100)];
 }
 
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {

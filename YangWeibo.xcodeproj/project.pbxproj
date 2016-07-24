@@ -100,6 +100,10 @@
 		3BBC7FED1CEDA71B000A4BB8 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC7FE11CEDA71B000A4BB8 /* NSObject+MJKeyValue.m */; };
 		3BBC7FEE1CEDA71B000A4BB8 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC7FE31CEDA71B000A4BB8 /* NSObject+MJProperty.m */; };
 		3BBC7FEF1CEDA71B000A4BB8 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC7FE51CEDA71B000A4BB8 /* NSString+MJExtension.m */; };
+		3BEB35421D44A4030095F634 /* MultiSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB35411D44A4030095F634 /* MultiSelectController.m */; };
+		3BEB35451D44A4780095F634 /* UIView+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB35441D44A4780095F634 /* UIView+YT.m */; };
+		3BEB354E1D44B87C0095F634 /* MultiSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB354D1D44B87C0095F634 /* MultiSelectModel.m */; };
+		3BEB354F1D44C3630095F634 /* MultiSelectHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB35471D44A50C0095F634 /* MultiSelectHeadView.m */; };
 		3BF0D5D81CF351480094540F /* HYImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF0D5D21CF351480094540F /* HYImageCache.m */; };
 		3BF0D5D91CF351480094540F /* HYImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF0D5D41CF351480094540F /* HYImageDownloader.m */; };
 		3BF0D5DA1CF351480094540F /* Images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3BF0D5D51CF351480094540F /* Images.bundle */; };
@@ -283,6 +287,14 @@
 		3BBC7FE31CEDA71B000A4BB8 /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		3BBC7FE41CEDA71B000A4BB8 /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		3BBC7FE51CEDA71B000A4BB8 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		3BEB35401D44A4030095F634 /* MultiSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectController.h; sourceTree = "<group>"; };
+		3BEB35411D44A4030095F634 /* MultiSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectController.m; sourceTree = "<group>"; };
+		3BEB35431D44A4780095F634 /* UIView+YT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YT.h"; sourceTree = "<group>"; };
+		3BEB35441D44A4780095F634 /* UIView+YT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YT.m"; sourceTree = "<group>"; };
+		3BEB35461D44A50C0095F634 /* MultiSelectHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectHeadView.h; sourceTree = "<group>"; };
+		3BEB35471D44A50C0095F634 /* MultiSelectHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectHeadView.m; sourceTree = "<group>"; };
+		3BEB354C1D44B87C0095F634 /* MultiSelectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectModel.h; sourceTree = "<group>"; };
+		3BEB354D1D44B87C0095F634 /* MultiSelectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectModel.m; sourceTree = "<group>"; };
 		3BF0D5D11CF351480094540F /* HYImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYImageCache.h; sourceTree = "<group>"; };
 		3BF0D5D21CF351480094540F /* HYImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYImageCache.m; sourceTree = "<group>"; };
 		3BF0D5D31CF351480094540F /* HYImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYImageDownloader.h; sourceTree = "<group>"; };
@@ -523,6 +535,7 @@
 				3B6E3A5A1CE5BD590069CCD8 /* HomePageController.h */,
 				3B6E3A5B1CE5BD590069CCD8 /* HomePageController.m */,
 				3B6E3A5C1CE5BD590069CCD8 /* HomePageController.xib */,
+				3BEB353F1D44A4030095F634 /* MultiSelect */,
 				3B2083CF1CEFFCDF00EB80D5 /* HYWeiboHelper.h */,
 				3B2083D01CEFFCDF00EB80D5 /* HYWeiboHelper.m */,
 				634DD77C1CF3F08B004503F5 /* HYFPSLabel.h */,
@@ -687,6 +700,21 @@
 				3BBC7FE51CEDA71B000A4BB8 /* NSString+MJExtension.m */,
 			);
 			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		3BEB353F1D44A4030095F634 /* MultiSelect */ = {
+			isa = PBXGroup;
+			children = (
+				3BEB35431D44A4780095F634 /* UIView+YT.h */,
+				3BEB35441D44A4780095F634 /* UIView+YT.m */,
+				3BEB35401D44A4030095F634 /* MultiSelectController.h */,
+				3BEB35411D44A4030095F634 /* MultiSelectController.m */,
+				3BEB35461D44A50C0095F634 /* MultiSelectHeadView.h */,
+				3BEB35471D44A50C0095F634 /* MultiSelectHeadView.m */,
+				3BEB354C1D44B87C0095F634 /* MultiSelectModel.h */,
+				3BEB354D1D44B87C0095F634 /* MultiSelectModel.m */,
+			);
+			path = MultiSelect;
 			sourceTree = "<group>";
 		};
 		3BF0D5D01CF351480094540F /* HYImageDownloader */ = {
@@ -1011,6 +1039,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BEB354F1D44C3630095F634 /* MultiSelectHeadView.m in Sources */,
 				3B82D2951CE37D90007318BC /* HYHTTPManager.m in Sources */,
 				3BF0D5D91CF351480094540F /* HYImageDownloader.m in Sources */,
 				3BBC7FEB1CEDA71B000A4BB8 /* NSObject+MJClass.m in Sources */,
@@ -1030,6 +1059,7 @@
 				3B6101CB1CECB6CF0037DC3E /* MJRefreshAutoFooter.m in Sources */,
 				3B4B5DC81CE451B00079F9F2 /* BaseViewController.m in Sources */,
 				634DD77E1CF3F08B004503F5 /* HYFPSLabel.m in Sources */,
+				3BEB35421D44A4030095F634 /* MultiSelectController.m in Sources */,
 				3B2083D11CEFFCDF00EB80D5 /* HYWeiboHelper.m in Sources */,
 				3B6101DB1CECB6CF0037DC3E /* UIScrollView+MJExtension.m in Sources */,
 				3B51AC0D1CE6B9AF009A7320 /* BaseTabBarController.m in Sources */,
@@ -1051,6 +1081,7 @@
 				3B6101DC1CECB6CF0037DC3E /* UIScrollView+MJRefresh.m in Sources */,
 				3B6101D41CECB6CF0037DC3E /* MJRefreshBackNormalFooter.m in Sources */,
 				3B2E76691CEAF5BB00439809 /* UIImage+HYAdd.m in Sources */,
+				3BEB35451D44A4780095F634 /* UIView+YT.m in Sources */,
 				3B6101CC1CECB6CF0037DC3E /* MJRefreshBackFooter.m in Sources */,
 				3BA4E0141CEEA31200CB6E54 /* HYHomePageTableView.m in Sources */,
 				3BA4E01B1CEEADF100CB6E54 /* HYCardHeaderView.m in Sources */,
@@ -1070,6 +1101,7 @@
 				3B82D28C1CE37BD8007318BC /* AFURLResponseSerialization.m in Sources */,
 				3BBC7FE71CEDA71B000A4BB8 /* MJFoundation.m in Sources */,
 				3BBC7FE61CEDA71B000A4BB8 /* MJExtensionConst.m in Sources */,
+				3BEB354E1D44B87C0095F634 /* MultiSelectModel.m in Sources */,
 				3B6101D81CECB6CF0037DC3E /* MJRefreshStateHeader.m in Sources */,
 				3B82D2881CE37BD8007318BC /* AFHTTPSessionManager.m in Sources */,
 				3B6101DA1CECB6CF0037DC3E /* MJRefreshConst.m in Sources */,

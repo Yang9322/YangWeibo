@@ -17,6 +17,7 @@
 #import "HYWeiboViewModelCoordinator.h"
 #import "HYFPSLabel.h"
 #import "HYWeiboCell.h"
+#import "MultiSelectController.h"
 @interface HomePageController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet HYHomePageTableView *tableView;
 
@@ -43,7 +44,7 @@
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData:)];
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
 
      self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshData:)];
     
@@ -207,8 +208,9 @@
 
 
 - (void)refreshData:(UIButton *)sender{
-    
-    [self.viewModelCordinator fetchData];
+    MultiSelectController *vc = [[MultiSelectController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)login{
