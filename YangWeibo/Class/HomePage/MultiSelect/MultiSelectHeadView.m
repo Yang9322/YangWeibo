@@ -22,6 +22,7 @@
 
 @implementation MultiSelectHeadView{
     CGRect _lastRect;
+    UIImage *_searchIcon;
 }
 #define SearchBarColor [UIColor lightGrayColor]
 #define SearchBarPadding 10
@@ -39,7 +40,8 @@
         _searchBar.layer.masksToBounds = YES;
         [self addSubview:_searchBar];
         _searchBar.frame = CGRectMake(SearchBarPadding, SearchBarPadding, ScreeW - 2 *SearchBarPadding, self.height - 2 *SearchBarPadding);
-        
+        _searchIcon = [_searchBar imageForSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -67,6 +69,16 @@
 
 
 - (void)buttonClicked :(UIButton *)sender{
+    [_modelsArray removeObjectAtIndex:sender.tag];
+    
+    [sender removeFromSuperview];
+    
+    for (NSInteger i = (sender.tag + 1);  i< _modelsArray.count; i ++) {
+        UIButton *button = [_scrollView viewWithTag:sender.tag + 1];
+        button.tag = i;
+    }
+
+    
     
 }
 
@@ -84,10 +96,16 @@
     [_scrollView addSubview:button];
      _scrollView.contentSize = CGSizeMake((index + 1) * buttonWidth, 0);
 
-    if (button.origin.x > ScreeW / 2) {
+    if (_modelsArray.count > 5) {
         _searchBar.placeholder = @"";
+        [_searchBar setImage:[UIImage new] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+        _searchBar.searchTextPositionAdjustment = UIOffsetMake(-20, 0);
 
     }else{
+        _searchBar.placeholder = @"搜索客户";
+        _searchBar.searchTextPositionAdjustment = UIOffsetMake(0, 0);
+        [_searchBar setImage:_searchIcon forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+
     _scrollView.frame = CGRectMake(0, SearchBarPadding, (index + 1) * (buttonWidth + ButtonPadding), buttonWidth);
     _lastRect = _scrollView.frame;
     
