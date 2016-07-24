@@ -58,7 +58,7 @@ static inline NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id valu
     dispatch_once(&onceToken, ^{
         manager = [[HYHTTPManager alloc] init];
         manager.afManager = [AFHTTPSessionManager manager];
-        AFHTTPResponseSerializer *responseSerializer = [AFHTTPResponseSerializer serializer];
+        AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
 //        responseSerializer.removesKeysWithNullValues = YES;
         manager.afManager.responseSerializer = responseSerializer;
         manager.afManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json",@"text/javascript",nil];
