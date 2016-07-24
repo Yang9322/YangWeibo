@@ -53,33 +53,40 @@
 
 
 - (void)refreshSubviews{
-    
-    
+
     MultiSelectModel *model = [[MultiSelectModel alloc] init];
     model.name = @"yang";
     model.image = [UIImage imageNamed:@"tabbar_profile_highlighted@2x"];
     [_modelsArray addObject:model];
-    
-    
     [self addSubViewsWithModel:model];
-    
-    
-    
+ 
 }
 
 
 - (void)buttonClicked :(UIButton *)sender{
-    [_modelsArray removeObjectAtIndex:sender.tag];
+    CGFloat buttonWidth = self.height - 2 *SearchBarPadding;
     
     [sender removeFromSuperview];
     
-    for (NSInteger i = (sender.tag + 1);  i< _modelsArray.count; i ++) {
-        UIButton *button = [_scrollView viewWithTag:sender.tag + 1];
-        button.tag = i;
+    for (NSInteger i = (sender.tag+1);  i < _modelsArray.count; i ++) {
+        UIButton *button = [_scrollView viewWithTag:i];
+        button.tag -= 1;
+        button.left = button.left -(buttonWidth +ButtonPadding);
     }
+    [_modelsArray removeObjectAtIndex:sender.tag];
+    
+    if (_modelsArray.count < 5) {
+        _searchBar.placeholder = @"搜索客户";
+        _searchBar.searchTextPositionAdjustment = UIOffsetMake(0, 0);
+        [_searchBar setImage:_searchIcon forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+        
+        _scrollView.frame = CGRectMake(0, SearchBarPadding, (_modelsArray.count ) * (buttonWidth + ButtonPadding), buttonWidth);
+        _lastRect = _scrollView.frame;
+        
+        _searchBar.frame = CGRectMake(_modelsArray.count * (buttonWidth + ButtonPadding) + SearchBarPadding, SearchBarPadding, ScreeW - 2 * SearchBarPadding - _modelsArray.count * (buttonWidth + ButtonPadding) , self.height - 2 * SearchBarPadding);
+    }
+    
 
-    
-    
 }
 
 
@@ -109,7 +116,7 @@
     _scrollView.frame = CGRectMake(0, SearchBarPadding, (index + 1) * (buttonWidth + ButtonPadding), buttonWidth);
     _lastRect = _scrollView.frame;
     
-    _searchBar.frame = CGRectMake((index + 1) * (buttonWidth + ButtonPadding), SearchBarPadding, ScreeW - 2*SearchBarPadding - (index + 1) * (buttonWidth + ButtonPadding) + SearchBarPadding , self.height - 2 *SearchBarPadding);
+    _searchBar.frame = CGRectMake((index + 1) * (buttonWidth + ButtonPadding), SearchBarPadding, ScreeW - 2 * SearchBarPadding - (index + 1) * (buttonWidth + ButtonPadding) + SearchBarPadding , self.height - 2 * SearchBarPadding);
     }
 
 }
