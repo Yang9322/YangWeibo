@@ -36,13 +36,19 @@
     [button addTarget:self action:@selector(refreshData:model:) forControlEvents:UIControlEventTouchUpInside];
     [button sizeToFit];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-  
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DidChooseSearchResult:) name:@"DidChooseSearchResult" object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)configureHeadView{
     MultiSelectHeadView *headView = [[MultiSelectHeadView alloc] initWithFrame:CGRectMake(0, 64, ScreeW, 60)];
-//    headView.clipsToBounds = YES;
+    headView.shouldCornerRadius = _shouldCornerRadius;
     headView.headViewDelegate = self;
+    headView.dataArray = self.dataArray;
     [self.view addSubview:headView];
     _headView = headView;
     
@@ -62,13 +68,19 @@
 }
 
 
-- (void)refreshReuseCell{
+- (void)DidChooseSearchResult:(NSNotification *)notification{
     
-    for (MultiSelectModel *model in _selectedArray) {
-        MultiSelectCell *cell = [_tableView cellForRowAtIndexPath:model.cellIndexPath];
-  
-        cell.stateButton.selected = YES;
-    }
+    MultiSelectModel *model = notification.object;
+       model.selectedState = YES;
+    [_selectedArray addObject:model];
+    [self refreshData:YES model:model];
+
+}
+
+
+#pragma mark - Setter
+-(void)setShouldCornerRadius:(BOOL)shouldCornerRadius{
+    _shouldCornerRadius = shouldCornerRadius;
 }
 
 
@@ -105,10 +117,28 @@
     MultiSelectModel *model = self.sectionArray[section][row];
     cell.model = model;
     cell.model.cellIndexPath = indexPath;
+    cell.shouldCornerRadius = _shouldCornerRadius;
     cell.stateButton.selected = model.selectedState;
     return cell;
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSUInteger section = indexPath.section;
+    NSUInteger row = indexPath.row;
+    MultiSelectModel *model = self.sectionArray[section][row];
+    model.selectedState = !model.selectedState;
+    MultiSelectCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.stateButton.selected = model.selectedState;
+    if (model.selectedState) {
+        [_selectedArray addObject:cell.model];
+    }else{
+        [_selectedArray removeObject:cell.model];
+    }
+    [self refreshData:model.selectedState model:cell.model];
+
+    
+}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [self.sectionTitlesArray objectAtIndex:section];
@@ -119,6 +149,7 @@
     return self.sectionTitlesArray;
 }
 
+#pragma mark - MultiSelectCellDelegate
 
 -(void)didClickCell:(MultiSelectCell *)cell state:(BOOL)state{
     if (state) {
@@ -133,6 +164,7 @@
     
 }
 
+#pragma mark - HeadViewDelegate
 -(void)didClickedWithModel:(MultiSelectModel *)model{
     MultiSelectCell *cell = [_tableView cellForRowAtIndexPath:model.cellIndexPath];
     cell.model.selectedState = NO;
@@ -142,6 +174,8 @@
     
 }
 
+
+#pragma mark - Generate DataSource
 -(NSMutableArray<MultiSelectModel *> *)dataSource{
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
@@ -167,10 +201,15 @@
     NSArray *xings = @[@"赵",@"钱",@"孙",@"李",@"周",@"吴",@"郑",@"王",@"冯",@"陈",@"楚",@"卫",@"蒋",@"沈",@"韩",@"杨"];
     NSArray *ming1 = @[@"大",@"美",@"帅",@"应",@"超",@"海",@"江",@"湖",@"春",@"夏",@"秋",@"冬",@"上",@"左",@"有",@"纯"];
     NSArray *ming2 = @[@"强",@"好",@"领",@"亮",@"超",@"华",@"奎",@"海",@"工",@"青",@"红",@"潮",@"兵",@"垂",@"刚",@"山"];
-    
+    NSArray *pinyin1 = @[@"a",@"b",@"c",@"d",@"e",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q"];
+    NSArray *pinyin2 = @[@"a",@"b",@"c",@"d",@"e",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q"];
+
     for (int i = 0; i < count; i++) {
         NSString *name = xings[arc4random_uniform((int)xings.count)];
         NSString *ming = ming1[arc4random_uniform((int)ming1.count)];
+        NSString *pin1 = pinyin1[arc4random_uniform((int)pinyin1.count)];
+        NSString *pin2 = pinyin2[arc4random_uniform((int)pinyin2.count)];
+        pin1 = [pin1 stringByAppendingString:pin2];
         name = [name stringByAppendingString:ming];
         if (arc4random_uniform(10) > 3) {
             NSString *ming = ming2[arc4random_uniform((int)ming2.count)];
@@ -178,6 +217,8 @@
         }
         MultiSelectModel *model = [[MultiSelectModel alloc] init];
         model.name = name;
+        model.pinyinName = pin1;
+        model.abbreviationName = @"uw";
         model.image = [UIImage imageNamed:@"tabbar_profile@2x"];
         [self.dataArray addObject:model];
     }

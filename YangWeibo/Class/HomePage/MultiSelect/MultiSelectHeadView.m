@@ -9,12 +9,16 @@
 #import "MultiSelectHeadView.h"
 #import "UIView+YT.h"
 #import "UIImage+YYAdd.h"
-@interface MultiSelectHeadView ()
+#import "MultiSelectCell.h"
+@interface MultiSelectHeadView ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)UIScrollView *scrollView;
 
+@property (strong, nonatomic) NSMutableArray *searchResults;
 
 @property (nonatomic,strong)NSMutableArray *modelsArray;
+
+@property (nonatomic,strong)UITableView *tableView;
 
 @end
 
@@ -36,6 +40,7 @@
         _searchBar.backgroundImage = [UIImage imageWithColor:SearchBarColor];
         _searchBar.layer.cornerRadius = 5;
         _searchBar.layer.masksToBounds = YES;
+        _searchBar.delegate = self;
         [self addSubview:_searchBar];
         _searchBar.frame = CGRectMake(SearchBarPadding, SearchBarPadding, ScreeW - 2 *SearchBarPadding, self.height - 2 *SearchBarPadding);
         _searchIcon = [_searchBar imageForSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
@@ -126,9 +131,11 @@
     button.tag = index + 1;
     [button setBackgroundImage:model.image forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
     button.frame = CGRectMake(ButtonPadding + index * (buttonWidth +ButtonPadding), 0, buttonWidth, buttonWidth);
+    if (_shouldCornerRadius) {
+        button.layer.cornerRadius = buttonWidth / 2;
+        button.layer.masksToBounds = YES;
+    }
     [_scrollView addSubview:button];
      _scrollView.contentSize = CGSizeMake((index + 1) * (buttonWidth +ButtonPadding), 0);
     CGFloat width = _scrollView.contentSize.width;
@@ -162,7 +169,125 @@
 }
 
 
+-(void)setShouldCornerRadius:(BOOL)shouldCornerRadius{
+    _shouldCornerRadius = shouldCornerRadius;
+    
+}
 
+#pragma mark - SearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if (searchText.length == 0) {
+        _tableView.alpha = 0;
+        return;
+
+    }
+    NSString *searchString  = searchBar.text;
+    
+    self.searchResults = [self.dataArray mutableCopy];
+    
+    // strip out all the leading and trailing spaces
+    NSString *strippedStr = [searchString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    // break up the search terms (separated by spaces)
+    NSArray *searchItems = nil;
+    if (strippedStr.length > 0)
+    {
+        searchItems = [strippedStr componentsSeparatedByString:@" "];
+    }
+    
+    // build all the "AND" expressions for each value in the searchString
+    NSMutableArray *andMatchPredicates = [NSMutableArray array];
+    
+    for (NSString *searchString in searchItems)
+    {
+        // each searchString creates an OR predicate for: name, global_key
+        NSMutableArray *searchItemsPredicate = [NSMutableArray array];
+        
+        // name field matching
+        NSExpression *lhs = [NSExpression expressionForKeyPath:@"name"];
+        NSExpression *rhs = [NSExpression expressionForConstantValue:searchString];
+        NSPredicate *finalPredicate = [NSComparisonPredicate
+                                       predicateWithLeftExpression:lhs
+                                       rightExpression:rhs
+                                       modifier:NSDirectPredicateModifier
+                                       type:NSContainsPredicateOperatorType
+                                       options:NSCaseInsensitivePredicateOption];
+        [searchItemsPredicate addObject:finalPredicate];
+        //        pinyinName field matching
+        lhs = [NSExpression expressionForKeyPath:@"pinyinName"];
+        rhs = [NSExpression expressionForConstantValue:searchString];
+        finalPredicate = [NSComparisonPredicate
+                          predicateWithLeftExpression:lhs
+                          rightExpression:rhs
+                          modifier:NSDirectPredicateModifier
+                          type:NSContainsPredicateOperatorType
+                          options:NSCaseInsensitivePredicateOption];
+        [searchItemsPredicate addObject:finalPredicate];
+        //        global_key field matching
+        lhs = [NSExpression expressionForKeyPath:@"abbreviationName"];
+        rhs = [NSExpression expressionForConstantValue:searchString];
+        finalPredicate = [NSComparisonPredicate
+                          predicateWithLeftExpression:lhs
+                          rightExpression:rhs
+                          modifier:NSDirectPredicateModifier
+                          type:NSContainsPredicateOperatorType
+                          options:NSCaseInsensitivePredicateOption];
+        [searchItemsPredicate addObject:finalPredicate];
+        // at this OR predicate to ourr master AND predicate
+        NSCompoundPredicate *orMatchPredicates = (NSCompoundPredicate *)[NSCompoundPredicate orPredicateWithSubpredicates:searchItemsPredicate];
+        [andMatchPredicates addObject:orMatchPredicates];
+    }
+    
+    NSCompoundPredicate *finalCompoundPredicate = (NSCompoundPredicate *)[NSCompoundPredicate andPredicateWithSubpredicates:andMatchPredicates];
+    
+    self.searchResults = [[self.searchResults filteredArrayUsingPredicate:finalCompoundPredicate] mutableCopy];
+   
+    if (!_tableView) {
+        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.bottom, ScreeW, ScreeH - self.bottom) style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [self.superview addSubview:_tableView];
+        
+    }
+    _tableView.alpha = 1;
+    [_tableView reloadData];
+}
+
+#pragma mark  TableViewDelegate&Datasource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.searchResults.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 67;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellId = @"MultiSelectCell";
+    MultiSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"MultiSelectCell" owner:nil options:nil] lastObject];
+    }
+    MultiSelectModel *model = self.searchResults[indexPath.row];
+    cell.model = model;
+    cell.shouldCornerRadius = _shouldCornerRadius;
+    cell.stateButton.selected = model.selectedState;
+    return cell;
+
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    tableView.alpha = 0;
+    MultiSelectModel *model = self.searchResults[indexPath.row];
+    if (!model.selectedState) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"DidChooseSearchResult" object:model];
+    }
+
+}
 
 
 @end

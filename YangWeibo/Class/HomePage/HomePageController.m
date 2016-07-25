@@ -210,6 +210,7 @@
 - (void)refreshData:(UIButton *)sender{
     MultiSelectController *vc = [[MultiSelectController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
+    vc.shouldCornerRadius = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

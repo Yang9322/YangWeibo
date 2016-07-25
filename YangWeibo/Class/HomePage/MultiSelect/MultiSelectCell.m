@@ -54,17 +54,17 @@
     }
 }
 
--(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-    
-//     NSLog(@"begin---%@---end",[NSValue valueWithCGPoint:point]);
-    CGRect rect = self.contentView.bounds;
-    
-    if (CGRectContainsPoint(rect, point) ) {
-        return _stateButton;
-    }
-    
-    return nil;
-
-}
+//-(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+//    
+////     NSLog(@"begin---%@---end",[NSValue valueWithCGPoint:point]);
+//    CGRect rect = self.contentView.bounds;
+//    
+//    if (CGRectContainsPoint(rect, point) ) {
+//        return _stateButton;
+//    }
+//    
+//    return nil;
+//
+//}
 
 @end

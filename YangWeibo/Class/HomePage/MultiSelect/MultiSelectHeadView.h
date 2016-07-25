@@ -21,6 +21,10 @@
 
 @property (nonatomic,strong)UISearchBar *searchBar;
 
+@property (nonatomic,assign)BOOL shouldCornerRadius;
+
+@property (nonatomic,strong)NSArray *dataArray;
+
 - (void)refreshSubviewsWithState:(BOOL)state model:(MultiSelectModel *)model;
 
 @end
