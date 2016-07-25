@@ -248,6 +248,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.bottom, ScreeW, ScreeH - self.bottom) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.superview addSubview:_tableView];
         
     }

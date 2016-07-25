@@ -15,6 +15,6 @@
 
 @property (nonatomic,strong)NSMutableArray *dataSource; //展示数据源
 
-
+@property (nonatomic,assign)BOOL singleSelection; //是否单选
 
 @end

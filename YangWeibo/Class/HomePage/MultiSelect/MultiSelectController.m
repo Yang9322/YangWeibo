@@ -136,7 +136,6 @@
         [_selectedArray removeObject:cell.model];
     }
     [self refreshData:model.selectedState model:cell.model];
-
     
 }
 
@@ -150,7 +149,6 @@
 }
 
 #pragma mark - MultiSelectCellDelegate
-
 -(void)didClickCell:(MultiSelectCell *)cell state:(BOOL)state{
     if (state) {
         cell.model.selectedState = YES;
@@ -166,14 +164,16 @@
 
 #pragma mark - HeadViewDelegate
 -(void)didClickedWithModel:(MultiSelectModel *)model{
-    MultiSelectCell *cell = [_tableView cellForRowAtIndexPath:model.cellIndexPath];
-    cell.model.selectedState = NO;
-    cell.stateButton.selected = NO;
-    [_selectedArray removeObject:model];
-  
+    model.selectedState = NO;
     
+    for (MultiSelectCell *cell in [_tableView visibleCells]) {
+        if ([model isEqual:cell.model]) {
+          cell.stateButton.selected = NO;
+           break;
+        }
+    }
+    [_selectedArray removeObject:model];
 }
-
 
 #pragma mark - Generate DataSource
 -(NSMutableArray<MultiSelectModel *> *)dataSource{
