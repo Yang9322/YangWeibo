@@ -19,6 +19,8 @@
 
 @property (nonatomic,weak)id <MultiSelectHeadViewProtocol>headViewDelegate;
 
+@property (nonatomic,strong)UISearchBar *searchBar;
+
 - (void)refreshSubviewsWithState:(BOOL)state model:(MultiSelectModel *)model;
 
 @end

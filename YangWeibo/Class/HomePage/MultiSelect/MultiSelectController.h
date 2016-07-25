@@ -13,7 +13,7 @@
 
 @property (nonatomic,assign)BOOL shouldCornerRadius; //是否圆角
 
-@property (nonatomic,strong)NSMutableArray <MultiSelectModel *> *dataSource; //展示数据源
+@property (nonatomic,strong)NSMutableArray *dataSource; //展示数据源
 
 
 

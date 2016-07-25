@@ -15,5 +15,7 @@
 
 @property (nonatomic,strong)UIImage *image;
 
-@property (nonatomic,assign)NSInteger cellIndex; //记录model所对应的cell
+@property (nonatomic,strong)NSIndexPath *cellIndexPath; //记录model所对应的cell
+
+@property (nonatomic,assign)BOOL selectedState;
 @end

@@ -13,7 +13,11 @@
 @interface MultiSelectController ()<UITableViewDelegate,UITableViewDataSource,MultiSelectCellProtocol,MultiSelectHeadViewProtocol>
 @property (nonatomic,strong)MultiSelectHeadView *headView;
 @property (nonatomic,strong)UITableView *tableView;
-@property (nonatomic,strong)NSMutableArray *selectedArray;
+@property (nonatomic,strong)NSMutableArray *selectedArray; //被选中的数组
+@property (nonatomic,strong)NSMutableArray *dataArray;
+
+@property (nonatomic,strong) NSMutableArray *sectionArray; //section数组
+@property (nonatomic, strong) NSMutableArray *sectionTitlesArray;//标题数组
 @end
 
 @implementation MultiSelectController
@@ -21,6 +25,8 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
+    
+    [self genDataWithCount:30];
     [self configureHeadView];
     [self configureTableView];
     _selectedArray = [NSMutableArray array];
@@ -56,13 +62,36 @@
 }
 
 
+- (void)refreshReuseCell{
+    
+    for (MultiSelectModel *model in _selectedArray) {
+        MultiSelectCell *cell = [_tableView cellForRowAtIndexPath:model.cellIndexPath];
+  
+        cell.stateButton.selected = YES;
+    }
+}
+
+
+#pragma mark - Delegate
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [_headView.searchBar resignFirstResponder];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataSource.count;
+//    NSMutableArray *array = self.dataSource[section];
+    return [self.sectionArray[section] count];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return self.sectionTitlesArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 67;
 }
+
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellId = @"MultiSelectCell";
@@ -71,30 +100,32 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"MultiSelectCell" owner:nil options:nil] lastObject];
         cell.cellDelegate = self;
     }
-    cell.model = self.dataSource[indexPath.row];
-    cell.tag = indexPath.row + 1;
-    cell.model.cellIndex = indexPath.row;
+    NSUInteger section = indexPath.section;
+    NSUInteger row = indexPath.row;
+    MultiSelectModel *model = self.sectionArray[section][row];
+    cell.model = model;
+    cell.model.cellIndexPath = indexPath;
+    cell.stateButton.selected = model.selectedState;
     return cell;
 }
 
--(NSMutableArray<MultiSelectModel *> *)dataSource{
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-        
-        for (int i = 0; i < 8; i ++) {
-            MultiSelectModel *model = [[MultiSelectModel alloc] init];
-            model.name = @"yang";
-            model.image = [UIImage imageNamed:@"tabbar_profile@2x"];
-            [_dataSource addObject:model];
-        }
-    }
-    return _dataSource;
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [self.sectionTitlesArray objectAtIndex:section];
 }
+
+
+- (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+    return self.sectionTitlesArray;
+}
+
 
 -(void)didClickCell:(MultiSelectCell *)cell state:(BOOL)state{
     if (state) {
+        cell.model.selectedState = YES;
         [_selectedArray addObject:cell.model];
     }else{
+        cell.model.selectedState = NO;
         [_selectedArray removeObject:cell.model];
     }
     
@@ -103,12 +134,112 @@
 }
 
 -(void)didClickedWithModel:(MultiSelectModel *)model{
-    MultiSelectCell *cell = [_tableView viewWithTag:model.cellIndex +1];
+    MultiSelectCell *cell = [_tableView cellForRowAtIndexPath:model.cellIndexPath];
+    cell.model.selectedState = NO;
     cell.stateButton.selected = NO;
     [_selectedArray removeObject:model];
+  
+    
+}
 
+-(NSMutableArray<MultiSelectModel *> *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+        for (int i = 0; i <4; i ++) {
+            NSMutableArray *arry = [NSMutableArray array];
+            for (int i = 0; i < 5; i ++) {
+                MultiSelectModel *model = [[MultiSelectModel alloc] init];
+                model.name = @"yang";
+                model.image = [UIImage imageNamed:@"tabbar_profile@2x"];
+                [arry addObject:model];
+            }
+            [_dataSource addObject:arry];
+        }
+        
+    }
+    return _dataSource;
+}
+
+
+- (void)genDataWithCount:(NSInteger)count
+{
+    _dataArray = [NSMutableArray array];
+    NSArray *xings = @[@"赵",@"钱",@"孙",@"李",@"周",@"吴",@"郑",@"王",@"冯",@"陈",@"楚",@"卫",@"蒋",@"沈",@"韩",@"杨"];
+    NSArray *ming1 = @[@"大",@"美",@"帅",@"应",@"超",@"海",@"江",@"湖",@"春",@"夏",@"秋",@"冬",@"上",@"左",@"有",@"纯"];
+    NSArray *ming2 = @[@"强",@"好",@"领",@"亮",@"超",@"华",@"奎",@"海",@"工",@"青",@"红",@"潮",@"兵",@"垂",@"刚",@"山"];
+    
+    for (int i = 0; i < count; i++) {
+        NSString *name = xings[arc4random_uniform((int)xings.count)];
+        NSString *ming = ming1[arc4random_uniform((int)ming1.count)];
+        name = [name stringByAppendingString:ming];
+        if (arc4random_uniform(10) > 3) {
+            NSString *ming = ming2[arc4random_uniform((int)ming2.count)];
+            name = [name stringByAppendingString:ming];
+        }
+        MultiSelectModel *model = [[MultiSelectModel alloc] init];
+        model.name = name;
+        model.image = [UIImage imageNamed:@"tabbar_profile@2x"];
+        [self.dataArray addObject:model];
+    }
     
     
+    
+    [self setUpTableSection];
+}
+
+
+- (void) setUpTableSection {
+    UILocalizedIndexedCollation *collation = [UILocalizedIndexedCollation currentCollation];
+    
+    //create a temp sectionArray
+    NSUInteger numberOfSections = [[collation sectionTitles] count];
+    NSMutableArray *newSectionArray =  [[NSMutableArray alloc]init];
+    for (NSUInteger index = 0; index<numberOfSections; index++) {
+        [newSectionArray addObject:[[NSMutableArray alloc]init]];
+    }
+    
+    // insert Persons info into newSectionArray
+    for (MultiSelectModel *model in self.dataArray) {
+        NSUInteger sectionIndex = [collation sectionForObject:model collationStringSelector:@selector(name)];
+        [newSectionArray[sectionIndex] addObject:model];
+    }
+    
+    //sort the person of each section
+    for (NSUInteger index=0; index<numberOfSections; index++) {
+        NSMutableArray *personsForSection = newSectionArray[index];
+        NSArray *sortedPersonsForSection = [collation sortedArrayFromArray:personsForSection collationStringSelector:@selector(name)];
+        newSectionArray[index] = sortedPersonsForSection;
+    }
+    
+    NSMutableArray *temp = [NSMutableArray new];
+    self.sectionTitlesArray = [NSMutableArray new];
+    
+    [newSectionArray enumerateObjectsUsingBlock:^(NSArray *arr, NSUInteger idx, BOOL *stop) {
+        if (arr.count == 0) {
+            [temp addObject:arr];
+        } else {
+            [self.sectionTitlesArray addObject:[collation sectionTitles][idx]];
+        }
+    }];
+    
+    [newSectionArray removeObjectsInArray:temp];
+    
+//    NSMutableArray *operrationModels = [NSMutableArray new];
+//    NSArray *dicts = @[@{@"name" : @"新的朋友", @"imageName" : @"plugins_FriendNotify"},
+//                       @{@"name" : @"群聊", @"imageName" : @"add_friend_icon_addgroup"},
+//                       @{@"name" : @"标签", @"imageName" : @"Contact_icon_ContactTag"},
+//                       @{@"name" : @"公众号", @"imageName" : @"add_friend_icon_offical"}];
+//    for (NSDictionary *dict in dicts) {
+//        MultiSelectModel *model = [SDContactModel new];
+//        model.name = dict[@"name"];
+//        model.imageName = dict[@"imageName"];
+//        [operrationModels addObject:model];
+//    }
+//    
+//    [newSectionArray insertObject:operrationModels atIndex:0];
+//    [self.sectionTitlesArray insertObject:@"" atIndex:0];
+    
+    self.sectionArray = newSectionArray;
     
 }
 

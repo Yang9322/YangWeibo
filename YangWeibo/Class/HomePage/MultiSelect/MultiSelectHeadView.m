@@ -13,7 +13,6 @@
 
 @property (nonatomic,strong)UIScrollView *scrollView;
 
-@property (nonatomic,strong)UISearchBar *searchBar;
 
 @property (nonatomic,strong)NSMutableArray *modelsArray;
 
@@ -78,19 +77,31 @@
         }];
     }
     [_modelsArray removeObjectAtIndex:sender.tag - 1];
+    _scrollView.contentSize = CGSizeMake(_modelsArray.count * (buttonWidth +ButtonPadding), 0);
     
+    
+    NSLog(@"begin---%@-/n%@--end",[NSValue valueWithCGSize:_scrollView.contentSize],[NSValue valueWithCGPoint:_scrollView.contentOffset]);
     if (_modelsArray.count < 5) {
         _searchBar.placeholder = @"搜索客户";
         _searchBar.searchTextPositionAdjustment = UIOffsetMake(0, 0);
         [_searchBar setImage:_searchIcon forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
         
         _scrollView.frame = CGRectMake(0, SearchBarPadding, (_modelsArray.count ) * (buttonWidth + ButtonPadding), buttonWidth);
-        _scrollView.contentSize = CGSizeMake(_modelsArray.count * (buttonWidth +ButtonPadding), 0);
+        
         
         _lastRect = _scrollView.frame;
         
         _searchBar.frame = CGRectMake(_modelsArray.count * (buttonWidth + ButtonPadding) + SearchBarPadding, SearchBarPadding, ScreeW - 2 * SearchBarPadding - _modelsArray.count * (buttonWidth + ButtonPadding) , self.height - 2 * SearchBarPadding);
     }
+//    else{
+//        CGFloat width = _scrollView.contentSize.width;
+//        CGPoint offset = self.scrollView.contentOffset;
+//        if (width> self.scrollView.frame.size.width) {
+//            int offsetX = width - self.scrollView.frame.size.width;
+//            offset.x = offsetX;
+//        }
+//        [_scrollView setContentOffset:originContentOffset animated:YES];
+//    }
     
     sender = nil;
     
