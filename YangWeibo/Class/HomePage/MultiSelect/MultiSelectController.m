@@ -9,8 +9,11 @@
 #import "MultiSelectController.h"
 #import "UIView+YT.h"
 #import "MultiSelectHeadView.h"
-@interface MultiSelectController ()
+#import "MultiSelectCell.h"
+@interface MultiSelectController ()<UITableViewDelegate,UITableViewDataSource,MultiSelectCellProtocol>
 @property (nonatomic,strong)MultiSelectHeadView *headView;
+@property (nonatomic,strong)UITableView *tableView;
+@property (nonatomic,strong)NSMutableArray *selectedArray;
 @end
 
 @implementation MultiSelectController
@@ -20,12 +23,12 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
     [self configureHeadView];
-    
-    
+    [self configureTableView];
+    _selectedArray = [NSMutableArray array];
     UIButton *button = [[UIButton alloc] init];
     [button setImage:[[UIImage imageNamed:@"navigationbar_icon_radar@2x"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  forState:UIControlStateNormal];
     [button setImage:[[UIImage imageNamed:@"navigationbar_icon_radar_highlighted@2x"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(refreshData:model:) forControlEvents:UIControlEventTouchUpInside];
     [button sizeToFit];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
@@ -36,12 +39,63 @@
     [self.view addSubview:headView];
     _headView = headView;
     
-    
-    
 }
 
-- (void)refreshData{
-    [_headView refreshSubviews];
+- (void)configureTableView{
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _headView.bottom, ScreeW, ScreeH - _headView.bottom) style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:_tableView];
+}
+
+- (void)refreshData:(BOOL)state model:(MultiSelectModel *)model{
+     [_headView refreshSubviewsWithState:state model:model];
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSource.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 67;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellId = @"MultiSelectCell";
+    MultiSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"MultiSelectCell" owner:nil options:nil] lastObject];
+        cell.cellDelegate = self;
+    }
+    cell.model = self.dataSource[indexPath.row];
+    return cell;
+}
+
+-(NSMutableArray<MultiSelectModel *> *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+        
+        for (int i = 0; i < 8; i ++) {
+            MultiSelectModel *model = [[MultiSelectModel alloc] init];
+            model.name = @"yang";
+            model.image = [UIImage imageNamed:@"tabbar_profile@2x"];
+            [_dataSource addObject:model];
+        }
+    }
+    return _dataSource;
+}
+
+-(void)didClickCell:(MultiSelectCell *)cell state:(BOOL)state{
+    if (state) {
+        [_selectedArray addObject:cell.model];
+    }else{
+        [_selectedArray removeObject:cell.model];
+    }
+    
+    [self refreshData:state model:cell.model];
+    
 }
 
 @end

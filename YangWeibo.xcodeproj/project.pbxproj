@@ -15,6 +15,8 @@
 		3B2083D11CEFFCDF00EB80D5 /* HYWeiboHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2083D01CEFFCDF00EB80D5 /* HYWeiboHelper.m */; };
 		3B2083E01CF040FC00EB80D5 /* skin_top_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2083DF1CF040FC00EB80D5 /* skin_top_background@2x.png */; };
 		3B2083E61CF053A700EB80D5 /* timeline_image_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2083E51CF053A700EB80D5 /* timeline_image_placeholder.png */; };
+		3B2B79E51D45A8FD00E544AA /* MultiSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B79E31D45A8FD00E544AA /* MultiSelectCell.m */; };
+		3B2B79E61D45A8FD00E544AA /* MultiSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2B79E41D45A8FD00E544AA /* MultiSelectCell.xib */; };
 		3B2E76621CEAB7E400439809 /* tabbar_profile_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */; };
 		3B2E76641CEAB82300439809 /* tabbar_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */; };
 		3B2E76661CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2E76651CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png */; };
@@ -143,6 +145,9 @@
 		3B2083D01CEFFCDF00EB80D5 /* HYWeiboHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYWeiboHelper.m; sourceTree = "<group>"; };
 		3B2083DF1CF040FC00EB80D5 /* skin_top_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skin_top_background@2x.png"; sourceTree = "<group>"; };
 		3B2083E51CF053A700EB80D5 /* timeline_image_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_image_placeholder.png; sourceTree = "<group>"; };
+		3B2B79E21D45A8FD00E544AA /* MultiSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectCell.h; sourceTree = "<group>"; };
+		3B2B79E31D45A8FD00E544AA /* MultiSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectCell.m; sourceTree = "<group>"; };
+		3B2B79E41D45A8FD00E544AA /* MultiSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiSelectCell.xib; sourceTree = "<group>"; };
 		3B2E76611CEAB7E400439809 /* tabbar_profile_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_selected@2x.png"; sourceTree = "<group>"; };
 		3B2E76631CEAB82300439809 /* tabbar_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile@2x.png"; sourceTree = "<group>"; };
 		3B2E76651CEAF43100439809 /* userinfo_relationship_indicator_arrow_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userinfo_relationship_indicator_arrow_down@3x.png"; sourceTree = "<group>"; };
@@ -713,6 +718,9 @@
 				3BEB35471D44A50C0095F634 /* MultiSelectHeadView.m */,
 				3BEB354C1D44B87C0095F634 /* MultiSelectModel.h */,
 				3BEB354D1D44B87C0095F634 /* MultiSelectModel.m */,
+				3B2B79E21D45A8FD00E544AA /* MultiSelectCell.h */,
+				3B2B79E31D45A8FD00E544AA /* MultiSelectCell.m */,
+				3B2B79E41D45A8FD00E544AA /* MultiSelectCell.xib */,
 			);
 			path = MultiSelect;
 			sourceTree = "<group>";
@@ -927,6 +935,7 @@
 				3B51AC311CE7136B009A7320 /* navigationbar_friendattention@2x.png in Resources */,
 				3B51AC1D1CE6C090009A7320 /* tabbar_profile_highlighted@2x.png in Resources */,
 				3B6E3A5E1CE5BD590069CCD8 /* HomePageController.xib in Resources */,
+				3B2B79E61D45A8FD00E544AA /* MultiSelectCell.xib in Resources */,
 				3B6101D91CECB6CF0037DC3E /* MJRefresh.bundle in Resources */,
 				3B2E76641CEAB82300439809 /* tabbar_profile@2x.png in Resources */,
 			);
@@ -1056,6 +1065,7 @@
 				3B82D28D1CE37BD8007318BC /* AFURLSessionManager.m in Sources */,
 				3B6E3A651CE5BD7F0069CCD8 /* MessageController.m in Sources */,
 				3BA4E0131CEEA31200CB6E54 /* HYCoverView.m in Sources */,
+				3B2B79E51D45A8FD00E544AA /* MultiSelectCell.m in Sources */,
 				3B6101CB1CECB6CF0037DC3E /* MJRefreshAutoFooter.m in Sources */,
 				3B4B5DC81CE451B00079F9F2 /* BaseViewController.m in Sources */,
 				634DD77E1CF3F08B004503F5 /* HYFPSLabel.m in Sources */,

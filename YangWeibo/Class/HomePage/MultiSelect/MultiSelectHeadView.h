@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MultiSelectModel.h"
 
 @interface MultiSelectHeadView : UIView
 
-- (void)refreshSubviews;
+- (void)refreshSubviewsWithState:(BOOL)state model:(MultiSelectModel *)model;
 
 @end
