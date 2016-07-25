@@ -129,6 +129,7 @@
     CGRect rect = [text boundingRectWithSize:CGSizeMake(ScreeW - 2 * kContentPadding, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
 
     CGRect contentRect = CGRectMake(kContentPadding, kContentPadding, rect.size.width, rect.size.height +kContentPadding);
+    
     _contentRect = contentRect;
     
     _contendHeight =  CGRectGetMaxY(contentRect) + 2 * kContentPadding;

@@ -18,6 +18,8 @@
 
 @property (nonatomic,strong) NSMutableArray *sectionArray; //section数组
 @property (nonatomic, strong) NSMutableArray *sectionTitlesArray;//标题数组
+
+@property (nonatomic,strong)UIButton *rightItemButton;
 @end
 
 @implementation MultiSelectController
@@ -31,9 +33,11 @@
     [self configureTableView];
     _selectedArray = [NSMutableArray array];
     UIButton *button = [[UIButton alloc] init];
-    [button setImage:[[UIImage imageNamed:@"navigationbar_icon_radar@2x"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  forState:UIControlStateNormal];
+    _rightItemButton = button;
+    [button setImage:[[UIImage imageNamed:@"navigationbar_icon_radar@2x"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  forState:UIControlStateNormal];
     [button setImage:[[UIImage imageNamed:@"navigationbar_icon_radar_highlighted@2x"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(refreshData:model:) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"确认(0)" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(sure) forControlEvents:UIControlEventTouchUpInside];
     [button sizeToFit];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DidChooseSearchResult:) name:@"DidChooseSearchResult" object:nil];
@@ -68,12 +72,25 @@
 }
 
 
+- (void)sure{
+    
+}
+
+
+- (void)refresgRightItem{
+    NSString *str = [NSString stringWithFormat:@"确定(%ld)",_selectedArray.count];
+    [_rightItemButton setTitle:str forState:UIControlStateNormal];
+    [_rightItemButton sizeToFit];
+}
+
+
 - (void)DidChooseSearchResult:(NSNotification *)notification{
     
     MultiSelectModel *model = notification.object;
        model.selectedState = YES;
     [_selectedArray addObject:model];
     [self refreshData:YES model:model];
+    [self refresgRightItem];
 
 }
 
@@ -136,7 +153,8 @@
         [_selectedArray removeObject:cell.model];
     }
     [self refreshData:model.selectedState model:cell.model];
-    
+    [self refresgRightItem];
+
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -159,7 +177,8 @@
     }
     
     [self refreshData:state model:cell.model];
-    
+    [self refresgRightItem];
+
 }
 
 #pragma mark - HeadViewDelegate
@@ -173,6 +192,8 @@
         }
     }
     [_selectedArray removeObject:model];
+    [self refresgRightItem];
+
 }
 
 #pragma mark - Generate DataSource
