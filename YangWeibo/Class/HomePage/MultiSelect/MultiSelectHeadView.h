@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MultiSelectModel.h"
 
+@protocol MultiSelectHeadViewProtocol <NSObject>
+
+- (void)didClickedWithModel:(MultiSelectModel *)model;
+
+@end
+
 @interface MultiSelectHeadView : UIView
+
+@property (nonatomic,weak)id <MultiSelectHeadViewProtocol>headViewDelegate;
 
 - (void)refreshSubviewsWithState:(BOOL)state model:(MultiSelectModel *)model;
 

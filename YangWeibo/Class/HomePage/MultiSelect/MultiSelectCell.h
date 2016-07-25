@@ -19,7 +19,10 @@
 
 @property (nonatomic,weak)id <MultiSelectCellProtocol> cellDelegate;
 
+@property (weak, nonatomic) IBOutlet UIButton *stateButton;
+
 @property (nonatomic,assign)BOOL shouldCornerRadius;
 
 @property (nonatomic,strong)MultiSelectModel *model;
+
 @end

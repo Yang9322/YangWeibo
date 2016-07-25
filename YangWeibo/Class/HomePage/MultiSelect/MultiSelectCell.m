@@ -11,7 +11,6 @@
 
 @interface MultiSelectCell ()
 
-@property (weak, nonatomic) IBOutlet UIButton *stateButton;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 

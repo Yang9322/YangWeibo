@@ -56,19 +56,16 @@
         [_modelsArray addObject:model];
         [self addSubViewsWithModel:model];
     }else{
-        
         NSInteger index = [_modelsArray indexOfObject:model];
         UIButton *button = [_scrollView viewWithTag:index + 1];
-        [self buttonClicked:button];
+        [self removeButton:button];
     }
- 
-    
-    
     
 }
 
 
-- (void)buttonClicked :(UIButton *)sender{
+- (void)removeButton:(UIButton *)sender{
+    
     CGFloat buttonWidth = self.height - 2 *SearchBarPadding;
     
     [sender removeFromSuperview];
@@ -89,7 +86,7 @@
         
         _scrollView.frame = CGRectMake(0, SearchBarPadding, (_modelsArray.count ) * (buttonWidth + ButtonPadding), buttonWidth);
         _scrollView.contentSize = CGSizeMake(_modelsArray.count * (buttonWidth +ButtonPadding), 0);
-
+        
         _lastRect = _scrollView.frame;
         
         _searchBar.frame = CGRectMake(_modelsArray.count * (buttonWidth + ButtonPadding) + SearchBarPadding, SearchBarPadding, ScreeW - 2 * SearchBarPadding - _modelsArray.count * (buttonWidth + ButtonPadding) , self.height - 2 * SearchBarPadding);
@@ -97,7 +94,17 @@
     
     sender = nil;
     
-     NSLog(@"begin---%ld---end",_scrollView.subviews.count);
+    
+}
+
+- (void)buttonClicked :(UIButton *)sender{
+    MultiSelectModel *model = _modelsArray[sender.tag -  1];
+    if (_headViewDelegate && [_headViewDelegate respondsToSelector:@selector(didClickedWithModel:)]) {
+        [_headViewDelegate didClickedWithModel:model];
+    }
+    
+    [self removeButton:sender];
+
 }
 
 
@@ -139,7 +146,6 @@
     _searchBar.frame = CGRectMake((index + 1) * (buttonWidth + ButtonPadding), SearchBarPadding, ScreeW - 2 * SearchBarPadding - (index + 1) * (buttonWidth + ButtonPadding) + SearchBarPadding , self.height - 2 * SearchBarPadding);
     }
     
-    NSLog(@"begin---%ld---end",_scrollView.subviews.count);
 
 
 }

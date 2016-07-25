@@ -15,4 +15,5 @@
 
 @property (nonatomic,strong)UIImage *image;
 
+@property (nonatomic,assign)NSInteger cellIndex; //记录model所对应的cell
 @end

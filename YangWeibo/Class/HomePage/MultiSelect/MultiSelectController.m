@@ -10,14 +10,13 @@
 #import "UIView+YT.h"
 #import "MultiSelectHeadView.h"
 #import "MultiSelectCell.h"
-@interface MultiSelectController ()<UITableViewDelegate,UITableViewDataSource,MultiSelectCellProtocol>
+@interface MultiSelectController ()<UITableViewDelegate,UITableViewDataSource,MultiSelectCellProtocol,MultiSelectHeadViewProtocol>
 @property (nonatomic,strong)MultiSelectHeadView *headView;
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *selectedArray;
 @end
 
 @implementation MultiSelectController
-
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -31,15 +30,18 @@
     [button addTarget:self action:@selector(refreshData:model:) forControlEvents:UIControlEventTouchUpInside];
     [button sizeToFit];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+  
 }
 
 - (void)configureHeadView{
     MultiSelectHeadView *headView = [[MultiSelectHeadView alloc] initWithFrame:CGRectMake(0, 64, ScreeW, 60)];
 //    headView.clipsToBounds = YES;
+    headView.headViewDelegate = self;
     [self.view addSubview:headView];
     _headView = headView;
     
 }
+
 
 - (void)configureTableView{
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _headView.bottom, ScreeW, ScreeH - _headView.bottom) style:UITableViewStyleGrouped];
@@ -70,6 +72,8 @@
         cell.cellDelegate = self;
     }
     cell.model = self.dataSource[indexPath.row];
+    cell.tag = indexPath.row + 1;
+    cell.model.cellIndex = indexPath.row;
     return cell;
 }
 
@@ -95,6 +99,16 @@
     }
     
     [self refreshData:state model:cell.model];
+    
+}
+
+-(void)didClickedWithModel:(MultiSelectModel *)model{
+    MultiSelectCell *cell = [_tableView viewWithTag:model.cellIndex +1];
+    cell.stateButton.selected = NO;
+    [_selectedArray removeObject:model];
+
+    
+    
     
 }
 
