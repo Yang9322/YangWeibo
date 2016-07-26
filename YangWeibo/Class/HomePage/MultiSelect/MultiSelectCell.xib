@@ -21,6 +21,7 @@
                             <constraint firstAttribute="width" constant="30" id="uch-zC-6y8"/>
                         </constraints>
                         <state key="normal" backgroundImage="tabbar_profile@2x"/>
+                        <state key="disabled" backgroundImage="friendcircle_compose_friendcirclebutton@2x"/>
                         <state key="selected" backgroundImage="tabbar_profile_highlighted@2x"/>
                         <connections>
                             <action selector="stateButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KdP-H4-sQ7"/>
@@ -62,6 +63,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="friendcircle_compose_friendcirclebutton@2x" width="16" height="16"/>
         <image name="tabbar_profile@2x" width="16" height="16"/>
         <image name="tabbar_profile_highlighted@2x" width="16" height="16"/>
     </resources>

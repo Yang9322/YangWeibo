@@ -105,6 +105,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [_headView.searchBar resignFirstResponder];
+    _headView.searchBar.text = @"";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -135,15 +136,25 @@
     cell.model = model;
     cell.model.cellIndexPath = indexPath;
     cell.shouldCornerRadius = _shouldCornerRadius;
-    cell.stateButton.selected = model.selectedState;
+    if (model.alreadySeleted) {
+        cell.stateButton.enabled = NO;
+    }else{
+        cell.stateButton.selected = model.selectedState;
+    }
     return cell;
 }
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
     NSUInteger section = indexPath.section;
     NSUInteger row = indexPath.row;
     MultiSelectModel *model = self.sectionArray[section][row];
+    
+    if (model.alreadySeleted) {
+        return;
+    }
     model.selectedState = !model.selectedState;
     MultiSelectCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.stateButton.selected = model.selectedState;
@@ -241,6 +252,9 @@
         model.pinyinName = pin1;
         model.abbreviationName = @"uw";
         model.image = [UIImage imageNamed:@"tabbar_profile@2x"];
+        if (i % 5 == 0) {
+            model.alreadySeleted = YES;
+        }
         [self.dataArray addObject:model];
     }
     

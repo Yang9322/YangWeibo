@@ -275,14 +275,23 @@
     MultiSelectModel *model = self.searchResults[indexPath.row];
     cell.model = model;
     cell.shouldCornerRadius = _shouldCornerRadius;
-    cell.stateButton.selected = model.selectedState;
+    
+    if (model.alreadySeleted) {
+        cell.stateButton.enabled = NO;
+    }else{
+        cell.stateButton.selected = model.selectedState;
+    }
     return cell;
 
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     tableView.alpha = 0;
+    _searchBar.text = @"";
     MultiSelectModel *model = self.searchResults[indexPath.row];
+    if (model.alreadySeleted) {
+        return;
+    }
     if (!model.selectedState) {
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"DidChooseSearchResult" object:model];

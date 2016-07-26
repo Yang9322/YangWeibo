@@ -24,6 +24,9 @@
 
 @property (nonatomic,strong)NSIndexPath *cellIndexPath; //记录model所对应的cell
 
+@property (nonatomic,assign)BOOL alreadySeleted; //优先级 > selectedState
+
 @property (nonatomic,assign)BOOL selectedState;
+
 
 @end
