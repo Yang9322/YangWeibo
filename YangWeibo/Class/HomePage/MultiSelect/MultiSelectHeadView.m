@@ -8,7 +8,7 @@
 
 #import "MultiSelectHeadView.h"
 #import "UIView+YT.h"
-#import "UIImage+YYAdd.h"
+#import "UIImage+YTImage.h"
 #import "MultiSelectCell.h"
 @interface MultiSelectHeadView ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -95,8 +95,10 @@
         
         
         _lastRect = _scrollView.frame;
-        
-        _searchBar.frame = CGRectMake(_modelsArray.count * (buttonWidth + ButtonPadding) + SearchBarPadding, SearchBarPadding, ScreeW - 2 * SearchBarPadding - _modelsArray.count * (buttonWidth + ButtonPadding) , self.height - 2 * SearchBarPadding);
+        [UIView animateWithDuration:0.25 animations:^{
+            _searchBar.frame = CGRectMake(_modelsArray.count * (buttonWidth + ButtonPadding) + SearchBarPadding, SearchBarPadding, ScreeW - 2 * SearchBarPadding - _modelsArray.count * (buttonWidth + ButtonPadding) , self.height - 2 * SearchBarPadding);
+        }];
+ 
     }
 //    else{
 //        CGFloat width = _scrollView.contentSize.width;
@@ -107,8 +109,13 @@
 //        }
 //        [_scrollView setContentOffset:originContentOffset animated:YES];
 //    }
-    
-    sender = nil;
+    __block UIButton *senderBtn = sender;
+    [UIView animateWithDuration:0.25 animations:^{
+        senderBtn.alpha = 0;
+    } completion:^(BOOL finished) {
+        senderBtn = nil;
+
+    }];
     
     
 }
@@ -132,6 +139,7 @@
     [button setBackgroundImage:model.image forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     button.frame = CGRectMake(ButtonPadding + index * (buttonWidth +ButtonPadding), 0, buttonWidth, buttonWidth);
+    button.alpha = 0;
     if (_shouldCornerRadius) {
         button.layer.cornerRadius = buttonWidth / 2;
         button.layer.masksToBounds = YES;
@@ -161,10 +169,16 @@
     _scrollView.frame = CGRectMake(0, SearchBarPadding, (index + 1) * (buttonWidth + ButtonPadding), buttonWidth);
     _lastRect = _scrollView.frame;
     
-    _searchBar.frame = CGRectMake((index + 1) * (buttonWidth + ButtonPadding), SearchBarPadding, ScreeW - 2 * SearchBarPadding - (index + 1) * (buttonWidth + ButtonPadding) + SearchBarPadding , self.height - 2 * SearchBarPadding);
+        [UIView animateWithDuration:0.25 animations:^{
+        _searchBar.frame = CGRectMake((index + 1) * (buttonWidth + ButtonPadding), SearchBarPadding, ScreeW - 2 * SearchBarPadding - (index + 1) * (buttonWidth + ButtonPadding) + SearchBarPadding , self.height - 2 * SearchBarPadding);
+        }];
+  
     }
     
+   [UIView animateWithDuration:0.25 animations:^{
+       button.alpha = 1;
 
+   }];
 
 }
 
