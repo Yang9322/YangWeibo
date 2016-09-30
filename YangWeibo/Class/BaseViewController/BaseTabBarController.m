@@ -12,7 +12,7 @@
 #import "MessageController.h"
 #import "MineController.h"
 #import "BaseNavigationController.h"
-
+#import "WeatherMainController.h"
 @interface BaseTabBarController ()<UITabBarControllerDelegate>
 
 @end
@@ -24,6 +24,7 @@
     [self setUpTabBarItemsAttributesForController:self];
     [self setupChildViewController];
     [self customizeTabBarAppearance:self];
+
 
     // Do any additional setup after loading the view.
 }
@@ -62,7 +63,7 @@
 
 
 - (void)setupChildViewController{
-    HomePageController *firstViewController = [[HomePageController alloc] init];
+    WeatherMainController *firstViewController = [[WeatherMainController alloc] init];
     BaseNavigationController *firstNavController = [[BaseNavigationController alloc] initWithRootViewController:firstViewController];
     
     

@@ -11,9 +11,9 @@
 @implementation HYPlusButton
 
 
-+ (void)load {
-    [super registerSubclass];
-}
+//+ (void)load {
+//    [super registerSubclass];
+//}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
