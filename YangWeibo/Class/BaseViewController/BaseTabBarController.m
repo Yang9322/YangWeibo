@@ -63,7 +63,7 @@
 
 
 - (void)setupChildViewController{
-    WeatherMainController *firstViewController = [[WeatherMainController alloc] init];
+    HomePageController *firstViewController = [[HomePageController alloc] init];
     BaseNavigationController *firstNavController = [[BaseNavigationController alloc] initWithRootViewController:firstViewController];
     
     

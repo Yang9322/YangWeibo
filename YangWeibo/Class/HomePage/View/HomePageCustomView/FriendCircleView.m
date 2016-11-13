@@ -70,17 +70,20 @@
 -(UIButton *)bottomView{
     
     if (!_bottomView) {
-        UIButton *bottomView = [[UIButton alloc] init];
-        
-        [bottomView setTitle:@"编辑我的分组" forState:UIControlStateNormal];
-        [bottomView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        bottomView.layer.borderColor = HYColor(30, 30, 30).CGColor;
-        bottomView.layer.borderWidth = 1/kScreenScale;
-        bottomView.backgroundColor = [UIColor clearColor];
-        
-        bottomView.frame =   CGRectMake(5, self.height - 25, self.width - 10, 20);
 
-        _bottomView = bottomView;
+        [UIView performWithoutAnimation:^{
+            UIButton *bottomView = [[UIButton alloc] init];
+            
+            [bottomView setTitle:@"编辑我的分组" forState:UIControlStateNormal];
+            [bottomView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            bottomView.layer.borderColor = HYColor(30, 30, 30).CGColor;
+            bottomView.layer.borderWidth = 1/kScreenScale;
+            bottomView.backgroundColor = [UIColor clearColor];
+            bottomView.frame =   CGRectMake(5, self.height - 25, self.width - 10, 20);
+            
+            _bottomView = bottomView;
+        }];
+     
     }
 
     
